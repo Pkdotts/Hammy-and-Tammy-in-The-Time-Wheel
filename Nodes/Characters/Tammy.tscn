@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnakjc8r2mlmi"]
+
+[ext_resource type="Script" uid="uid://bwcp4n2pddx6s" path="res://Scripts/tammy.gd" id="1_2ld4p"]
+[ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy.png" id="2_fcgtr"]
+[ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="3_g27f7"]
+
+[node name="Tammy" type="Node2D"]
+script = ExtResource("1_2ld4p")
+
+[node name="Wheel" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.884458, 0.884458)
+texture = ExtResource("2_fcgtr")
+
+[node name="Tammy" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 81)
+scale = Vector2(0.884458, 0.884458)
+texture = ExtResource("3_g27f7")

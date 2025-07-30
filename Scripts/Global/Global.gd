@@ -1,7 +1,7 @@
 extends Node
 
 var persistCamera = null
-
+var currentHammy : Player
 
 func save():
 	var save_dict = {

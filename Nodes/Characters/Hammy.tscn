@@ -1,23 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://c12t7hjgom6ao"]
+[gd_scene load_steps=8 format=3 uid="uid://c12t7hjgom6ao"]
 
 [ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_cfcwf"]
 [ext_resource type="Script" uid="uid://d0u8jkch7cah3" path="res://Scripts/hammy.gd" id="1_fic1p"]
+[ext_resource type="PackedScene" uid="uid://bnf1ltkjwajsn" path="res://Nodes/Effects/Trail.tscn" id="3_wmlf5"]
+
+[sub_resource type="Animation" id="Animation_wmlf5"]
+resource_name = "new_animation"
+length = 50.0
+
+[sub_resource type="Animation" id="Animation_kcjdg"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btdtw"]
+_data = {
+&"RESET": SubResource("Animation_kcjdg"),
+&"new_animation": SubResource("Animation_wmlf5")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fic1p"]
-radius = 37.0
-height = 74.0
+radius = 63.0
+height = 126.0
 
 [node name="Hammy" type="CharacterBody2D"]
 script = ExtResource("1_fic1p")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 3)
-scale = Vector2(0.71875, 0.695313)
+scale = Vector2(1.04297, 1.00896)
 texture = ExtResource("1_cfcwf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
+libraries = {
+&"": SubResource("AnimationLibrary_btdtw")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_fic1p")
+
+[node name="BufferTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Trail" parent="." instance=ExtResource("3_wmlf5")]

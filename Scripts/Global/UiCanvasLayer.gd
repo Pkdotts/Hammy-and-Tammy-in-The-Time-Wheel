@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @onready var transition_ui = preload("res://UI/Transition.tscn")
+@onready var tammy_ui = preload("res://Nodes/Characters/Tammy.tscn")
+
 
 var transition : Transition = null
 
