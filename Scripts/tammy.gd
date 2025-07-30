@@ -3,7 +3,7 @@ extends Node2D
 var active = false
 var inputVector := Vector2.ZERO
 
-const SPIN_SPEED = 30.0
+const SPIN_SPEED = 10.0
 
 
 func _physics_process(delta: float) -> void:

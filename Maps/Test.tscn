@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_dh0jm"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="3_n0ck6"]
-[ext_resource type="PackedScene" uid="uid://bswhgyhrjwqd4" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
+[ext_resource type="PackedScene" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecvq"]
 size = Vector2(128, 128)
