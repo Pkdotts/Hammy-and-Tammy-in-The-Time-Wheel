@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c12t7hjgom6ao"]
+
+[ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_cfcwf"]
+[ext_resource type="Script" uid="uid://d0u8jkch7cah3" path="res://Scripts/hammy.gd" id="1_fic1p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fic1p"]
+radius = 37.0
+height = 74.0
+
+[node name="Hammy" type="CharacterBody2D"]
+script = ExtResource("1_fic1p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.71875, 0.695313)
+texture = ExtResource("1_cfcwf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_fic1p")
