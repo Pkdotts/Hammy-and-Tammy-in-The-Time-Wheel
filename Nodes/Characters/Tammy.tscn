@@ -16,3 +16,12 @@ texture = ExtResource("2_fcgtr")
 position = Vector2(4.76837e-07, 81)
 scale = Vector2(0.884458, 0.884458)
 texture = ExtResource("3_g27f7")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -90.0
+offset_top = 163.0
+offset_right = 108.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 32
+text = "TIME: "

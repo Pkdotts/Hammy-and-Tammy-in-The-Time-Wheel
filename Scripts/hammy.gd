@@ -24,11 +24,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if active:
 		_controls()
-		_movement(delta)
-		_gravity(delta)
-		_jump(delta)
+	_movement(delta)
+	_gravity(delta)
+	_jump(delta)
+	move_and_slide()
 		
-		move_and_slide()
+	if Input.is_action_just_pressed("ui_select"):
+		active = !active
+		inputVector = Vector2.ZERO
 
 func _controls():
 	inputVector = ControlsManager.get_controls_vector()
@@ -40,6 +43,8 @@ func _controls():
 	if Input.is_action_just_released("ui_accept"):
 		if !is_on_floor():
 			stop_jump()
+	
+
 
 func _movement(delta):
 	if inputVector != Vector2.ZERO:

@@ -8,14 +8,13 @@ func _ready():
 	Global.persistCamera = self
 
 func _physics_process(delta):
-	if attachedNode.active:
-		var newPosition = attachedNode.global_position + camOffset
-		var lerpPosition = global_position.lerp(newPosition, delta * 10)
-		
+	var newPosition = attachedNode.global_position + camOffset
+	var lerpPosition = global_position.lerp(newPosition, delta * 10)
+	
 
-		global_position.x = lerpPosition.x
-		if attachedNode.is_on_floor():
-			global_position.y = lerpPosition.y
+	global_position.x = lerpPosition.x
+	if attachedNode.is_on_floor():
+		global_position.y = lerpPosition.y
 
 func teleport_to_node():
 	global_position.x = attachedNode.global_position.x + camOffset.x

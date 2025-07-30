@@ -1,10 +1,25 @@
 extends CanvasLayer
 
 @onready var transition_ui = preload("res://UI/Transition.tscn")
-@onready var tammy_ui = preload("res://Nodes/Characters/Tammy.tscn")
-
+@onready var tammy_ui = preload("res://UI/TammyUI.tscn")
 
 var transition : Transition = null
+var tammy : Tammy = null
+
+func _ready() -> void:
+	add_tammy_ui()
+
+func add_tammy_ui():
+	erase_tammy_ui()
+	tammy = tammy_ui.instantiate()
+	add_child(tammy)
+
+func erase_tammy_ui():
+	if tammy != null:
+		tammy.queue_free()
+		tammy = null
+
+
 
 func erase_transition():
 	if transition != null:

@@ -22,6 +22,7 @@ Global="*res://Scripts/Global/Global.gd"
 Slowmo="*res://Scripts/Global/Slowmo.tscn"
 UiCanvasLayer="*res://Scripts/Global/UiCanvasLayer.tscn"
 WindowManager="*res://Scripts/Global/WindowManager.gd"
+TimeManager="*res://Scripts/Global/TimeManager.gd"
 
 [display]
 
