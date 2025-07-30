@@ -1,11 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb2ibxe0jnmc8"]
-
-[ext_resource type="Shader" uid="uid://bexro22fnfgl2" path="res://Nodes/Effects/Fade.gdshader" id="1_xlkvi"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bb2ibxe0jnmc8"]
 
 [resource]
-shader = ExtResource("1_xlkvi")
-shader_parameter/cut = 1.0
-shader_parameter/Size = 1.0
-shader_parameter/screenWidth = 448.0
-shader_parameter/screenHeight = 312.0
-shader_parameter/fade = 1
