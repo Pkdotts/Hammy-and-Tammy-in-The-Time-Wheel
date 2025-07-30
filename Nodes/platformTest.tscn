@@ -1,37 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cngqy5o46n2nv"]
+[gd_scene load_steps=8 format=3 uid="uid://bswhgyhrjwqd4"]
 
-[ext_resource type="PackedScene" uid="uid://bkmmyaxa5s1sh" path="res://Nodes/platform.tscn" id="1_ica26"]
+[ext_resource type="PackedScene" path="res://Nodes/platform.tscn" id="1_ica26"]
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="2_0trwq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0trwq"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
-[sub_resource type="Animation" id="Animation_ica26"]
-resource_name = "new_animation"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.39702),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.708604]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0trwq"]
+size = Vector2(128, 127)
 
 [sub_resource type="Animation" id="Animation_0trwq"]
 length = 0.001
@@ -45,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 201)]
+"values": [Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,7 +33,35 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.708604]
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ica26"]
+resource_name = "new_animation"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.07064),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s7avw"]
@@ -66,16 +70,17 @@ _data = {
 &"new_animation": SubResource("Animation_ica26")
 }
 
-[node name="Platform" instance=ExtResource("1_ica26")]
+[node name="Platform2" instance=ExtResource("1_ica26")]
+script = ExtResource("2_0trwq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
-position = Vector2(0, 201)
-rotation = -0.708604
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" index="0"]
 texture = SubResource("CompressedTexture2D_0trwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0trwq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D" index="2"]
 libraries = {

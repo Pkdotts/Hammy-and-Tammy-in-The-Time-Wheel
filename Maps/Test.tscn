@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b86ae06e1t5d4"]
+[gd_scene load_steps=6 format=3 uid="uid://b86ae06e1t5d4"]
 
 [ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_dh0jm"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="3_n0ck6"]
+[ext_resource type="PackedScene" uid="uid://bswhgyhrjwqd4" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecvq"]
 size = Vector2(128, 128)
@@ -28,3 +29,6 @@ position = Vector2(92, 752)
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("3_n0ck6")]
 position = Vector2(433, 543)
 attachedNode = NodePath("../Hammy")
+
+[node name="Platform" parent="." instance=ExtResource("4_8ecvq")]
+position = Vector2(599, 592)
