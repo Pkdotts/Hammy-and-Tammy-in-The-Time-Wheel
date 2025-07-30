@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmmyaxa5s1sh"]
+
+[ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="1_slt10"]
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_slt10")
