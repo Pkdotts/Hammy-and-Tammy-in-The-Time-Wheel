@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqmu8g5akxawm"]
+
+[sub_resource type="Shader" id="13"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color = vec4(1.0);
+uniform vec4 glow_color : source_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float opacity : hint_range(0.0, 1.0) = 1.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	
+	if (color.a != 0.0) {
+		color.a = opacity;
+	}
+	COLOR = color;
+}
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource("13")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/glow_modifier = 0.0
+shader_parameter/opacity = 1.0

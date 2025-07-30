@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mbdhlrl4l2kn"]
+
+[ext_resource type="Script" uid="uid://4qmk8t57vnn0" path="res://Scripts/Global/Slowmo.gd" id="1"]
+
+[node name="Slowmo" type="Node"]
+script = ExtResource("1")

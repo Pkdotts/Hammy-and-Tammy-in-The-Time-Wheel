@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6lkykc5tv3y2"]
+
+[ext_resource type="Shader" uid="uid://bgehh20x66g1q" path="res://Shaders/ScrollingTexture.gdshader" id="1_wgu5f"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_wgu5f")
+shader_parameter/scrollDirection = Vector2(-1, 0)
+shader_parameter/scrollSpeed = 0.1
