@@ -37,9 +37,6 @@ func _ready():
 #	yield(get_tree(), "idle_frame")
 #	set_physics_process(true)
 
-func _physics_process(delta: float) -> void:
-	print(arrow.cursor_index)
-
 func _update_text():
 	pass
 	#var pressText = "[center]%s[/center]" % TextTools.replace_text("MENU_PRESS")
@@ -130,3 +127,11 @@ func _show_button():
 
 func _on_arrow_moved():
 	pass
+
+
+func _on_arrow_selected(cursor_index: Variant) -> void:
+	match cursor_index:
+		0: # New game?
+			print("jñflkdjsaflñdjkfñld")
+		1: # Options
+			pass

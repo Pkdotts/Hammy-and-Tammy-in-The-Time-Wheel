@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://2wwxfxu81ig7"]
+
+[ext_resource type="PackedScene" uid="uid://dlgpulcry4b5u" path="res://Nodes/Ui/arrow.tscn" id="4"]
+
+[node name="OptionsUi" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="arrow" parent="." instance=ExtResource("4")]
+menu_parent_path = NodePath("../Control/VBoxContainer")

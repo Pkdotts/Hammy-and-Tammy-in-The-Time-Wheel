@@ -27,3 +27,5 @@ horizontal_alignment = 1
 
 [node name="arrow" parent="." instance=ExtResource("2_obfw0")]
 menu_parent_path = NodePath("../VBoxContainer")
+
+[connection signal="selected" from="arrow" to="." method="_on_arrow_selected"]
