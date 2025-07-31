@@ -123,3 +123,6 @@ func at_peak() -> bool:
 
 func _on_crush_detector_crushed() -> void:
 	hide()
+
+func create_teleport_effect() -> void:
+	$Spawner.spawn_object()

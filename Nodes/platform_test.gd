@@ -20,6 +20,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	animationPlayer.seek(TimeManager.get_point_in_time(animationPlayer.current_animation_length), true)
+	
 	if check:
 		print("previous" + str(prev_pos))
 		print("current" + str(global_position))
@@ -35,16 +36,29 @@ func _process(delta: float) -> void:
 	
 
 func _on_loop():
-	pass
+	$Spawner.spawn_object()
+	
+	#make objects in teleport list do their teleport effect
+	for i in teleport_list:
+		if i.has_method("create_teleport_effect"):
+			i.create_teleport_effect()
+	await moved
+	$Spawner.spawn_object()
+	for i in teleport_list:
+		if i.has_method("create_teleport_effect"):
+			i.create_teleport_effect()
+	print("on loop")
 	
 func _teleport(prev_pos):
 	await get_tree().process_frame
 	var movement = prev_pos - global_position
-	#$Spawner.spawn_object()
+	
 	for i in teleport_list:
 		i.global_position -= movement
 		
 		print(movement)
+	
+	emit_signal("moved")
 
 func _on_teleporter_body_entered(body: Node2D) -> void:
 	if body.get_groups().has("Teleportable"):

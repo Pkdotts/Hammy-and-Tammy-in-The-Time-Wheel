@@ -1,10 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://c12t7hjgom6ao"]
+[gd_scene load_steps=30 format=3 uid="uid://c12t7hjgom6ao"]
 
 [ext_resource type="Script" uid="uid://d0u8jkch7cah3" path="res://Scripts/hammy.gd" id="1_fic1p"]
 [ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Tammy.png" id="2_wmlf5"]
 [ext_resource type="Texture2D" uid="uid://djn1in2ril7u4" path="res://Graphics/Characters/Hammy_Ball.png" id="3_kcjdg"]
 [ext_resource type="PackedScene" uid="uid://bnf1ltkjwajsn" path="res://Nodes/Effects/Trail.tscn" id="3_wmlf5"]
 [ext_resource type="Script" uid="uid://dmihh8qtreg36" path="res://Scripts/crushDetector.gd" id="5_btdtw"]
+[ext_resource type="Script" uid="uid://cvl6hrjija3bq" path="res://Scripts/Spawner.gd" id="6_msu10"]
+[ext_resource type="PackedScene" uid="uid://clk12qmlankvr" path="res://Nodes/Effects/TeleportEffect.tscn" id="7_l8fkp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmlf5"]
 radius = 88.0909
@@ -207,5 +209,9 @@ shape = SubResource("CircleShape2D_kcjdg")
 
 [node name="CrushDetector" type="RayCast2D" parent="."]
 script = ExtResource("5_btdtw")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("6_msu10")
+spawned_object = ExtResource("7_l8fkp")
 
 [connection signal="crushed" from="CrushDetector" to="." method="_on_crush_detector_crushed"]

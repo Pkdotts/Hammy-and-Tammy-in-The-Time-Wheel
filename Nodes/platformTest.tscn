@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://djesekufq54t1"]
+[gd_scene load_steps=10 format=3 uid="uid://djesekufq54t1"]
 
 [ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="2_0trwq"]
 [ext_resource type="Script" uid="uid://cvl6hrjija3bq" path="res://Scripts/Spawner.gd" id="2_s7avw"]
+[ext_resource type="PackedScene" uid="uid://clk12qmlankvr" path="res://Nodes/Effects/TeleportEffect.tscn" id="3_s7avw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ica26"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -75,6 +76,7 @@ shape = SubResource("RectangleShape2D_ica26")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("2_s7avw")
+spawned_object = ExtResource("3_s7avw")
 
 [connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
 [connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
