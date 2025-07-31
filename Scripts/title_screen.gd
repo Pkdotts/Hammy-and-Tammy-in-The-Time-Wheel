@@ -132,6 +132,6 @@ func _on_arrow_moved():
 func _on_arrow_selected(cursor_index: Variant) -> void:
 	match cursor_index:
 		0: # New game?
-			print("jñflkdjsaflñdjkfñld")
+			$Door.enter()
 		1: # Options
 			pass

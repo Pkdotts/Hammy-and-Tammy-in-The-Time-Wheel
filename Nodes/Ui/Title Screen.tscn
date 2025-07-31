@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkb8hegta0deb"]
+[gd_scene load_steps=4 format=3 uid="uid://bkb8hegta0deb"]
 
 [ext_resource type="Script" uid="uid://cne2rf8jem32w" path="res://Scripts/title_screen.gd" id="1_tmxd3"]
 [ext_resource type="PackedScene" uid="uid://dlgpulcry4b5u" path="res://Nodes/Ui/arrow.tscn" id="2_obfw0"]
+[ext_resource type="PackedScene" uid="uid://crn72mbroldgj" path="res://Nodes/Door.tscn" id="3_2rn6v"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -27,5 +28,8 @@ horizontal_alignment = 1
 
 [node name="arrow" parent="." instance=ExtResource("2_obfw0")]
 menu_parent_path = NodePath("../VBoxContainer")
+
+[node name="Door" parent="." instance=ExtResource("3_2rn6v")]
+targetScene = "Test"
 
 [connection signal="selected" from="arrow" to="." method="_on_arrow_selected"]

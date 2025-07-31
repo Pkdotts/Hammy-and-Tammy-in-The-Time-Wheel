@@ -11,7 +11,8 @@ var active := true
 var walk_speed := 0.0
 var walk_direction := 0.0
 
-
+signal paused
+signal unpaused
 
 const JUMP_FORCE := 1300.0
 const GRAVITY := 4000.0
@@ -109,6 +110,13 @@ func _gravity(delta):
 		velocity.y = 0
 		
 
+func pause(): #idk if we're gonna need this tho
+	active = false
+	emit_signal("paused")
+
+func unpause():
+	active = true
+	emit_signal("unpaused")
 
 func stop_jump():
 	if velocity.y < 0:

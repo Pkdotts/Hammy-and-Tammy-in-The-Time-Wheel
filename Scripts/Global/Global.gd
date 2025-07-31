@@ -4,6 +4,13 @@ var persistCamera = null
 var currentHammy : Player
 var currentScene
 
+@onready var hammyNode = load("res://Nodes/Characters/Hammy.tscn")
+
+func _ready():
+	var root = get_tree().get_root()
+	currentScene = root.get_child(root.get_child_count() - 1)
+	currentHammy = hammyNode.instantiate()
+
 func save():
 	var save_dict = {
 	}
@@ -30,10 +37,10 @@ func goto_scene(path, playerPosition = Vector2.ZERO, playerDirection = Vector2(0
 	call_deferred("_deferred_goto_scene", path, playerPosition, playerDirection)
 
 func _deferred_goto_scene(path, playerPosition, playerDirection):
-	if currentScene.has_node("YSort"):
-		currentScene.get_node("YSort").remove_child(currentHammy)
-	else:
-		currentScene.get_node("Objects").remove_child(currentHammy)
+	#if currentScene.has_node("YSort"):
+	#	currentScene.get_node("YSort").remove_child(currentHammy)
+	#else:
+	#	currentScene.get_node("Objects").remove_child(currentHammy)
 	
 	# This could be moved somewhere else for better code organization
 	# var ao_oni
