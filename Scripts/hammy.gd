@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var animationState = $AnimationTree["parameters/playback"]
+
 var inputVector := Vector2.ZERO
 var direction := Vector2.ZERO
 
@@ -10,12 +12,13 @@ var walk_speed := 0.0
 var walk_direction := 0.0
 
 
+
 const JUMP_FORCE := 1300.0
 const GRAVITY := 4000.0
 const PEAK_GRAVITY := 2500.0
 const PEAK_VELOCITY := 100.0
 const PEAK_MAX_WALK_SPEED := 450.0
-const MAX_WALK_SPEED := 400.0
+const MAX_WALK_SPEED := 430.0
 const MAX_FALL_SPEED := 100.0
 const WALK_ACCELERATION := 3000.0
 const WALK_DECELERATION := 1600.0
@@ -58,6 +61,7 @@ func _controls():
 
 func _movement(delta):
 	if inputVector != Vector2.ZERO:
+		animationState.travel("Run")
 		if !at_peak():
 			if walk_speed < MAX_WALK_SPEED:
 				walk_speed += WALK_ACCELERATION * delta
@@ -68,11 +72,13 @@ func _movement(delta):
 		walk_speed -= WALK_ACCELERATION * delta
 		if walk_speed <= 0:
 			walk_speed = 0
-	if walk_speed != 0:
+		animationState.travel("Idle")
+	if walk_speed != 0 and walk_direction != direction.x:
 		if is_on_floor():
 			walk_direction = lerp(walk_direction, direction.x, GROUND_TURN_SPEED)
 		else:
 			walk_direction = lerp(walk_direction, direction.x, AIR_TURN_SPEED)
+		$Sprite.flip_h = walk_direction < 0
 	else:
 		walk_direction = direction.x
 	velocity.x = walk_direction * walk_speed
@@ -99,7 +105,9 @@ func _gravity(delta):
 			velocity.y = GRAVITY
 	else:
 		floor_time = 0
+		#elocity.y = GRAVITY/30
 		velocity.y = 0
+		
 
 
 func stop_jump():
@@ -111,3 +119,7 @@ func can_jump():
 
 func at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY
+
+
+func _on_crush_detector_crushed() -> void:
+	hide()

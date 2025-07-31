@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dateq8dool3x5"
-path="res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"
+uid="uid://djn1in2ril7u4"
+path="res://.godot/imported/Hammy_Ball.png-c8aaec52e226a71334606ea0ca6a3012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Characters/Tammy.png"
-dest_files=["res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"]
+source_file="res://Graphics/Characters/Hammy_Ball.png"
+dest_files=["res://.godot/imported/Hammy_Ball.png-c8aaec52e226a71334606ea0ca6a3012.ctex"]
 
 [params]
 

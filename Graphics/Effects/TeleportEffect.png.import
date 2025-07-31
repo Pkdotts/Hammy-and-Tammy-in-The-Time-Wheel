@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dateq8dool3x5"
-path="res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"
+uid="uid://bpnrj7eyrno4b"
+path="res://.godot/imported/TeleportEffect.png-2420ad577e9e985fc93440e46c4afe40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Characters/Tammy.png"
-dest_files=["res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"]
+source_file="res://Graphics/Effects/TeleportEffect.png"
+dest_files=["res://.godot/imported/TeleportEffect.png-2420ad577e9e985fc93440e46c4afe40.ctex"]
 
 [params]
 

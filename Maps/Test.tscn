@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b86ae06e1t5d4"]
+[gd_scene load_steps=12 format=3 uid="uid://b86ae06e1t5d4"]
 
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_8ecvq"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_n0ck6"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecvq"]
 size = Vector2(127.388, 123.213)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc5rm"]
+size = Vector2(17.3316, 79.922)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln84e"]
 size = Vector2(11.742, 79.922)
@@ -100,6 +103,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Platform4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.416667, 1.58333, 2.58333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1504, 368), Vector2(1816, 360), Vector2(1808, 896)]
+}
 
 [sub_resource type="Animation" id="Animation_ln84e"]
 length = 0.001
@@ -175,6 +190,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Platform4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1360, 368)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o20m1"]
 _data = {
@@ -202,10 +229,11 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8ecvq")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 1152.0
-offset_top = 768.0
-offset_right = 1344.0
-offset_bottom = 960.0
+offset_left = 1095.0
+offset_top = 833.0
+offset_right = 1377.0
+offset_bottom = 1025.0
+rotation = -0.469634
 texture = ExtResource("1_8ecvq")
 stretch_mode = 1
 
@@ -214,9 +242,9 @@ position = Vector2(1046, 153)
 scale = Vector2(16.3516, 2.40234)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect2/StaticBody2D"]
-position = Vector2(-58.0983, -23.7268)
+position = Vector2(-55.3034, -23.7267)
 scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_ln84e")
+shape = SubResource("RectangleShape2D_yc5rm")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 offset_left = 1344.0
@@ -304,7 +332,7 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ln84e")
 
 [node name="Hammy" parent="." instance=ExtResource("2_n0ck6")]
-position = Vector2(92, 752)
+position = Vector2(96, 728)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("3_n0ck6")]
 position = Vector2(433, 543)
@@ -319,11 +347,17 @@ animationName = "Fall"
 
 [node name="Platform2" parent="." node_paths=PackedStringArray("animationPlayer") instance=ExtResource("4_8ecvq")]
 position = Vector2(1016, 560)
+check = true
 animationPlayer = NodePath("../AnimationPlayer")
 animationName = "Fall"
 
 [node name="Platform3" parent="." node_paths=PackedStringArray("animationPlayer") instance=ExtResource("4_8ecvq")]
 position = Vector2(832, -368)
+animationPlayer = NodePath("../AnimationPlayer")
+animationName = "Fall"
+
+[node name="Platform4" parent="." node_paths=PackedStringArray("animationPlayer") instance=ExtResource("4_8ecvq")]
+position = Vector2(1360, 368)
 animationPlayer = NodePath("../AnimationPlayer")
 animationName = "Fall"
 

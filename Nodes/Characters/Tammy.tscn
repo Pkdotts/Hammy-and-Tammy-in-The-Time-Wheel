@@ -1,8 +1,154 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnakjc8r2mlmi"]
+[gd_scene load_steps=24 format=3 uid="uid://cnakjc8r2mlmi"]
 
 [ext_resource type="Script" uid="uid://bwcp4n2pddx6s" path="res://Scripts/tammy.gd" id="1_2ld4p"]
-[ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy.png" id="2_fcgtr"]
-[ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="3_g27f7"]
+[ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy_Wheel.png" id="2_fcgtr"]
+[ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Tammy.png" id="3_2ld4p"]
+
+[sub_resource type="Animation" id="Animation_fcgtr"]
+resource_name = "Idle"
+length = 6.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.58333, 1.66667, 1.75, 2.25, 2.33333, 2.41667, 2.5, 4.16667, 4.25, 4.33333, 4.41667, 4.5, 4.58333, 4.66667, 4.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 11, 12, 13, 14, 13, 12, 11, 15, 11, 12, 11, 15, 11, 12, 11, 15]
+}
+
+[sub_resource type="Animation" id="Animation_g27f7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_2ld4p"]
+resource_name = "Run"
+length = 0.375004
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_542mk"]
+resource_name = "TurnRun"
+length = 0.0833375
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 9]
+}
+
+[sub_resource type="Animation" id="Animation_0xo0j"]
+resource_name = "TurnIdle"
+length = 0.0833375
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo0j"]
+_data = {
+&"Idle": SubResource("Animation_fcgtr"),
+&"RESET": SubResource("Animation_g27f7"),
+&"Run": SubResource("Animation_2ld4p"),
+&"TurnIdle": SubResource("Animation_0xo0j"),
+&"TurnRun": SubResource("Animation_542mk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_542mk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0xo0j"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_542mk"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cqeve"]
+graph_offset = Vector2(-574.667, 62.6667)
+nodes/Run/node = SubResource("AnimationNodeAnimation_0xo0j")
+nodes/Run/position = Vector2(-253.333, 275.333)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_542mk")
+nodes/TimeScale/position = Vector2(-61.3333, 211.333)
+node_connections = [&"TimeScale", 0, &"Run", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ld4p"]
+animation = &"TurnIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vvetp"]
+animation = &"TurnRun"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8ynv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_80bak"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ad4cc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vvetp"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fcgtr"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g27f7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xo0j"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_75sps"]
+states/Idle/node = SubResource("AnimationNodeAnimation_542mk")
+states/Idle/position = Vector2(409.333, 78)
+states/Run/node = SubResource("AnimationNodeBlendTree_cqeve")
+states/Run/position = Vector2(409.778, 274)
+states/TurnIdle/node = SubResource("AnimationNodeAnimation_2ld4p")
+states/TurnIdle/position = Vector2(602.667, 170.889)
+states/TurnRun/node = SubResource("AnimationNodeAnimation_vvetp")
+states/TurnRun/position = Vector2(252.444, 164.519)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r8ynv"), "Idle", "TurnRun", SubResource("AnimationNodeStateMachineTransition_80bak"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_ad4cc"), "TurnRun", "Run", SubResource("AnimationNodeStateMachineTransition_vvetp"), "TurnIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_fcgtr"), "Run", "TurnIdle", SubResource("AnimationNodeStateMachineTransition_g27f7"), "TurnIdle", "Run", SubResource("AnimationNodeStateMachineTransition_0xo0j")]
 
 [node name="Tammy" type="Node2D"]
 script = ExtResource("1_2ld4p")
@@ -12,10 +158,11 @@ position = Vector2(4.76837e-07, 0)
 scale = Vector2(0.884458, 0.884458)
 texture = ExtResource("2_fcgtr")
 
-[node name="Tammy" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 81)
-scale = Vector2(0.884458, 0.884458)
-texture = ExtResource("3_g27f7")
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_2ld4p")
+hframes = 5
+vframes = 4
+frame = 10
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -29,3 +176,13 @@ text = "TIME: "
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0xo0j")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_75sps")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Run/TimeScale/scale = 1.0

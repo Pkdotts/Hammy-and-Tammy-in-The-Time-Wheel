@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dateq8dool3x5"
-path="res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"
+uid="uid://buwvpslvv34g7"
+path="res://.godot/imported/Tammy_Wheel.png-75e3f7943152eed52f1072bc6682947b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Characters/Tammy.png"
-dest_files=["res://.godot/imported/Tammy.png-76b4e1b9fa5ed1708ded8bff3b267974.ctex"]
+source_file="res://Graphics/Characters/Tammy_Wheel.png"
+dest_files=["res://.godot/imported/Tammy_Wheel.png-75e3f7943152eed52f1072bc6682947b.ctex"]
 
 [params]
 

@@ -9,20 +9,30 @@ var spin_direction =0.0
 const START_TIME = 100.0
 const MAX_SPEED = 8.0
 const ACCELERATION = 25.0
-const DECELERATION = 5.0
+const DECELERATION = 4.5
 const TURN_SPEED = 0.2
 
+@onready var animationState = $AnimationTree["parameters/playback"]
 
 func _ready() -> void:
 	await get_tree().process_frame
 	TimeManager.add_time(100)
+	$AnimationTree.active = true
 
 func _physics_process(delta: float) -> void:
 	_controls()
 	_movement(delta)
+	#_animation_tree()
+#
+#func _animation_tree():
+	#
+	#$AnimationTree.set("parameters/conditions/running", inputDirection != 0)
+	#print($AnimationTree["parameters/conditions/running"])
+	
 
 func _movement(delta):
 	if inputDirection != 0:
+		animationState.travel("Run")
 		if spin_speed < MAX_SPEED:
 			spin_speed += ACCELERATION * delta
 		else:
@@ -31,12 +41,15 @@ func _movement(delta):
 		spin_speed -= DECELERATION * delta
 		if spin_speed <= 0:
 			spin_speed = 0
+		animationState.travel("Idle")
 	
-	if spin_speed != 0:
+	if spin_speed != 0 and spin_direction != inputDirection:
 		spin_direction = lerp(spin_direction, inputDirection, TURN_SPEED)
-		
+		$Sprite.flip_h = spin_direction < 0
 	else:
 		spin_direction = inputDirection
+		
+		
 	
 	if spin_speed > 0:
 		_add_time(50, delta)
@@ -55,6 +68,7 @@ func _spin_wheel(delta):
 
 func _update_clock():
 	$Label.text = "Time: " + str(TimeManager.get_current_time())
+
 
 
 func _controls():

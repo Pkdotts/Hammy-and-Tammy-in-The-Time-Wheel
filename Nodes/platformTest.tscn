@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://djesekufq54t1"]
+[gd_scene load_steps=9 format=3 uid="uid://djesekufq54t1"]
 
 [ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="2_0trwq"]
+[ext_resource type="Script" uid="uid://cvl6hrjija3bq" path="res://Scripts/Spawner.gd" id="2_s7avw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ica26"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -47,7 +48,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ica26"]
-size = Vector2(128, 64)
+size = Vector2(128, 16)
 
 [node name="platformTest" type="StaticBody2D"]
 script = ExtResource("2_0trwq")
@@ -58,7 +59,6 @@ texture = SubResource("CompressedTexture2D_ica26")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0trwq")
-one_way_collision = true
 one_way_collision_margin = 40.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -70,7 +70,13 @@ libraries = {
 position = Vector2(0, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_ica26")
 
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("2_s7avw")
+
+[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
+[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
 [connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
 [connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]
