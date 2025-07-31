@@ -17,11 +17,10 @@ _data = {
 &"new_animation": SubResource("Animation_wmlf5")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fic1p"]
-radius = 63.0
-height = 126.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmlf5"]
+radius = 64.0703
 
-[node name="Hammy" type="CharacterBody2D"]
+[node name="Hammy" type="CharacterBody2D" groups=["Teleportable"]]
 script = ExtResource("1_fic1p")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -35,7 +34,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_fic1p")
+shape = SubResource("CircleShape2D_wmlf5")
 
 [node name="BufferTimer" type="Timer" parent="."]
 wait_time = 0.05

@@ -13,8 +13,8 @@ func _physics_process(delta):
 	
 
 	global_position.x = lerpPosition.x
-	if attachedNode.is_on_floor():
-		global_position.y = lerpPosition.y
+	#if attachedNode.is_on_floor():
+	global_position.y = lerpPosition.y
 
 func teleport_to_node():
 	global_position.x = attachedNode.global_position.x + camOffset.x

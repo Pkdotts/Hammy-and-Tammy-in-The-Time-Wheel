@@ -10,12 +10,13 @@ var walk_speed := 0.0
 var walk_direction := 0.0
 
 
+const JUMP_FORCE := 1300.0
 const GRAVITY := 4000.0
 const PEAK_GRAVITY := 2500.0
 const PEAK_VELOCITY := 100.0
 const PEAK_MAX_WALK_SPEED := 450.0
 const MAX_WALK_SPEED := 400.0
-const MAX_FALL_SPEED := 500.0
+const MAX_FALL_SPEED := 100.0
 const WALK_ACCELERATION := 3000.0
 const WALK_DECELERATION := 1600.0
 const GROUND_TURN_SPEED := 0.8
@@ -23,7 +24,6 @@ const AIR_TURN_SPEED := 0.4
 
 const JUMP_STOP := 0.35
 
-const JUMP_FORCE := 1200.0
 const COYOTE_TIME := 0.2
 
 var floor_time := 0.0
@@ -32,16 +32,16 @@ func _ready() -> void:
 	Global.currentHammy = self
 
 func _physics_process(delta: float) -> void:
-	if active:
-		_controls()
+	#if active:
+	_controls()
 	_movement(delta)
 	_gravity(delta)
-	_jump(delta)
+	#_jump(delta)
 	move_and_slide()
 		
-	if Input.is_action_just_pressed("ui_select"):
-		active = !active
-		inputVector = Vector2.ZERO
+	#if Input.is_action_just_pressed("ui_select"):
+		#active = !active
+		#inputVector = Vector2.ZERO
 
 func _controls():
 	inputVector = ControlsManager.get_controls_vector()
@@ -90,7 +90,6 @@ func _gravity(delta):
 			floor_time += delta
 		
 		if at_peak():
-			print("PEAK" + str(velocity.y))
 			velocity.y += delta * PEAK_GRAVITY
 			
 		else:
