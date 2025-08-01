@@ -3,7 +3,7 @@ extends Line2D
 var queue: Array
 @export var MAX_LENGTH: int
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position = Vector2.ZERO 
 	var pos = _get_position()
 	

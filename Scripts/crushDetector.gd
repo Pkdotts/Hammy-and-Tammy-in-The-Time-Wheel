@@ -5,7 +5,7 @@ signal crushed
 
 @export var checking = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var even_collide = 0
 	var uneven_collide = 0
 	if checking:

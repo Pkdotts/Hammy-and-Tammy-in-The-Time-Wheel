@@ -9,7 +9,7 @@ func _ready() -> void:
 var skio = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !skio and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel")):
 		goto_game()
 
