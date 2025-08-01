@@ -15,17 +15,17 @@ func _ready():
 	
 	
 
-
-func _physics_process(delta: float) -> void:
-	if get_node("Teleporter") != null:
-		if prev_pos != $Teleporter.global_position:
-			if check:
-				print("previous" + str(prev_pos))
-				print("current" + str($Teleporter.global_position))
-			_teleport(prev_pos)
-		
-		
-		prev_pos = $Teleporter.global_position
+#
+#func _physics_process(delta: float) -> void:
+	#if get_node("Teleporter") != null:
+		#if prev_pos != $Teleporter.global_position:
+			#if check:
+				#print("previous" + str(prev_pos))
+				#print("current" + str($Teleporter.global_position))
+			#_teleport(prev_pos)
+		#
+		#
+		#prev_pos = $Teleporter.global_position
 	
 #func _on_time_changed():
 	#var time = TimeManager.get_current_time()/360

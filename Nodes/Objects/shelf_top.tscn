@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2uhvv80lx3n"]
+
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="1_mh53r"]
+[ext_resource type="Texture2D" uid="uid://bf7wny8x4p2au" path="res://Graphics/Backgrounds/big shelf/hamster big shelf top.png" id="2_j526d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg84u"]
+size = Vector2(702, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kptdj"]
+size = Vector2(699, 51)
+
+[node name="ShelfTop" type="StaticBody2D"]
+script = ExtResource("1_mh53r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1.99971, 38.5)
+scale = Vector2(0.560064, 1.38384)
+texture = ExtResource("2_j526d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.99951, 37.5)
+shape = SubResource("RectangleShape2D_tg84u")
+one_way_collision_margin = 40.4
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(0, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(1.49951, 41.5)
+shape = SubResource("RectangleShape2D_kptdj")
+
+[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
+[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
+[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
+[connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]

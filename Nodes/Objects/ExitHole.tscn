@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bllggmaeoy8g7"]
+
+[ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_twtfp"]
+
+[node name="ExitHole" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_twtfp")

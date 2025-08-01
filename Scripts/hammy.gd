@@ -14,7 +14,7 @@ var walk_direction := 0.0
 signal paused
 signal unpaused
 
-const JUMP_FORCE := 1300.0
+const JUMP_FORCE := 1000.0
 const GRAVITY := 4000.0
 const PEAK_GRAVITY := 2500.0
 const PEAK_VELOCITY := 100.0
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	_controls()
 	_movement(delta)
 	_gravity(delta)
-	#_jump(delta)
+	_jump(delta)
 	move_and_slide()
 		
 	#if Input.is_action_just_pressed("ui_select"):

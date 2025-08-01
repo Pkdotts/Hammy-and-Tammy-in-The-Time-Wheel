@@ -24,7 +24,7 @@ func _ready():
 	material = flash_material
 	
 	for i in get_children():
-		if i.get("use_parent_material"):
+		if i.get("use_parent_material") != null:
 			i.use_parent_material = true
 	
 	original_pos = position
@@ -43,7 +43,9 @@ func _on_time_changed():
 	var difference = min(abs(TimeManager.MAXTIME - TimeManager.get_current_time()), TimeManager.get_current_time())
 	if difference < TimeManager.LOOPAPPROACHPOINT:
 		material.set_shader_parameter("flash_modifier", 1 - (difference / TimeManager.LOOPAPPROACHPOINT))
-		print("set" + str(material.get_shader_parameter("flash_modifier")))
+	else:
+		material.set_shader_parameter("flash_modifier", 0)
+		
 
 func _on_loop():
 	spawner.spawn_object(sparkle)

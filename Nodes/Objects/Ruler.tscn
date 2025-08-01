@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbdmnojman277"]
+
+[ext_resource type="Texture2D" uid="uid://vd08ejhqhdrp" path="res://Graphics/Backgrounds/Ruler.png" id="1_3nr6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nr6s"]
+size = Vector2(269.942, 192)
+
+[node name="Ruler" type="Sprite2D"]
+rotation = -0.785398
+texture = ExtResource("1_3nr6s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3.53528, -2.90918)
+scale = Vector2(0.085368, 4.11378)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-38.9698, -6.09756e-05)
+shape = SubResource("RectangleShape2D_3nr6s")
+metadata/_edit_lock_ = true

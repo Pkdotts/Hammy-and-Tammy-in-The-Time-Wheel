@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://oe3jaloxccjq"]
+[gd_scene load_steps=5 format=3 uid="uid://oe3jaloxccjq"]
 
 [ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="1_u5n15"]
-[ext_resource type="Texture2D" uid="uid://bu2n8jujmva6d" path="res://Graphics/Backgrounds/Shelf1.png" id="2_mjlos"]
+[ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="2_u5n15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlos"]
+size = Vector2(133.818, 119.626)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as3r0"]
 size = Vector2(133.818, 124.86)
@@ -11,19 +14,20 @@ scale = Vector2(5.5, 0.535)
 script = ExtResource("1_u5n15")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.18182, 0)
-scale = Vector2(0.176252, 1.7134)
-texture = ExtResource("2_mjlos")
+position = Vector2(-2.90276, -2.29756)
+scale = Vector2(0.0798839, 1.26756)
+texture = ExtResource("2_u5n15")
 
 [node name="Teleporter" type="Area2D" parent="."]
 position = Vector2(0, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
-position = Vector2(-2.90906, 78.4299)
-shape = SubResource("RectangleShape2D_as3r0")
+position = Vector2(-2.90906, -23.6262)
+shape = SubResource("RectangleShape2D_mjlos")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-69.8182, 59.813, -49.4545, -59.8131, 64, -59.8131, 64, 59.813)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2.90909, 0)
+shape = SubResource("RectangleShape2D_as3r0")
 
 [connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
 [connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
