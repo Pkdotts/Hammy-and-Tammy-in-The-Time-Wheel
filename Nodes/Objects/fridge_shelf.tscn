@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d86x06j0q2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cy0i"]
+size = Vector2(64, 64)
+
+[node name="FridgeShelf" type="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0.733333, 0.176471, 0.239216, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5cy0i")

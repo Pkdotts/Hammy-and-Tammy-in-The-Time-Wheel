@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bwcp4n2pddx6s" path="res://Scripts/tammy.gd" id="1_2ld4p"]
 [ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy_Wheel.png" id="2_fcgtr"]
 [ext_resource type="Texture2D" uid="uid://btx1juuedux35" path="res://Graphics/Characters/Tammy_Wheel_Stand.png" id="2_g27f7"]
-[ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Tammy.png" id="3_2ld4p"]
 [ext_resource type="Texture2D" uid="uid://dmkpsp5ov4h5x" path="res://Graphics/Characters/Tammy_Wheel_Arrow.png" id="4_fcgtr"]
+[ext_resource type="Texture2D" uid="uid://bueg22n6oyu5j" path="res://Graphics/Characters/Hammy.png" id="5_g27f7"]
 
 [sub_resource type="Animation" id="Animation_fcgtr"]
 resource_name = "Idle"
@@ -169,7 +169,7 @@ texture = ExtResource("4_fcgtr")
 offset = Vector2(0, -120)
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_2ld4p")
+texture = ExtResource("5_g27f7")
 hframes = 5
 vframes = 4
 frame = 10

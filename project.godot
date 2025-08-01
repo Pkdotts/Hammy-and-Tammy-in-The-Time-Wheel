@@ -11,19 +11,19 @@ config_version=5
 [application]
 
 config/name="GMTK 2025"
-run/main_scene="uid://bkb8hegta0deb"
+run/main_scene="uid://ojsr1cr35bn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 AudioManager="*res://Scripts/Global/audioManager.tscn"
+ControlsManager="*res://Scripts/Global/controlsManager.tscn"
 Global="*res://Scripts/Global/Global.gd"
 Slowmo="*res://Scripts/Global/Slowmo.tscn"
 UiCanvasLayer="*res://Scripts/Global/UiCanvasLayer.tscn"
 WindowManager="*res://Scripts/Global/WindowManager.gd"
 TimeManager="*res://Scripts/Global/TimeManager.gd"
-ControlsManager="*res://Scripts/Global/controlsManager.tscn"
 
 [display]
 

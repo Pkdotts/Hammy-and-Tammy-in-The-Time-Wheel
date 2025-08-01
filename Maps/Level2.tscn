@@ -1,3 +1,109 @@
-[gd_scene format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=12 format=3 uid="uid://cbd4wus3crm5l"]
+
+[ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
+[ext_resource type="Texture2D" uid="uid://bcxc8hqh6atjs" path="res://Graphics/Backgrounds/Counter.png" id="2_3m7j1"]
+[ext_resource type="Texture2D" uid="uid://bbiqn0vq8ksc1" path="res://Graphics/Backgrounds/cabinet.png" id="3_1jthq"]
+[ext_resource type="Texture2D" uid="uid://bwx63745u13wy" path="res://Graphics/Backgrounds/Fridge.png" id="4_1jthq"]
+[ext_resource type="PackedScene" uid="uid://d86x06j0q2w" path="res://Nodes/Objects/fridge_shelf.tscn" id="5_5cy0i"]
+[ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
+[ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
+[ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
+size = Vector2(5905, 146)
+
+[sub_resource type="Animation" id="Animation_85dgj"]
+resource_name = "Fall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_adtkx"]
+_data = {
+&"Fall": SubResource("Animation_85dgj")
+}
 
 [node name="Level2" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="BG"]
+position = Vector2(3988, 1952)
+scale = Vector2(1.83761, 1.5616)
+texture = ExtResource("1_y0von")
+
+[node name="Counter" type="Sprite2D" parent="BG"]
+position = Vector2(3887, 2145.06)
+scale = Vector2(2.35315, 2.35822)
+texture = ExtResource("2_3m7j1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BG"]
+offset_left = 1976.0
+offset_top = -920.0
+offset_right = 3304.0
+offset_bottom = -32.0
+texture = ExtResource("3_1jthq")
+patch_margin_left = 54
+patch_margin_top = 40
+patch_margin_right = 59
+patch_margin_bottom = 48
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="BG"]
+offset_left = 3256.0
+offset_top = -920.0
+offset_right = 4576.0
+offset_bottom = -32.0
+texture = ExtResource("3_1jthq")
+patch_margin_left = 54
+patch_margin_top = 40
+patch_margin_right = 59
+patch_margin_bottom = 48
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="BG"]
+offset_left = 4528.0
+offset_top = -920.0
+offset_right = 5848.0
+offset_bottom = -32.0
+texture = ExtResource("3_1jthq")
+patch_margin_left = 54
+patch_margin_top = 40
+patch_margin_right = 59
+patch_margin_bottom = 48
+
+[node name="Fridge" type="Sprite2D" parent="BG"]
+position = Vector2(7184, 1284.65)
+scale = Vector2(2.21912, 2.34076)
+texture = ExtResource("4_1jthq")
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+position = Vector2(3888, 1648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2(999.5, 0)
+shape = SubResource("RectangleShape2D_ehwww")
+
+[node name="FridgeShelf" parent="Collisions" instance=ExtResource("5_5cy0i")]
+position = Vector2(6912, -64)
+scale = Vector2(24, 1)
+
+[node name="FridgeShelf2" parent="Collisions" instance=ExtResource("5_5cy0i")]
+position = Vector2(6912, 480)
+scale = Vector2(24, 1)
+
+[node name="FridgeShelf3" parent="Collisions" instance=ExtResource("5_5cy0i")]
+position = Vector2(6912, 928)
+scale = Vector2(24, 1)
+
+[node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
+position = Vector2(2224, 1480)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
+position = Vector2(2216, 1440)
+attachedNode = NodePath("../Hammy")
+
+[node name="TimeAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_adtkx")
+}
+script = ExtResource("8_85dgj")
+startingAnim = "Fall"
+metadata/_custom_type_script = "uid://1v323frheac2"

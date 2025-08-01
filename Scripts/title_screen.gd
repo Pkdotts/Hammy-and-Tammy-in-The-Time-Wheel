@@ -10,9 +10,6 @@ var canSkip = false
 var seq = ""
 var tween = create_tween()
 var soundEffects = {
-	"back": load("res://Audio/Sound effects/M3/curshoriz.wav"),
-	"cursor2": load("res://Audio/Sound effects/Cursor 2.mp3"),
-	"cursor1": load("res://Audio/Sound effects/Cursor 1.mp3")
 }
 
 

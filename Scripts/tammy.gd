@@ -61,6 +61,7 @@ func _add_time(amount, delta = 1):
 
 func _set_time(amount):
 	TimeManager.set_time(amount)
+	await get_tree().process_frame
 	_update_clock()
 
 func _spin_wheel(delta):
