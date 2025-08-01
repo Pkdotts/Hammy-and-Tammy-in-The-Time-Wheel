@@ -6,9 +6,6 @@ extends CanvasLayer
 var transition : Transition = null
 var tammy : Tammy = null
 
-func _ready() -> void:
-	add_tammy_ui()
-
 func add_tammy_ui():
 	erase_tammy_ui()
 	tammy = tammy_ui.instantiate()
