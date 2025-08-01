@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11n1ckctkkds"]
+
+[ext_resource type="Texture2D" uid="uid://c2528gxcywohv" path="res://Graphics/Backgrounds/misc/eraser.png" id="1_p46du"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
+size = Vector2(248, 80)
+
+[node name="Eraser" type="Sprite2D"]
+texture = ExtResource("1_p46du")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_ltlk7")

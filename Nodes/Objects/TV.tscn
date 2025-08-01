@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cddmdyb4qgojr"]
+
+[ext_resource type="Texture2D" uid="uid://6blqnmmkqruj" path="res://Graphics/Backgrounds/misc/portable tv.png" id="1_2xjw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
+size = Vector2(504, 368)
+
+[node name="TV" type="Sprite2D"]
+texture = ExtResource("1_2xjw4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_ltlk7")

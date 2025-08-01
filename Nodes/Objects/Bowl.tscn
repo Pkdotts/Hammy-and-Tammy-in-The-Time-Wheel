@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://csno3lnjafut4"]
+
+[ext_resource type="Texture2D" uid="uid://cbyqgylux41ml" path="res://Graphics/Backgrounds/misc/porcelain bowl.png" id="1_r3m7c"]
+
+[node name="Bowl" type="Sprite2D"]
+texture = ExtResource("1_r3m7c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-248, -48, 248, -48, 112, 32, 32, 48, -56, 48, -136, 32)

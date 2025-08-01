@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=24 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
 [ext_resource type="Texture2D" uid="uid://bcxc8hqh6atjs" path="res://Graphics/Backgrounds/Counter.png" id="2_3m7j1"]
@@ -8,13 +8,26 @@
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="5_adtkx"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
+[ext_resource type="PackedScene" uid="uid://dpxlw6h0cjje5" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
+[ext_resource type="PackedScene" uid="uid://dl762getplxk3" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
+[ext_resource type="PackedScene" uid="uid://wvxtoms7hapy" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
+[ext_resource type="PackedScene" uid="uid://kb4j5xiwx0bl" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
+[ext_resource type="PackedScene" uid="uid://tx03ovrlq5mu" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
+[ext_resource type="PackedScene" uid="uid://cddmdyb4qgojr" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
+[ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
+[ext_resource type="PackedScene" uid="uid://c056dcqkjkhx1" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
+[ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
+[ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
+[ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
-size = Vector2(7632, 146)
+size = Vector2(8488, 153)
 
 [sub_resource type="Animation" id="Animation_85dgj"]
 resource_name = "Fall"
+length = 5.0
+step = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adtkx"]
 _data = {
@@ -26,39 +39,61 @@ _data = {
 [node name="BG" type="Node2D" parent="."]
 
 [node name="Wall" type="Sprite2D" parent="BG"]
-position = Vector2(3988, 1952)
+position = Vector2(3528, 1952)
 scale = Vector2(1.83761, 1.5616)
 texture = ExtResource("1_y0von")
+metadata/_edit_lock_ = true
 
 [node name="Wall2" type="Sprite2D" parent="BG"]
-position = Vector2(15616, 1976)
+position = Vector2(14272, 1976)
 scale = Vector2(1.83761, 1.5616)
 texture = ExtResource("1_y0von")
+metadata/_edit_lock_ = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="BG"]
-offset_left = 7848.0
-offset_top = -1416.0
-offset_right = 13456.0
-offset_bottom = -528.0
+[node name="Cabinet" type="NinePatchRect" parent="BG"]
+offset_left = 10872.0
+offset_top = -1488.0
+offset_right = 16480.0
+offset_bottom = -600.0
 texture = ExtResource("3_1jthq")
 patch_margin_left = 54
 patch_margin_top = 40
 patch_margin_right = 59
 patch_margin_bottom = 48
 
+[node name="ExitHole" parent="BG/Cabinet" instance=ExtResource("5_adtkx")]
+position = Vector2(5368, 719)
+scale = Vector2(0.78483, 0.794118)
+
 [node name="Fridge" type="Sprite2D" parent="BG"]
-position = Vector2(7184, 1284.65)
+position = Vector2(10400, 1284.65)
 scale = Vector2(2.21912, 2.34076)
 texture = ExtResource("4_1jthq")
 
+[node name="FridgeShelf" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
+position = Vector2(-122.571, -576.159)
+scale = Vector2(10.8151, 0.427212)
+
+[node name="FridgeShelf2" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
+position = Vector2(-122.571, -343.756)
+scale = Vector2(10.8151, 0.427212)
+
+[node name="FridgeShelf3" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
+position = Vector2(-122.571, -152.365)
+scale = Vector2(10.8151, 0.427212)
+
 [node name="Counter" type="Sprite2D" parent="BG"]
-position = Vector2(3000, 2119.88)
-scale = Vector2(2.37337, 2.28062)
+position = Vector2(4440, 2119.88)
+scale = Vector2(2.48799, 2.28062)
 texture = ExtResource("2_3m7j1")
 
-[node name="ExitHole" parent="BG" instance=ExtResource("5_adtkx")]
-position = Vector2(13216, -697)
+[node name="ExitHole2" parent="BG" instance=ExtResource("5_adtkx")]
+position = Vector2(688, 1432)
 scale = Vector2(0.78483, 0.794118)
+
+[node name="Basket" parent="BG" instance=ExtResource("7_h7ych")]
+position = Vector2(4120, 1459)
+scale = Vector2(1.78333, 1.78333)
 
 [node name="Collisions" type="Node2D" parent="."]
 
@@ -66,26 +101,35 @@ scale = Vector2(0.78483, 0.794118)
 position = Vector2(3888, 1648)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(136, 0)
+position = Vector2(556, -3.5)
 shape = SubResource("RectangleShape2D_ehwww")
 
-[node name="FridgeShelf" parent="Collisions" instance=ExtResource("5_5cy0i")]
-position = Vector2(6912, -64)
-scale = Vector2(24, 1)
+[node name="Moving" type="Node2D" parent="."]
 
-[node name="FridgeShelf2" parent="Collisions" instance=ExtResource("5_5cy0i")]
-position = Vector2(6912, 480)
-scale = Vector2(24, 1)
+[node name="CerealBox" parent="Moving" instance=ExtResource("10_y4rtb")]
+position = Vector2(2177.63, 1159.05)
+scale = Vector2(1.12861, 1.19439)
 
-[node name="FridgeShelf3" parent="Collisions" instance=ExtResource("5_5cy0i")]
-position = Vector2(6912, 928)
-scale = Vector2(24, 1)
+[node name="PlainCereal" parent="Moving" instance=ExtResource("11_3qp6c")]
+position = Vector2(2405.25, 1155.52)
+scale = Vector2(1.29787, 1.22034)
+
+[node name="TV" parent="Moving" instance=ExtResource("12_jpran")]
+position = Vector2(5776, 991)
+scale = Vector2(3.06842, 3.06842)
+
+[node name="Safe" parent="Moving" instance=ExtResource("10_h2nw4")]
+position = Vector2(2881.63, 1216)
+scale = Vector2(2.35235, 2.35235)
+
+[node name="Basket" parent="Moving" instance=ExtResource("12_0do65")]
+position = Vector2(8328, -1184)
 
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
-position = Vector2(312, 1480)
+position = Vector2(4240, 1000)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
-position = Vector2(2216, 1440)
+position = Vector2(1000, 1440)
 attachedNode = NodePath("../Hammy")
 
 [node name="TimeAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -95,3 +139,23 @@ libraries = {
 script = ExtResource("8_85dgj")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
+
+[node name="Ruler" parent="." instance=ExtResource("16_l256e")]
+position = Vector2(4107.08, 1333.75)
+rotation = 1.5708
+scale = Vector2(1.73, 2.19655)
+
+[node name="BlockGreen" parent="." instance=ExtResource("17_bxn7k")]
+position = Vector2(3405.05, 1205.25)
+scale = Vector2(0.869748, 0.869748)
+
+[node name="BlockRed" parent="." instance=ExtResource("18_2pyoj")]
+position = Vector2(5000, 264)
+scale = Vector2(1.32563, 1.32563)
+
+[node name="BlockRed2" parent="." instance=ExtResource("19_12dyl")]
+position = Vector2(4347.43, 1179.38)
+scale = Vector2(1.17122, 1.17122)
+
+[node name="Eraser" parent="." instance=ExtResource("20_7nly1")]
+position = Vector2(3672, 1272)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl762getplxk3"]
+
+[ext_resource type="Texture2D" uid="uid://d4l0xv6foeqpq" path="res://Graphics/Backgrounds/misc/mini safe.png" id="1_5h4gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
+size = Vector2(288, 288)
+
+[node name="Safe" type="Sprite2D"]
+texture = ExtResource("1_5h4gu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ltlk7")

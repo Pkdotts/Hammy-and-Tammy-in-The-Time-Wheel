@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tx03ovrlq5mu"]
+
+[ext_resource type="Texture2D" uid="uid://d1d0vvvefp7ln" path="res://Graphics/Backgrounds/misc/porcelain basket.png" id="1_rt3jw"]
+
+[node name="Basket" type="Sprite2D"]
+texture = ExtResource("1_rt3jw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-376, -96, 384, -96, 352, -24, 168, 88, -144, 88, -352, -24)
