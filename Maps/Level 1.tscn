@@ -668,7 +668,6 @@ metadata/_edit_lock_ = true
 
 [node name="BookGreen" parent="Static" instance=ExtResource("2_10wxd")]
 position = Vector2(2152, 1312)
-scale = Vector2(1, 3.625)
 
 [node name="BookGreen" parent="Static/BookGreen" index="1"]
 texture = ExtResource("9_8qvjj")
@@ -676,7 +675,6 @@ metadata/_edit_lock_ = true
 
 [node name="BookGreen2" parent="Static" instance=ExtResource("2_10wxd")]
 position = Vector2(2360, 1312)
-scale = Vector2(1, 3.625)
 
 [node name="BookGreen" parent="Static/BookGreen2" index="1"]
 texture = ExtResource("10_yneuh")
