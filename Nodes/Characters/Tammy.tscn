@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnakjc8r2mlmi"]
+[gd_scene load_steps=26 format=3 uid="uid://cnakjc8r2mlmi"]
 
 [ext_resource type="Script" uid="uid://bwcp4n2pddx6s" path="res://Scripts/tammy.gd" id="1_2ld4p"]
 [ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy_Wheel.png" id="2_fcgtr"]
+[ext_resource type="Texture2D" uid="uid://btx1juuedux35" path="res://Graphics/Characters/Tammy_Wheel_Stand.png" id="2_g27f7"]
 [ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Tammy.png" id="3_2ld4p"]
+[ext_resource type="Texture2D" uid="uid://dmkpsp5ov4h5x" path="res://Graphics/Characters/Tammy_Wheel_Arrow.png" id="4_fcgtr"]
 
 [sub_resource type="Animation" id="Animation_fcgtr"]
 resource_name = "Idle"
@@ -55,23 +57,6 @@ tracks/0/keys = {
 "values": [8, 0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_542mk"]
-resource_name = "TurnRun"
-length = 0.0833375
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0416667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [10, 9]
-}
-
 [sub_resource type="Animation" id="Animation_0xo0j"]
 resource_name = "TurnIdle"
 length = 0.0833375
@@ -87,6 +72,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_542mk"]
+resource_name = "TurnRun"
+length = 0.0833375
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 9]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo0j"]
@@ -153,23 +155,32 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="Tammy" type="Node2D"]
 script = ExtResource("1_2ld4p")
 
+[node name="TammyWheelStand" type="Sprite2D" parent="."]
+position = Vector2(8, -120)
+texture = ExtResource("2_g27f7")
+
 [node name="Wheel" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 0)
-scale = Vector2(0.884458, 0.884458)
+position = Vector2(4.76837e-07, -144)
 texture = ExtResource("2_fcgtr")
+
+[node name="TammyWheelArrow" type="Sprite2D" parent="."]
+position = Vector2(0, -144)
+texture = ExtResource("4_fcgtr")
+offset = Vector2(0, -120)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_2ld4p")
+offset = Vector2(60, 0)
 hframes = 5
 vframes = 4
 frame = 10
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = -90.0
-offset_top = 163.0
-offset_right = 108.0
-offset_bottom = 214.0
+offset_left = -120.0
+offset_top = 240.0
+offset_right = 78.0
+offset_bottom = 291.0
 theme_override_font_sizes/font_size = 32
 text = "TIME: "
 
@@ -183,6 +194,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_75sps")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Run/TimeScale/scale = 1.0

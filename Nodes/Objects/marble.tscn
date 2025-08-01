@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0bbbu7d2wk5u"]
+
+[ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="1_xshsc"]
+[ext_resource type="Texture2D" uid="uid://dxt1vwywbwkw8" path="res://Graphics/Backgrounds/Marble.png" id="2_xshsc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj0pm"]
+radius = 64.0
+
+[node name="Marble" type="StaticBody2D"]
+script = ExtResource("1_xshsc")
+
+[node name="Marble" type="Sprite2D" parent="."]
+position = Vector2(-3.33786e-06, 0)
+scale = Vector2(1.17431, 1.20755)
+texture = ExtResource("2_xshsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+shape = SubResource("CircleShape2D_oj0pm")

@@ -67,8 +67,7 @@ func _spin_wheel(delta):
 	$Wheel.rotation += spin_direction * spin_speed * delta
 
 func _update_clock():
-	$Label.text = "Time: " + str(TimeManager.get_current_time())
-
+	$TammyWheelArrow.rotation = deg_to_rad(TimeManager.get_point_in_time(360))
 
 
 func _controls():

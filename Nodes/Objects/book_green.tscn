@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3h58kqtx8xyy"]
+
+[ext_resource type="Texture2D" uid="uid://dcw84xt6wpde8" path="res://Graphics/Backgrounds/Book_Green.png" id="1_fqisw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
+size = Vector2(192, 194.207)
+
+[node name="BookGreen" type="StaticBody2D"]
+scale = Vector2(1, 3.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+shape = SubResource("RectangleShape2D_10wxd")
+
+[node name="BookGreen" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(1.43051e-06, -1.54972e-05)
+scale = Vector2(1, 0.275862)
+texture = ExtResource("1_fqisw")

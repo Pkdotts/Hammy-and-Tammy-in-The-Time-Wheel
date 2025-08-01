@@ -1,0 +1,535 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfgrvfgl4osxt"]
+
+[ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
+[ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_3gmqf"]
+[ext_resource type="PackedScene" uid="uid://b3h58kqtx8xyy" path="res://Nodes/Objects/book_green.tscn" id="2_10wxd"]
+[ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="3_3gmqf"]
+[ext_resource type="PackedScene" uid="uid://oe3jaloxccjq" path="res://Nodes/Objects/shelf.tscn" id="3_a4duu"]
+[ext_resource type="Texture2D" uid="uid://cm1y84dwnbvcd" path="res://Graphics/Backgrounds/Desk.png" id="3_as3r0"]
+[ext_resource type="PackedScene" uid="uid://djesekufq54t1" path="res://Nodes/platformTest.tscn" id="3_srpby"]
+[ext_resource type="PackedScene" uid="uid://c0bbbu7d2wk5u" path="res://Nodes/Objects/marble.tscn" id="6_1kui6"]
+[ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="6_w5pky"]
+[ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="7_7b0s7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
+size = Vector2(192, 192)
+
+[sub_resource type="Animation" id="Animation_w5pky"]
+resource_name = "Fall"
+length = 5.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingElements/Shelf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5152, 544), Vector2(5152, 1328)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MovingElements/Shelf:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MovingElements/Shelf2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.99, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4320, -160), Vector2(4320, 3368)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MovingElements/Shelf2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.99, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MovingElements/BookGreen6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.4, 1.6, 1.8, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5432, -432), Vector2(5560, -432), Vector2(5720, -344), Vector2(5768, -200), Vector2(5808, 187)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MovingElements/BookGreen6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 1.4, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.541052, 1.5708]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MovingElements/Shelf3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6944, 292)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MovingElements/Shelf3:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MovingElements/Marble:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1, 1.4, 2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2232, 896), Vector2(2472, 896), Vector2(3056, 1472), Vector2(3440, 1472), Vector2(3456, 1600)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MovingElements/Marble:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 1.8, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.28319, 0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_srpby"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingElements/Shelf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5152, 544)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MovingElements/Shelf:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MovingElements/Shelf2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4320, -160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MovingElements/Shelf2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MovingElements/BookGreen6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5432, -432)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MovingElements/BookGreen6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MovingElements/Shelf3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7456, 292)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MovingElements/Shelf3:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MovingElements/Marble:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2472, 912)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MovingElements/Marble:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4duu"]
+_data = {
+&"Fall": SubResource("Animation_w5pky"),
+&"RESET": SubResource("Animation_srpby")
+}
+
+[node name="Level1" type="Node2D"]
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Collisions"]
+position = Vector2(864, 1064)
+scale = Vector2(12.3333, 1.04167)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="Collisions"]
+position = Vector2(3336, 3536)
+scale = Vector2(38.0833, 2.16667)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D9"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D9/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+position = Vector2(3720, 1824)
+scale = Vector2(17.4167, 1.66667)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Collisions"]
+position = Vector2(2951.75, 1600)
+scale = Vector2(4.58594, 0.666668)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D5"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D5/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Collisions"]
+position = Vector2(4032, 1600)
+scale = Vector2(5.33333, 0.666666)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D8"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D8/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Collisions"]
+position = Vector2(5104, 1512)
+scale = Vector2(5.5, 1.58333)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D10"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D10/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Collisions"]
+position = Vector2(3840, 544)
+scale = Vector2(10, 0.333333)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D4"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Collisions"]
+position = Vector2(6176, 288)
+scale = Vector2(4.33333, 0.333332)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D6"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D6/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="Collisions"]
+position = Vector2(7552, 288)
+scale = Vector2(2.66667, 0.333332)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D15"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D15/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D19" type="Sprite2D" parent="Collisions"]
+position = Vector2(6784, 2400)
+scale = Vector2(10.6667, 0.333333)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D19"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D19/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D21" type="Sprite2D" parent="Collisions"]
+position = Vector2(6720, 3200)
+scale = Vector2(11.3333, 1.33333)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D21"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D21/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Collisions"]
+position = Vector2(5696, 1664)
+scale = Vector2(0.666668, 14.6667)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D13"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D13/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D14" type="Sprite2D" parent="Collisions"]
+position = Vector2(7872, 1792)
+scale = Vector2(0.666663, 16)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D14"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D14/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="Collisions"]
+position = Vector2(3456, -160)
+scale = Vector2(6, 0.34375)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D11"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D11/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="Collisions"]
+position = Vector2(5052, -160)
+scale = Vector2(4.625, 0.34375)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D12"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D12/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="BookGreen" parent="Collisions" instance=ExtResource("2_10wxd")]
+position = Vector2(2152, 1312)
+scale = Vector2(1, 3.625)
+
+[node name="BookGreen2" parent="Collisions" instance=ExtResource("2_10wxd")]
+position = Vector2(2360, 1312)
+scale = Vector2(1, 3.625)
+
+[node name="BookGreen3" parent="Collisions" instance=ExtResource("2_10wxd")]
+position = Vector2(2992, 272)
+scale = Vector2(0.715, 2.455)
+
+[node name="BookGreen4" parent="Collisions" instance=ExtResource("2_10wxd")]
+position = Vector2(3152, 272)
+scale = Vector2(0.715, 2.455)
+
+[node name="BookGreen5" parent="Collisions" instance=ExtResource("2_10wxd")]
+position = Vector2(3416, 272)
+rotation = -0.673362
+scale = Vector2(0.715, 2.455)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Collisions"]
+position = Vector2(2731.44, 1251.44)
+rotation = -0.785398
+scale = Vector2(0.085368, 4.11378)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions/Sprite2D7"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Sprite2D7/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Desk" type="Sprite2D" parent="Collisions"]
+position = Vector2(3722, 2498.5)
+scale = Vector2(1.28638, 1.29005)
+texture = ExtResource("3_as3r0")
+
+[node name="MovingElements" type="Node2D" parent="."]
+
+[node name="Shelf" parent="MovingElements" instance=ExtResource("3_a4duu")]
+position = Vector2(5152, 544)
+
+[node name="Shelf2" parent="MovingElements" instance=ExtResource("3_a4duu")]
+position = Vector2(4320, -160)
+
+[node name="Shelf3" parent="MovingElements" instance=ExtResource("3_srpby")]
+position = Vector2(7456, 292)
+scale = Vector2(5.5, 0.45)
+
+[node name="Shelf4" parent="MovingElements" instance=ExtResource("3_srpby")]
+position = Vector2(6784, 992)
+scale = Vector2(15.995, 0.45)
+
+[node name="Shelf5" parent="MovingElements" instance=ExtResource("3_srpby")]
+position = Vector2(6784, 1696)
+scale = Vector2(15.995, 0.45)
+
+[node name="Shelf6" parent="MovingElements" instance=ExtResource("3_srpby")]
+position = Vector2(6784, 2360)
+scale = Vector2(15.995, 0.45)
+
+[node name="Marble" parent="MovingElements" instance=ExtResource("6_1kui6")]
+position = Vector2(2472, 912)
+
+[node name="BookGreen6" parent="MovingElements" instance=ExtResource("2_10wxd")]
+position = Vector2(5432, -432)
+scale = Vector2(0.715, 2.455)
+script = ExtResource("7_7b0s7")
+
+[node name="Hammy" parent="." instance=ExtResource("2_3gmqf")]
+position = Vector2(5120, -288)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("3_3gmqf")]
+position = Vector2(152, 736)
+attachedNode = NodePath("../Hammy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a4duu")
+}
+script = ExtResource("6_w5pky")
+startingAnim = "Fall"

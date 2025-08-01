@@ -1,6 +1,8 @@
 extends Node
 
-const MAXTIME := 1000
+const MAXTIME := 2000
+const LOOPAPPROACHPOINT := 100
+
 
 signal time_changed
 signal looped

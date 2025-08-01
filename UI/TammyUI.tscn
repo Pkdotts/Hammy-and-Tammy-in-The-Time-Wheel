@@ -13,4 +13,5 @@ grow_vertical = 2
 script = ExtResource("1_uyo3k")
 
 [node name="Tammy" parent="." instance=ExtResource("1_sfyws")]
-position = Vector2(218, 863)
+position = Vector2(183, 936)
+scale = Vector2(0.455, 0.455)

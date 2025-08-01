@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cktp73wdxusrq"]
+[gd_scene load_steps=3 format=3 uid="uid://cktp73wdxusrq"]
 
+[ext_resource type="Material" uid="uid://bqmu8g5akxawm" path="res://Shaders/Flash.tres" id="1_mncea"]
 [ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="1_slt10"]
 
 [node name="Platform" type="Node2D"]
+material = ExtResource("1_mncea")
 script = ExtResource("1_slt10")
