@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sbqn4m18p06h"]
+
+[ext_resource type="Texture2D" uid="uid://dhudfelvxgiib" path="res://Graphics/Characters/Spaceship.png" id="1_jijot"]
+
+[node name="Spaceship" type="Sprite2D"]
+texture = ExtResource("1_jijot")

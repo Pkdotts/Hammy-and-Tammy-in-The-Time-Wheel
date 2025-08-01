@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfgrvfgl4osxt"]
+[gd_scene load_steps=33 format=3 uid="uid://cfgrvfgl4osxt"]
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://de2uhvv80lx3n" path="res://Nodes/Objects/shelf_top.tscn" id="18_tg84u"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="25_qe43w"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
+[ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
 size = Vector2(192, 192)
@@ -481,9 +482,8 @@ offset_bottom = -145.0
 color = Color(0.956863, 0.721569, 0.368627, 1)
 
 [node name="ExitHole" parent="BG/Shelf" instance=ExtResource("26_kptdj")]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(567.488, -298.99)
-scale = Vector2(1.97044, 2.0202)
+position = Vector2(583.251, -327.273)
+scale = Vector2(0.78086, 0.736779)
 
 [node name="HamsterBigShelfLeft" type="Sprite2D" parent="BG/Shelf"]
 position = Vector2(-988, -1567.15)
@@ -873,6 +873,9 @@ position = Vector2(2731, 1256)
 [node name="Ruler2" parent="." instance=ExtResource("25_qe43w")]
 position = Vector2(6869.19, 2933.19)
 scale = Vector2(1, 0.702538)
+
+[node name="Spaceship" parent="." instance=ExtResource("27_tg84u")]
+position = Vector2(-16, 600)
 
 [editable path="Static/BookGreen"]
 [editable path="Static/BookGreen2"]

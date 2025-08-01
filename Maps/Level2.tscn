@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=13 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
 [ext_resource type="Texture2D" uid="uid://bcxc8hqh6atjs" path="res://Graphics/Backgrounds/Counter.png" id="2_3m7j1"]
 [ext_resource type="Texture2D" uid="uid://bbiqn0vq8ksc1" path="res://Graphics/Backgrounds/cabinet.png" id="3_1jthq"]
 [ext_resource type="Texture2D" uid="uid://bwx63745u13wy" path="res://Graphics/Backgrounds/Fridge.png" id="4_1jthq"]
 [ext_resource type="PackedScene" uid="uid://d86x06j0q2w" path="res://Nodes/Objects/fridge_shelf.tscn" id="5_5cy0i"]
+[ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="5_adtkx"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
@@ -29,33 +30,16 @@ position = Vector2(3988, 1952)
 scale = Vector2(1.83761, 1.5616)
 texture = ExtResource("1_y0von")
 
+[node name="Wall2" type="Sprite2D" parent="BG"]
+position = Vector2(15616, 1976)
+scale = Vector2(1.83761, 1.5616)
+texture = ExtResource("1_y0von")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="BG"]
-offset_left = 1976.0
-offset_top = -920.0
-offset_right = 3304.0
-offset_bottom = -32.0
-texture = ExtResource("3_1jthq")
-patch_margin_left = 54
-patch_margin_top = 40
-patch_margin_right = 59
-patch_margin_bottom = 48
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="BG"]
-offset_left = 3256.0
-offset_top = -920.0
-offset_right = 4576.0
-offset_bottom = -32.0
-texture = ExtResource("3_1jthq")
-patch_margin_left = 54
-patch_margin_top = 40
-patch_margin_right = 59
-patch_margin_bottom = 48
-
-[node name="NinePatchRect3" type="NinePatchRect" parent="BG"]
-offset_left = 4528.0
-offset_top = -920.0
-offset_right = 5848.0
-offset_bottom = -32.0
+offset_left = 7848.0
+offset_top = -1416.0
+offset_right = 13456.0
+offset_bottom = -528.0
 texture = ExtResource("3_1jthq")
 patch_margin_left = 54
 patch_margin_top = 40
@@ -71,6 +55,10 @@ texture = ExtResource("4_1jthq")
 position = Vector2(3000, 2119.88)
 scale = Vector2(2.37337, 2.28062)
 texture = ExtResource("2_3m7j1")
+
+[node name="ExitHole" parent="BG" instance=ExtResource("5_adtkx")]
+position = Vector2(13216, -697)
+scale = Vector2(0.78483, 0.794118)
 
 [node name="Collisions" type="Node2D" parent="."]
 
@@ -94,7 +82,7 @@ position = Vector2(6912, 928)
 scale = Vector2(24, 1)
 
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
-position = Vector2(2224, 1480)
+position = Vector2(312, 1480)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
 position = Vector2(2216, 1440)
