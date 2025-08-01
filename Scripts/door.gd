@@ -23,12 +23,6 @@ var activeDoor = true
 func _ready():
 	set_process(false)
 
-func _on_Door_body_entered(body):
-	if body == Global.currentHammy:
-		Global.currentHammy.pause()
-		await get_tree().process_frame
-		enter(body)
-
 func _process(_delta):
 	if currentState != 0:
 		match currentState:

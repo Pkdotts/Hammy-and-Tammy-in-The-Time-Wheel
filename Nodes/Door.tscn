@@ -17,5 +17,3 @@ shape = SubResource("1")
 
 [node name="Position2D" type="Marker2D" parent="."]
 position = Vector2(4, 4)
-
-[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]

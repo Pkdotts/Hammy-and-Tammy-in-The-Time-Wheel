@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bllggmaeoy8g7"]
+[gd_scene load_steps=4 format=3 uid="uid://bllggmaeoy8g7"]
 
-[ext_resource type="Texture2D" uid="uid://ddkuvdrae4psf" path="res://Graphics/Backgrounds/hamster exit.png" id="1_twtfp"]
+[ext_resource type="Texture2D" uid="uid://dh3g6iuvbk4cb" path="res://icon.svg" id="1_twtfp"]
+[ext_resource type="PackedScene" uid="uid://co31yfu4vlmjg" path="res://Nodes/Door.tscn" id="2_7l1ll"]
+[ext_resource type="Script" uid="uid://b7nyf4umy07ew" path="res://Scripts/exit_hole.gd" id="2_jo1yp"]
 
 [node name="ExitHole" type="Sprite2D"]
 scale = Vector2(2, 2)
 texture = ExtResource("1_twtfp")
+script = ExtResource("2_jo1yp")
+
+[node name="Door" parent="." instance=ExtResource("2_7l1ll")]
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+position = Vector2(1.25, 0.25)
+
+[node name="Position2D" parent="Door" index="1"]
+gizmo_extents = 64.1
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -90.5
+offset_top = -149.0
+offset_right = -41.5
+offset_bottom = -124.0
+scale = Vector2(4, 4)
+text = "SPACE"
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]
+
+[editable path="Door"]

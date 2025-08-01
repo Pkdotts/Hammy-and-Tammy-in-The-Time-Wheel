@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="3_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://djesekufq54t1" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
-[ext_resource type="PackedScene" uid="uid://co31yfu4vlmjg" path="res://Nodes/Door.tscn" id="5_ln84e"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="5_o20m1"]
+[ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="6_o20m1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecvq"]
 size = Vector2(127.388, 123.213)
@@ -345,7 +345,7 @@ script = ExtResource("5_o20m1")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
 
-[node name="Door" parent="." instance=ExtResource("5_ln84e")]
-position = Vector2(1776, 776)
+[node name="ExitHole" parent="." instance=ExtResource("6_o20m1")]
+position = Vector2(819, 702)
 
 [editable path="Platform"]
