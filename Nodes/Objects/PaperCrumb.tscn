@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lym2f"]
 radius = 56.5685
 
-[node name="Basket" type="Sprite2D"]
+[node name="Ball" type="Sprite2D"]
 texture = ExtResource("1_oul5c")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

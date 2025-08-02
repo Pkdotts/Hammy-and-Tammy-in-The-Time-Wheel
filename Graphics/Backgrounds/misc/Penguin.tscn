@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxecv5khpruw6"]
+
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_5ipex"]
+[ext_resource type="Texture2D" uid="uid://dpkf2wjjildp7" path="res://Graphics/Backgrounds/misc/building block green.png" id="2_q5m4q"]
+[ext_resource type="Texture2D" uid="uid://cqgaquvx50btm" path="res://Graphics/Backgrounds/misc/penguin.png" id="3_36xk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vspyu"]
+size = Vector2(239, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ipex"]
+size = Vector2(240, 24)
+
+[node name="Penguin" type="Node2D"]
+script = ExtResource("1_5ipex")
+
+[node name="BuildingBlockGreen" type="Sprite2D" parent="."]
+position = Vector2(121, -160.5)
+scale = Vector2(0.88806, 1.34034)
+texture = ExtResource("2_q5m4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(124, -160)
+scale = Vector2(0.966667, 1)
+texture = ExtResource("3_36xk4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(136, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15.5, -40)
+shape = SubResource("RectangleShape2D_vspyu")
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(120, -328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5ipex")
+
+[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
+[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
