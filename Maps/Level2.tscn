@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://cbd4wus3crm5l"]
 
-[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
 [ext_resource type="Texture2D" uid="uid://bcxc8hqh6atjs" path="res://Graphics/Backgrounds/Counter.png" id="2_3m7j1"]
 [ext_resource type="Texture2D" uid="uid://bbiqn0vq8ksc1" path="res://Graphics/Backgrounds/cabinet.png" id="3_1jthq"]
@@ -9,19 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="5_adtkx"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
-[ext_resource type="PackedScene" uid="uid://dpxlw6h0cjje5" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
 [ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="10_2pyoj"]
-[ext_resource type="PackedScene" uid="uid://dl762getplxk3" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
-[ext_resource type="PackedScene" uid="uid://wvxtoms7hapy" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
-[ext_resource type="PackedScene" uid="uid://kb4j5xiwx0bl" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
-[ext_resource type="PackedScene" uid="uid://tx03ovrlq5mu" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
-[ext_resource type="PackedScene" uid="uid://cddmdyb4qgojr" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
-[ext_resource type="PackedScene" uid="uid://c056dcqkjkhx1" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
-[ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
-[ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
-[ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
@@ -592,9 +592,9 @@ scale = Vector2(0.889474, 0.836842)
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
 position = Vector2(6328, 288)
 
-[node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
+[node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("6_5cy0i")]
 position = Vector2(1000, 1440)
-attachedNode = NodePath("../Hammy")
+_attached_node = NodePath("../Hammy")
 
 [node name="TimeAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

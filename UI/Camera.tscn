@@ -5,4 +5,4 @@
 [node name="Camera" type="Camera2D"]
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("1_vx1pl")
-camOffset = Vector2(0, -180)
+_cam_offset = Vector2(0, -180)

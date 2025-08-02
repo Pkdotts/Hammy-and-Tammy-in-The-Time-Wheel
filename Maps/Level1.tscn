@@ -1,8 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://cfgrvfgl4osxt"]
+[gd_scene load_steps=34 format=3 uid="uid://b7p5pb7wppjd"]
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
-[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_ww6wc"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ww6wc"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_3gmqf"]
 [ext_resource type="PackedScene" uid="uid://b3h58kqtx8xyy" path="res://Nodes/Objects/book_green.tscn" id="2_10wxd"]
 [ext_resource type="Texture2D" uid="uid://ch4blbya1kxe" path="res://Graphics/Backgrounds/fox mug.png" id="2_qe43w"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://de2uhvv80lx3n" path="res://Nodes/Objects/shelf_top.tscn" id="18_tg84u"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="25_qe43w"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
-[ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
 size = Vector2(192, 192)
@@ -807,9 +807,9 @@ script = ExtResource("7_7b0s7")
 [node name="Hammy" parent="." instance=ExtResource("2_3gmqf")]
 position = Vector2(-16, 872)
 
-[node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("3_3gmqf")]
+[node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("3_3gmqf")]
 position = Vector2(152, 736)
-attachedNode = NodePath("../Hammy")
+_attached_node = NodePath("../Hammy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

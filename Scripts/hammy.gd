@@ -6,7 +6,8 @@ class_name Player
 var inputVector := Vector2.ZERO
 var direction := Vector2.ZERO
 
-var active := true
+var _action_started := true
+var _paused := false
 
 var walk_speed := 0.0
 var walk_direction := 0.0
@@ -25,29 +26,30 @@ const WALK_ACCELERATION := 3000.0
 const WALK_DECELERATION := 1600.0
 const GROUND_TURN_SPEED := 0.8
 const AIR_TURN_SPEED := 0.4
+const DEATH_ZONE := 4000.0
 
 const JUMP_STOP := 0.35
 
 const COYOTE_TIME := 0.2
 
 var floor_time := 0.0
-var respawnPoint = Vector2.ZERO
+var _respawn_point = Vector2.ZERO
 var in_front_of_door := false
 
 func _ready() -> void:
-	Global.currentHammy = self
-	respawnPoint = global_position
+	Global.current_hammy = self
+	_respawn_point = global_position
 
 func _physics_process(delta: float) -> void:
-	#if active:
-	_controls()
+	if _action_started:
+		_controls()
 	_movement(delta)
 	_gravity(delta)
 	_jump(delta)
 	move_and_slide()
 		
 	#if Input.is_action_just_pressed("ui_select"):
-		#active = !active
+		#_action_started = !_action_started
 		#inputVector = Vector2.ZERO
 
 func _controls():
@@ -88,7 +90,7 @@ func _movement(delta):
 	velocity.x = walk_direction * walk_speed
 	
 
-func _jump(delta):
+func _jump(_delta):
 	if can_jump() and $BufferTimer.time_left > 0.0:
 		velocity.y = -JUMP_FORCE
 		floor_time = COYOTE_TIME
@@ -107,35 +109,43 @@ func _gravity(delta):
 		
 		if velocity.y >= GRAVITY:
 			velocity.y = GRAVITY
+
+		if global_position.y > DEATH_ZONE:
+			_die()
+
 	else:
 		floor_time = 0
 		#elocity.y = GRAVITY/30
 		velocity.y = 0
 
-func die():
-	if active:
-		active = false
+func _die():
+	if _action_started:
+		_action_started = false
 		hide()
 		UiCanvasLayer.circle_in()
 		await UiCanvasLayer.transition.transition_finished
-		return_to_respawn()
-		UiCanvasLayer.circle_out()
+		_return_to_respawn()
 
 func set_respawn(point):
-	respawnPoint = point
+	_respawn_point = point
 
-func return_to_respawn():
+func _return_to_respawn():
+	global_position = _respawn_point
 	show()
-	global_position = respawnPoint
-	active = true
+	UiCanvasLayer.circle_out()
+	await UiCanvasLayer.transition.transition_finished
+	_action_started = true
 
 func pause(): #idk if we're gonna need this tho
-	active = false
+	_paused = true
 	emit_signal("paused")
 
 func unpause():
-	active = true
+	_paused = false
 	emit_signal("unpaused")
+
+func is_active() -> bool:
+	return _action_started and not _paused
 
 func stop_jump():
 	if velocity.y < 0:
@@ -148,8 +158,8 @@ func at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY
 
 func _on_crush_detector_crushed() -> void:
-	if active:
-		die()
+	if _action_started:
+		_die()
 
 func create_teleport_effect() -> void:
 	$Spawner.spawn_object()

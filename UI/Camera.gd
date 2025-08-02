@@ -1,23 +1,27 @@
 extends Camera2D
 
-@export var attachedNode: Player
+@export var _attached_node: Player
 
-@export var camOffset = Vector2(0, -300)
+@export var _cam_offset = Vector2(0, -300)
 
 func _ready():
-	Global.persistCamera = self
+	Global.persist_camera = self
 
 func _physics_process(delta):
-	var newPosition = attachedNode.global_position + camOffset
-	var lerpPosition = global_position.lerp(newPosition, delta * 10)
-	
+	var max_y = _attached_node.DEATH_ZONE + _cam_offset.y - get_viewport_rect().size.y / 2
 
-	global_position.x = lerpPosition.x
-	#if attachedNode.is_on_floor():
-	global_position.y = lerpPosition.y
+	var target_pos = _attached_node.global_position
+	target_pos.y = min(target_pos.y, max_y)
+
+	var new_position = target_pos + _cam_offset
+	var lerp_position = global_position.lerp(new_position, delta * 10)
+	
+	global_position.x = lerp_position.x
+	#if _attached_node.is_on_floor():
+	global_position.y = lerp_position.y
 
 func teleport_to_node():
-	global_position.x = attachedNode.global_position.x + camOffset.x
+	global_position.x = _attached_node.global_position.x + _cam_offset.x
 
 func shake_camera(magnitude = 1.0, time = 1.0, direction = Vector2.ONE):
 	var old_offset = offset

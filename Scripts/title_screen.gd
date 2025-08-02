@@ -14,4 +14,4 @@ func _start_game():
 		UiCanvasLayer.circle_transition()
 		await UiCanvasLayer.transition.transition_finished
 		UiCanvasLayer.add_tammy_ui()
-		get_tree().change_scene_to_file("res://Maps/Level 1.tscn")
+		get_tree().change_scene_to_file("res://Maps/Level1.tscn")

@@ -1,21 +1,20 @@
 extends Node
 
-var persistCamera = null
-var currentHammy : Player
-var currentScene
+var persist_camera = null
+var current_hammy: Player
+var _current_scene: Node
 
-var gotCheese = false
+var got_cheese := false
 
-@onready var hammyNode = load("res://Nodes/Characters/Hammy.tscn")
+@onready var _hammy_node = load("res://Nodes/Characters/Hammy.tscn")
 
 func _ready():
 	var root = get_tree().get_root()
-	currentScene = root.get_child(root.get_child_count() - 1)
-	currentHammy = hammyNode.instantiate()
+	_current_scene = root.get_child(root.get_child_count() - 1)
+	current_hammy = _hammy_node.instantiate()
 
 func save():
-	var save_dict = {
-	}
+	var save_dict = {}
 	return save_dict
 
 func save_game():
@@ -40,3 +39,6 @@ func change_scenes(map):
 	UiCanvasLayer.circle_transition()
 	await UiCanvasLayer.transition.transition_finished
 	get_tree().change_scene_to_file(map)
+
+func get_current_scene() -> Node:
+	return _current_scene
