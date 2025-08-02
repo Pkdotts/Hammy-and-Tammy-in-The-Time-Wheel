@@ -1,19 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxiwmowh4j6ps"]
+[gd_scene load_steps=3 format=3 uid="uid://dxiwmowh4j6ps"]
 
 [ext_resource type="Script" uid="uid://bperlwsg6y8jj" path="res://Scripts/Global/audioManager.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://tkawvbwc4twu" path="res://Audio/Music/hamster_jazz.mp3" id="2_oudxw"]
 
 [node name="audioManager" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1")
 
-[node name="AudioPlayers" type="Control" parent="."]
+[node name="MusicPlayers" type="Control" parent="."]
 anchors_preset = 0
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -0.5
+[node name="MusicPlayer0" type="AudioStreamPlayer" parent="MusicPlayers"]
+stream = ExtResource("2_oudxw")
+bus = &"Music"
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="AudioPlayers"]
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="MusicPlayers"]
 volume_db = -0.5
+bus = &"Music"
 
 [node name="Sfx" type="Node" parent="."]

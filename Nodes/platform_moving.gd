@@ -18,7 +18,7 @@ func _ready():
 	
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if get_node("Teleporter") != null:
 		if prev_pos != $Teleporter.global_position and !TimeManager.is_approaching_loop():
 			if check:

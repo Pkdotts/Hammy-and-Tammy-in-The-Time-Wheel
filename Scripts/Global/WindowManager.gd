@@ -6,7 +6,7 @@ var winDim = Vector2(320, 180)
 func _ready():
 	increase_win_size(2)
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_F4"):
 		increase_win_size(1)
 	if Input.is_action_just_pressed("ui_F5"):

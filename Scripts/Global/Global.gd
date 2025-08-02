@@ -2,16 +2,8 @@ extends Node
 
 var persist_camera = null
 var current_hammy: Player
-var _current_scene: Node
 
 var got_cheese := false
-
-@onready var _hammy_node = load("res://Nodes/Characters/Hammy.tscn")
-
-func _ready():
-	var root = get_tree().get_root()
-	_current_scene = root.get_child(root.get_child_count() - 1)
-	current_hammy = _hammy_node.instantiate()
 
 func save():
 	var save_dict = {}
@@ -34,11 +26,15 @@ func load_game():
 			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 			continue
 
+func change_scenes(scene_id: String):
+	get_tree().change_scene_to_file("res://Maps/%s.tscn" % scene_id)
 
-func change_scenes(map):
-	UiCanvasLayer.circle_transition()
-	await UiCanvasLayer.transition.transition_finished
-	get_tree().change_scene_to_file(map)
+func goto_level(level_number: int):
+	change_scenes("Level%d" % level_number)
 
-func get_current_scene() -> Node:
-	return _current_scene
+func _get_current_scene() -> Node:
+	var root = get_tree().get_root()
+	return root.get_child(root.get_child_count() - 1)
+
+func get_current_level() -> Level:
+	return _get_current_scene() as Level

@@ -33,12 +33,10 @@ const JUMP_STOP := 0.35
 const COYOTE_TIME := 0.2
 
 var floor_time := 0.0
-var _respawn_point = Vector2.ZERO
 var in_front_of_door := false
 
 func _ready() -> void:
 	Global.current_hammy = self
-	_respawn_point = global_position
 
 func _physics_process(delta: float) -> void:
 	if _action_started:
@@ -58,6 +56,7 @@ func _controls():
 		direction.x = inputVector.x
 		
 	if Input.is_action_just_pressed("ui_accept"):
+		AudioManager.play_sfx("jump")
 		$BufferTimer.start()
 	if Input.is_action_just_released("ui_accept"):
 		if !is_on_floor():
@@ -126,11 +125,8 @@ func _die():
 		await UiCanvasLayer.transition.transition_finished
 		_return_to_respawn()
 
-func set_respawn(point):
-	_respawn_point = point
-
 func _return_to_respawn():
-	global_position = _respawn_point
+	global_position = Global.get_current_level().get_spawn_position()
 	show()
 	UiCanvasLayer.circle_out()
 	await UiCanvasLayer.transition.transition_finished

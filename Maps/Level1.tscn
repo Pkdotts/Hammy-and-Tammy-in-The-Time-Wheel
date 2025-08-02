@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ww6wc"]
+[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_ww6wc"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_3gmqf"]
 [ext_resource type="PackedScene" uid="uid://b3h58kqtx8xyy" path="res://Nodes/Objects/book_green.tscn" id="2_10wxd"]
 [ext_resource type="Texture2D" uid="uid://ch4blbya1kxe" path="res://Graphics/Backgrounds/fox mug.png" id="2_qe43w"]
@@ -459,6 +459,7 @@ _data = {
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_ww6wc")
+_music_name = "hamster_jazz"
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -486,7 +487,6 @@ color = Color(0.956863, 0.721569, 0.368627, 1)
 [node name="ExitHole" parent="BG/Shelf" instance=ExtResource("26_kptdj")]
 position = Vector2(583.251, -327.273)
 scale = Vector2(0.78086, 0.736779)
-map = "uid://cbd4wus3crm5l"
 
 [node name="HamsterBigShelfLeft" type="Sprite2D" parent="BG/Shelf"]
 position = Vector2(-988, -1567.15)

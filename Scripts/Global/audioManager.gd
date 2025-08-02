@@ -1,70 +1,90 @@
 extends Control
 
-var musicVolume = -10
+var _music_volume := -10
+var _mute_state := 0
 
-var muteState = 0
+var _current_music_player_id := 0
+var _current_music := ""
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_mute"):
-		muteState += 1
-		if muteState == 3:
-			muteState = 0
-		match muteState:
-			0:
-				AudioServer.set_bus_mute(1, false)
-				AudioServer.set_bus_mute(2, false)
-			1:
-				AudioServer.set_bus_mute(1, true)
-				AudioServer.set_bus_mute(2, false)
-			2:
-				AudioServer.set_bus_mute(1, true)
-				AudioServer.set_bus_mute(2, true)
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_mute"):
+		_mute_state += 1
+		_mute_state = _mute_state % 3
+		AudioServer.set_bus_mute(1, _mute_state != 0)
+		AudioServer.set_bus_mute(2, _mute_state == 2)
 
-func _ready():
-	$AudioPlayers/GameMusic.volume_db = musicVolume
-	$AudioPlayers/TitleMusic.volume_db = musicVolume
+func play_music(music_name: String, fade_previous: bool = false):
+	if _current_music != "" and _get_current_music_player().playing:
+		if fade_previous:
+			await fadeout_music()
+		else:
+			_get_current_music_player().stop()
+		_swap_current_music_player()
 
-func play_game_music():
-	$AudioPlayers/GameMusic.play()
-	stop_title_music()
+	var music_player = _get_current_music_player()
+	music_player.stream = load("res://Audio/Music/%s.mp3" % music_name)
+	music_player.volume_db = _music_volume
+	music_player.play()
+	_current_music = music_name
+	fadein_music()
 
-func stop_game_music():
-	$AudioPlayers/GameMusic.stop()
+func fadeout_music():
+	await _fade_music_to(-80)
 
-func play_title_music():
-	$AudioPlayers/TitleMusic.play()
-	stop_game_music()
+func fadein_music():
+	await _fade_music_to(_music_volume)
 
-func stop_title_music():
-	$AudioPlayers/TitleMusic.stop()
+func _fade_music_to(target_volume: float):
+	if _current_music != "":
+		if _get_current_music_player().playing:
+			var tween = get_tree().create_tween()
+			tween.tween_property(_get_current_music_player(), "volume_db", target_volume, 1.0)
+			await tween.finished
 
-func set_audio_pitch(speed):
+func _get_current_music_player() -> AudioStreamPlayer:
+	return $MusicPlayers.get_node_or_null("MusicPlayer%s" % _current_music_player_id)
+
+func _swap_current_music_player():
+	_current_music_player_id = 1 - _current_music_player_id
+
+func set_audio_pitch(speed: float):
 	for soundEffect in $Sfx.get_children():
 		soundEffect.pitch_scale = speed
 
-func set_sfx_pitch(sfx_name, pitch):
-	var sfx_node: AudioStreamPlayer = get_sfx(sfx_name)
+func set_sfx_pitch(sfx_channel: String, pitch: float):
+	var sfx_node: AudioStreamPlayer = _get_sfx_player(sfx_channel)
 	if sfx_node:
 		sfx_node.pitch_scale = pitch
 
-func add_sfx(stream, sfx_name) -> AudioStreamPlayer:
-	var sfx_node: AudioStreamPlayer = get_sfx(sfx_name)
+func _add_sfx(sfx_name: String, sfx_channel := "", replace: bool = false) -> AudioStreamPlayer:
+	var sfx_node: AudioStreamPlayer
+	if sfx_channel != "":
+		sfx_node = _get_sfx_player(sfx_channel)
 	if !sfx_node:
 		sfx_node = AudioStreamPlayer.new()
 		sfx_node.bus = "SFX"
-		sfx_node.name = sfx_name
+		if sfx_channel != "":
+			sfx_node.name = sfx_channel
 		$Sfx.add_child(sfx_node)
 		sfx_node.finished.connect(sfx_node.queue_free)
-	sfx_node.stream = stream
-	return sfx_node
+	var new_sfx_path = "res://Audio/SFX/%s.mp3" % sfx_name
+	if replace or !sfx_node.playing or sfx_node.stream == null or sfx_node.stream.resource_path != new_sfx_path:
+		sfx_node.stream = load(new_sfx_path)
+		return sfx_node
+	return null
 
-func get_number_of_sfx() -> int:
-	return $Sfx.get_child_count()
+#func get_number_of_sfx() -> int:
+#	return $Sfx.get_child_count()
 
-func play_sfx(stream, sfx_name):
-	var sfx_node: AudioStreamPlayer = add_sfx(stream, sfx_name)
-	sfx_node.play()
-	#return sfx_node
+func play_sfx(sfx_name: String, sfx_channel := "", replace: bool = false):
+	var sfx_node: AudioStreamPlayer = _add_sfx(sfx_name, sfx_channel, replace)
+	if sfx_node:
+		sfx_node.play()
 
-func get_sfx(sfx_name) -> AudioStreamPlayer:
-	return $Sfx.get_node_or_null(sfx_name) as AudioStreamPlayer
+func stop_sfx(sfx_channel: String):
+	var sfx_node: AudioStreamPlayer = _get_sfx_player(sfx_channel)
+	if sfx_node and sfx_node.playing:
+		sfx_node.stop()
+
+func _get_sfx_player(sfx_channel: String) -> AudioStreamPlayer:
+	return $Sfx.get_node_or_null(sfx_channel) as AudioStreamPlayer

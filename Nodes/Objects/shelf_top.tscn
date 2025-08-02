@@ -29,7 +29,5 @@ position = Vector2(0, -96)
 position = Vector2(1.49951, 41.5)
 shape = SubResource("RectangleShape2D_kptdj")
 
-[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
-[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
 [connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
 [connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]

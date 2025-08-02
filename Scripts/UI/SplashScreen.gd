@@ -18,10 +18,7 @@ func goto_game():
 		skio = true
 		UiCanvasLayer.circle_transition()
 		await UiCanvasLayer.transition.transition_finished
-		get_tree().change_scene_to_file("res://Maps/Title Screen.tscn")
-
-
-
+		Global.change_scenes("Title Screen")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "CreditsFadeOut":

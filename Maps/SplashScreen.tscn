@@ -175,13 +175,13 @@ libraries = {
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 0)
 layout_mode = 0
-offset_left = 120.0
+offset_left = 6.0
 offset_top = 288.0
-offset_right = 1806.0
+offset_right = 1915.0
 offset_bottom = 825.0
 theme_override_font_sizes/font_size = 76
 text = "GAME DESIGN BY PKDOTTS
-PROGRAMMING BY PKDOTTS AND DANIONEL
+PROGRAMMING BY PKDOTTS, DANIONEL, JUMPMAN
 ART BY ODINSILLYDOODLE AND NOBONOKO
 MUSIC BY NOBONOKO
 "

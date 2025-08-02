@@ -663,6 +663,7 @@ _data = {
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_2pyoj")
+_music_name = "hamster_moog"
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -761,7 +762,6 @@ metadata/_edit_lock_ = true
 position = Vector2(688, 1432)
 scale = Vector2(0.78483, 0.794118)
 backwards_door = true
-map = "uid://cfgrvfgl4osxt"
 
 [node name="Ball" parent="BG" instance=ExtResource("7_h7ych")]
 position = Vector2(4120, 1459)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c056dcqkjkhx1"]
+[gd_scene load_steps=5 format=3 uid="uid://bhtdkhh455lss"]
 
 [ext_resource type="Texture2D" uid="uid://dpkf2wjjildp7" path="res://Graphics/Backgrounds/misc/building block green.png" id="1_se67b"]
 [ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_uhela"]
@@ -28,6 +28,3 @@ position = Vector2(128, -256)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
 position = Vector2(8, 4)
 shape = SubResource("RectangleShape2D_uhela")
-
-[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
-[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
