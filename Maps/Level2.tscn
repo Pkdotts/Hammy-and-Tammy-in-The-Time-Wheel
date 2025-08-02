@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=38 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 [ext_resource type="PackedScene" uid="uid://blgfu0ws1xb63" path="res://Nodes/Objects/GlassCup.tscn" id="21_wun4u"]
 [ext_resource type="PackedScene" uid="uid://c8e1b03n8i0y0" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
+[ext_resource type="Texture2D" uid="uid://bcngdc54hgfrm" path="res://Graphics/Effects/Grain.png" id="28_p7473"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
@@ -896,7 +897,7 @@ scale = Vector2(0.96266, 0.713856)
 script = ExtResource("10_2pyoj")
 
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
-position = Vector2(4680, -728)
+position = Vector2(704, 1480)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("6_5cy0i")]
 position = Vector2(1000, 1440)
@@ -909,3 +910,18 @@ libraries = {
 script = ExtResource("8_85dgj")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
+
+[node name="Grain" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(1208, 1120.11)
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="Grain"]
+use_parent_material = true
+offset_left = -1916.0
+offset_top = -2356.0
+offset_right = 9364.0
+offset_bottom = 2276.0
+texture = ExtResource("28_p7473")
+expand_mode = 1
+stretch_mode = 1
