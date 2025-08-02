@@ -1,16 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://d86x06j0q2w"]
+[gd_scene load_steps=5 format=3 uid="uid://d86x06j0q2w"]
+
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_ch6mi"]
+[ext_resource type="Texture2D" uid="uid://n2epr3w4tmh1" path="res://Graphics/Backgrounds/Fridge_Shelf.png" id="2_nmslg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cy0i"]
 size = Vector2(64, 64)
 
-[node name="FridgeShelf" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6mi"]
+size = Vector2(64, 16)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-color = Color(0.733333, 0.176471, 0.239216, 1)
+[node name="FridgeShelf" type="Node2D"]
+script = ExtResource("1_ch6mi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ColorRect" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+scale = Vector2(2.46154, 2.46154)
+texture = ExtResource("2_nmslg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(32, -32)
 shape = SubResource("RectangleShape2D_5cy0i")
+
+[node name="Teleporter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(32, -72)
+shape = SubResource("RectangleShape2D_ch6mi")

@@ -1,14 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfdkt4rd7ecg8"]
+[gd_scene load_steps=5 format=3 uid="uid://cfdkt4rd7ecg8"]
 
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_qpesx"]
 [ext_resource type="Texture2D" uid="uid://c4jcddrsychln" path="res://Graphics/Backgrounds/misc/building block pink.png" id="1_xp4lk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
 size = Vector2(256, 240)
 
-[node name="BlockPink" type="Sprite2D"]
-texture = ExtResource("1_xp4lk")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpesx"]
+size = Vector2(21, 237)
+
+[node name="BlockPink" type="Node2D"]
+script = ExtResource("1_qpesx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(132, -120)
 shape = SubResource("RectangleShape2D_ltlk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(132, -120)
+texture = ExtResource("1_xp4lk")
+
+[node name="Teleporter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(-2.5, -118.5)
+shape = SubResource("RectangleShape2D_qpesx")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=28 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -15,14 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://dl762getplxk3" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
 [ext_resource type="PackedScene" uid="uid://wvxtoms7hapy" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
 [ext_resource type="PackedScene" uid="uid://kb4j5xiwx0bl" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
+[ext_resource type="PackedScene" uid="uid://tx03ovrlq5mu" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
 [ext_resource type="PackedScene" uid="uid://cddmdyb4qgojr" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
 [ext_resource type="PackedScene" uid="uid://c056dcqkjkhx1" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
 [ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
+[ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
 [ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
-size = Vector2(8488, 153)
+size = Vector2(10480, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12dyl"]
+size = Vector2(512, 2616)
 
 [sub_resource type="Animation" id="Animation_85dgj"]
 resource_name = "Fall"
@@ -79,7 +84,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Moving/Ruler:rotation")
+tracks/4/path = NodePath("Moving/SeeSaw/Ruler:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -91,11 +96,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Moving/BlockGreen:rotation")
+tracks/5/path = NodePath("Moving/SeeSaw/BlockGreen:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.8, 3.2, 4.2),
+"times": PackedFloat32Array(1.8, 3, 4.2),
 "transitions": PackedFloat32Array(0.450625, 1.51572, 1),
 "update": 0,
 "values": [-0.261799, 0.0, 0.261799]
@@ -103,19 +108,19 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Moving/BlockGreen:position")
+tracks/6/path = NodePath("Moving/SeeSaw/BlockGreen:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.8, 2.2, 2.6, 3, 3.5, 4, 4.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1.51572, 1, 1, 1),
+"times": PackedFloat32Array(1.8, 2.2, 2.6, 3, 3.4, 3.8, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3288, 1528), Vector2(3464, 600), Vector2(3648, 80), Vector2(3784, -40), Vector2(3968, 192), Vector2(4096, 824), Vector2(4152, 1248)]
+"values": [Vector2(3288, 1528), Vector2(3464, 600), Vector2(3648, 80), Vector2(4000, -40), Vector2(4216, 72), Vector2(4472, 520), Vector2(4704, 1080)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Moving/BlockRed:position")
+tracks/7/path = NodePath("Moving/SeeSaw/BlockRed:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -127,7 +132,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Moving/BlockRed:rotation")
+tracks/8/path = NodePath("Moving/SeeSaw/BlockRed:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -139,7 +144,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Moving/Eraser:position")
+tracks/9/path = NodePath("Moving/SeeSaw/Eraser:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -151,7 +156,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Moving/Eraser:rotation")
+tracks/10/path = NodePath("Moving/SeeSaw/Eraser:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -159,6 +164,78 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-0.261799, 0.0, 0.261799]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Moving/SeeSaw/BlockPink:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1, 1.4, 2.5, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6384, 432), Vector2(6576, 448), Vector2(6600, 816), Vector2(7024, 1360), Vector2(7200, 1304)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Moving/SeeSaw/BlockPink:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1, 1.2, 2.2, 2.5, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.1397, 0.907571, 0.907571, 1.5708]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BG/Fridge/FridgeShelf:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BG/Fridge/FridgeShelf2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-428.999, -350.591), Vector2(-428.999, -11.1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BG/Fridge/FridgeShelf:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-428.999, -600.083), Vector2(-428.999, -250.591)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BG/Fridge/FridgeShelf5:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-428.999, -101.1), Vector2(-428.999, 248.392)]
 }
 
 [sub_resource type="Animation" id="Animation_bxn7k"]
@@ -214,7 +291,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Moving/Ruler:rotation")
+tracks/4/path = NodePath("Moving/SeeSaw/Ruler:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -226,7 +303,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Moving/BlockGreen:rotation")
+tracks/5/path = NodePath("Moving/SeeSaw/BlockGreen:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -238,7 +315,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Moving/BlockGreen:position")
+tracks/6/path = NodePath("Moving/SeeSaw/BlockGreen:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -250,7 +327,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Moving/BlockRed:position")
+tracks/7/path = NodePath("Moving/SeeSaw/BlockRed:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -262,7 +339,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Moving/BlockRed:rotation")
+tracks/8/path = NodePath("Moving/SeeSaw/BlockRed:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -274,7 +351,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Moving/Eraser:position")
+tracks/9/path = NodePath("Moving/SeeSaw/Eraser:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -286,7 +363,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Moving/Eraser:rotation")
+tracks/10/path = NodePath("Moving/SeeSaw/Eraser:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -294,6 +371,78 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.261799]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Moving/SeeSaw/BlockPink:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6368, 432)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Moving/SeeSaw/BlockPink:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BG/Fridge/FridgeShelf:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BG/Fridge/FridgeShelf2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-428.999, -330.085)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BG/Fridge/FridgeShelf:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-428.999, -579.577)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BG/Fridge/FridgeShelf5:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-428.999, -101.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adtkx"]
@@ -317,6 +466,7 @@ metadata/_edit_lock_ = true
 position = Vector2(13816, 1976)
 scale = Vector2(1.83761, 1.5616)
 texture = ExtResource("1_y0von")
+metadata/_edit_lock_ = true
 
 [node name="Cabinet" type="NinePatchRect" parent="BG"]
 offset_left = 10872.0
@@ -334,21 +484,26 @@ position = Vector2(5368, 719)
 scale = Vector2(0.78483, 0.794118)
 
 [node name="Fridge" type="Sprite2D" parent="BG"]
-position = Vector2(10400, 1284.65)
+position = Vector2(9992, 1284.65)
 scale = Vector2(2.21912, 2.34076)
 texture = ExtResource("4_1jthq")
 
 [node name="FridgeShelf" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
-position = Vector2(-122.571, -576.159)
-scale = Vector2(10.8151, 0.427212)
+position = Vector2(-428.999, -579.577)
+scale = Vector2(9.87779, 0.427212)
 
 [node name="FridgeShelf2" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
-position = Vector2(-122.571, -343.756)
-scale = Vector2(10.8151, 0.427212)
+position = Vector2(-428.999, -330.085)
+scale = Vector2(9.87779, 0.427212)
 
-[node name="FridgeShelf3" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
-position = Vector2(-122.571, -104.517)
-scale = Vector2(10.8151, 0.427212)
+[node name="FridgeShelf5" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
+position = Vector2(-428.999, -101.1)
+scale = Vector2(9.87779, 0.427212)
+
+[node name="FridgeShelf4" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
+position = Vector2(-580.41, 148.392)
+scale = Vector2(13.6567, 0.427)
+script = null
 
 [node name="Counter" type="Sprite2D" parent="BG"]
 position = Vector2(4440, 2119.88)
@@ -372,8 +527,12 @@ scale = Vector2(1.78333, 1.78333)
 position = Vector2(3888, 1648)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(556, -3.5)
+position = Vector2(1552, -3.5)
 shape = SubResource("RectangleShape2D_ehwww")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2(7048, -804)
+shape = SubResource("RectangleShape2D_12dyl")
 
 [node name="Moving" type="Node2D" parent="."]
 
@@ -389,35 +548,49 @@ position = Vector2(2344, 1568)
 scale = Vector2(0.889626, 0.934911)
 script = ExtResource("10_2pyoj")
 
-[node name="TV" parent="Moving" instance=ExtResource("12_jpran")]
-position = Vector2(5776, 991)
-scale = Vector2(3.06842, 3.06842)
+[node name="SeeSaw" type="Node2D" parent="Moving"]
 
-[node name="Safe" parent="Moving" instance=ExtResource("10_h2nw4")]
-position = Vector2(2881.63, 1216)
-scale = Vector2(2.35235, 2.35235)
-
-[node name="Ruler" parent="Moving" instance=ExtResource("16_l256e")]
+[node name="Ruler" parent="Moving/SeeSaw" instance=ExtResource("16_l256e")]
 position = Vector2(4107.08, 1333.75)
 rotation = 1.31772
 scale = Vector2(1.73, 2.19655)
 
-[node name="BlockGreen" parent="Moving" instance=ExtResource("17_bxn7k")]
+[node name="BlockGreen" parent="Moving/SeeSaw" instance=ExtResource("17_bxn7k")]
 position = Vector2(3288, 1528)
 rotation = -0.261799
 scale = Vector2(0.869748, 0.869748)
 
-[node name="BlockRed" parent="Moving" instance=ExtResource("18_2pyoj")]
+[node name="BlockRed" parent="Moving/SeeSaw" instance=ExtResource("18_2pyoj")]
 position = Vector2(4824, 424)
 scale = Vector2(1.32563, 1.32563)
 
-[node name="Eraser" parent="Moving" instance=ExtResource("20_7nly1")]
+[node name="Eraser" parent="Moving/SeeSaw" instance=ExtResource("20_7nly1")]
 position = Vector2(3544, 1456)
 rotation = -0.261799
 scale = Vector2(1.54, 1)
 
+[node name="TV" parent="Moving/SeeSaw" instance=ExtResource("12_jpran")]
+position = Vector2(5776, 991)
+scale = Vector2(3.06842, 3.06842)
+
+[node name="Safe" parent="Moving/SeeSaw" instance=ExtResource("10_h2nw4")]
+position = Vector2(2881.63, 1216)
+scale = Vector2(2.35235, 2.35235)
+
+[node name="BlockPink" parent="Moving/SeeSaw" instance=ExtResource("19_12dyl")]
+position = Vector2(6368, 432)
+
+[node name="PlainCereal2" parent="Moving/SeeSaw" instance=ExtResource("11_3qp6c")]
+position = Vector2(6952, 1567.72)
+rotation = -0.663225
+scale = Vector2(1, 1.1947)
+
+[node name="Basket" parent="Moving" instance=ExtResource("12_0do65")]
+position = Vector2(7782, 1495.5)
+scale = Vector2(0.889474, 0.836842)
+
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
-position = Vector2(688, 1480)
+position = Vector2(6328, 288)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
 position = Vector2(1000, 1440)
