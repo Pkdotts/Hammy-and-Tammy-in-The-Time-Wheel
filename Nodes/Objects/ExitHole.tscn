@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bllggmaeoy8g7"]
+[gd_scene load_steps=5 format=3 uid="uid://bllggmaeoy8g7"]
 
 [ext_resource type="Texture2D" uid="uid://ddkuvdrae4psf" path="res://Graphics/Backgrounds/hamster exit.png" id="1_jo1yp"]
 [ext_resource type="Script" uid="uid://b7nyf4umy07ew" path="res://Scripts/exit_hole.gd" id="2_jo1yp"]
+[ext_resource type="FontFile" uid="uid://b4bv2jcask75c" path="res://Fonts/arialroundedmtbold.ttf" id="3_jo1yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1ll"]
 size = Vector2(300, 336)
@@ -12,12 +13,12 @@ texture = ExtResource("1_jo1yp")
 script = ExtResource("2_jo1yp")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -90.5
-offset_top = -149.0
-offset_right = -41.5
-offset_bottom = -124.0
+offset_left = -67.5
+offset_top = -61.0
+offset_right = -13.5
+offset_bottom = -36.0
 scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("3_jo1yp")
 text = "SPACE"
 
 [node name="Area2D" type="Area2D" parent="."]

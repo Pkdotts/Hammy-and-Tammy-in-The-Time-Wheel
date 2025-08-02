@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7p5pb7wppjd"]
+[gd_scene load_steps=37 format=3 uid="uid://b7p5pb7wppjd"]
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
@@ -25,9 +25,11 @@
 [ext_resource type="Texture2D" uid="uid://bf7wny8x4p2au" path="res://Graphics/Backgrounds/big shelf/hamster big shelf top.png" id="14_tdhcy"]
 [ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="15_klv6f"]
 [ext_resource type="PackedScene" uid="uid://de2uhvv80lx3n" path="res://Nodes/Objects/shelf_top.tscn" id="18_tg84u"]
+[ext_resource type="Texture2D" uid="uid://dpkf2wjjildp7" path="res://Graphics/Backgrounds/misc/building block green.png" id="19_4psgw"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="25_qe43w"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
 [ext_resource type="PackedScene" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
+[ext_resource type="PackedScene" uid="uid://bfaqtr0iqfesi" path="res://Nodes/Objects/TutoArea.tscn" id="29_wlg8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
 size = Vector2(192, 192)
@@ -145,7 +147,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(1, 1.4, 2, 2.4, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2232, 896), Vector2(2472, 896), Vector2(3056, 1472), Vector2(3440, 1472), Vector2(3456, 1600)]
+"values": [Vector2(2242, 850), Vector2(2495, 850), Vector2(3071, 1422), Vector2(3467, 1422), Vector2(3490, 1560)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -457,9 +459,15 @@ _data = {
 &"RESET": SubResource("Animation_srpby")
 }
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
+size = Vector2(256, 240)
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point", "_reverted_spawn_point")]
+position = Vector2(1, 0)
 script = ExtResource("1_ww6wc")
 _music_name = "hamster_jazz"
+_normal_spawn_point = NodePath("Spaceship")
+_reverted_spawn_point = NodePath("BG/Shelf/ExitHole")
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -684,7 +692,7 @@ texture = ExtResource("10_yneuh")
 metadata/_edit_lock_ = true
 
 [node name="BookGreen6" parent="Static" instance=ExtResource("2_10wxd")]
-position = Vector2(2928, 1600)
+position = Vector2(2921, 1600)
 rotation = 1.5708
 scale = Vector2(0.64, 4.735)
 
@@ -693,12 +701,12 @@ texture = ExtResource("11_qe43w")
 metadata/_edit_lock_ = true
 
 [node name="BookGreen7" parent="Static" instance=ExtResource("2_10wxd")]
-position = Vector2(4016, 1608)
+position = Vector2(4095, 1608)
 rotation = 1.5708
 scale = Vector2(0.64, 5.055)
 
 [node name="BookGreen8" parent="Static" instance=ExtResource("2_10wxd")]
-position = Vector2(5104, 1520)
+position = Vector2(5113, 1520)
 rotation = 1.5708
 scale = Vector2(1.58, 5.415)
 
@@ -794,6 +802,7 @@ scale = Vector2(1.02, 1)
 
 [node name="Marble" parent="MovingElements" instance=ExtResource("6_1kui6")]
 position = Vector2(2472, 912)
+scale = Vector2(1.8, 1.8)
 
 [node name="Marble2" parent="MovingElements" instance=ExtResource("6_1kui6")]
 position = Vector2(6560, 2656)
@@ -879,6 +888,47 @@ scale = Vector2(1, 0.702538)
 
 [node name="Spaceship" parent="." instance=ExtResource("27_tg84u")]
 position = Vector2(-16, 600)
+
+[node name="Tutorial" type="Node2D" parent="."]
+position = Vector2(136, 152)
+
+[node name="Tuto1" parent="Tutorial" instance=ExtResource("29_wlg8r")]
+position = Vector2(954, 392)
+text = "Press SPACE to jump"
+metadata/_edit_group_ = true
+
+[node name="Tuto2" parent="Tutorial" instance=ExtResource("29_wlg8r")]
+position = Vector2(2118, 397)
+text = "Hold S to move
+forward in time"
+metadata/_edit_group_ = true
+
+[node name="Tuto3" parent="Tutorial" instance=ExtResource("29_wlg8r")]
+position = Vector2(5165, 1139)
+text = "Hold A to move
+backwards in time
+
+
+
+
+
+
+"
+metadata/_edit_group_ = true
+
+[node name="BlockGreen" type="Node2D" parent="Tutorial"]
+position = Vector2(873, 810)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tutorial/BlockGreen"]
+position = Vector2(136, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial/BlockGreen/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ltlk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial/BlockGreen"]
+position = Vector2(134.333, -120)
+texture = ExtResource("19_4psgw")
 
 [editable path="Static/BookGreen"]
 [editable path="Static/BookGreen2"]

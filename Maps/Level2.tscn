@@ -10,23 +10,23 @@
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
 [ext_resource type="Texture2D" uid="uid://bwqvifyn3t4vv" path="res://Graphics/Backgrounds/Cabinet Interior.png" id="5_rnxfm"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
-[ext_resource type="PackedScene" uid="uid://dpxlw6h0cjje5" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
-[ext_resource type="PackedScene" uid="uid://bxecv5khpruw6" path="res://Graphics/Backgrounds/misc/Penguin.tscn" id="9_qtnfp"]
+[ext_resource type="PackedScene" path="res://Graphics/Backgrounds/misc/Penguin.tscn" id="9_qtnfp"]
 [ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="10_2pyoj"]
-[ext_resource type="PackedScene" uid="uid://dl762getplxk3" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
-[ext_resource type="PackedScene" uid="uid://wvxtoms7hapy" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
-[ext_resource type="PackedScene" uid="uid://kb4j5xiwx0bl" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
-[ext_resource type="PackedScene" uid="uid://vryd4ldqbrcf" path="res://Nodes/Objects/CabinetShelf.tscn" id="11_dd28w"]
-[ext_resource type="PackedScene" uid="uid://tx03ovrlq5mu" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
-[ext_resource type="PackedScene" uid="uid://cddmdyb4qgojr" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/CabinetShelf.tscn" id="11_dd28w"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
-[ext_resource type="PackedScene" uid="uid://c056dcqkjkhx1" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
-[ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
-[ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
-[ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
-[ext_resource type="PackedScene" uid="uid://blgfu0ws1xb63" path="res://Nodes/Objects/GlassCup.tscn" id="21_wun4u"]
-[ext_resource type="PackedScene" uid="uid://c8e1b03n8i0y0" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
+[ext_resource type="PackedScene" uid="uid://bhtdkhh455lss" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/GlassCup.tscn" id="21_wun4u"]
+[ext_resource type="PackedScene" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
 [ext_resource type="Texture2D" uid="uid://bcngdc54hgfrm" path="res://Graphics/Effects/Grain.png" id="28_p7473"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
@@ -661,9 +661,11 @@ _data = {
 &"RESET": SubResource("Animation_bxn7k")
 }
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point", "_reverted_spawn_point")]
 script = ExtResource("1_2pyoj")
 _music_name = "hamster_moog"
+_normal_spawn_point = NodePath("BG/ExitHole2")
+_reverted_spawn_point = NodePath("BG/Cabinet/ExitHole")
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -919,9 +921,9 @@ scale = Vector2(2, 2)
 [node name="TextureRect" type="TextureRect" parent="Grain"]
 use_parent_material = true
 offset_left = -1916.0
-offset_top = -2356.0
+offset_top = -2356.05
 offset_right = 9364.0
-offset_bottom = 2276.0
+offset_bottom = 2275.95
 texture = ExtResource("28_p7473")
 expand_mode = 1
 stretch_mode = 1
