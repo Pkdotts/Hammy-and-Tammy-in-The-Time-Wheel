@@ -31,9 +31,12 @@ const JUMP_STOP := 0.35
 const COYOTE_TIME := 0.2
 
 var floor_time := 0.0
+var respawnPoint = Vector2.ZERO
+var in_front_of_door := false
 
 func _ready() -> void:
 	Global.currentHammy = self
+	respawnPoint = global_position
 
 func _physics_process(delta: float) -> void:
 	#if active:
@@ -108,7 +111,23 @@ func _gravity(delta):
 		floor_time = 0
 		#elocity.y = GRAVITY/30
 		velocity.y = 0
-		
+
+func die():
+	if active:
+		active = false
+		hide()
+		UiCanvasLayer.circle_in()
+		await UiCanvasLayer.transition.transition_finished
+		return_to_respawn()
+		UiCanvasLayer.circle_out()
+
+func set_respawn(point):
+	respawnPoint = point
+
+func return_to_respawn():
+	show()
+	global_position = respawnPoint
+	active = true
 
 func pause(): #idk if we're gonna need this tho
 	active = false
@@ -123,14 +142,14 @@ func stop_jump():
 		velocity.y *= JUMP_STOP
 
 func can_jump():
-	return floor_time < COYOTE_TIME
+	return (floor_time < COYOTE_TIME) and !in_front_of_door
 
 func at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY
 
-
 func _on_crush_detector_crushed() -> void:
-	hide()
+	if active:
+		die()
 
 func create_teleport_effect() -> void:
 	$Spawner.spawn_object()
