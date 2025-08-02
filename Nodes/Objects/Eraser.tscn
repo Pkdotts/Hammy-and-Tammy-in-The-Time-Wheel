@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://c11n1ckctkkds"]
+[gd_scene load_steps=4 format=3 uid="uid://c11n1ckctkkds"]
 
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_gew43"]
 [ext_resource type="Texture2D" uid="uid://c2528gxcywohv" path="res://Graphics/Backgrounds/misc/eraser.png" id="1_p46du"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlk7"]
-size = Vector2(248, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtmcc"]
+size = Vector2(256, 24)
 
-[node name="Eraser" type="Sprite2D"]
-texture = ExtResource("1_p46du")
+[node name="Eraser" type="Node2D"]
+script = ExtResource("1_gew43")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(112.5, -40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_ltlk7")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-144, -32, 88, -32, 128, 40, -112, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(105.5, -38)
+texture = ExtResource("1_p46du")
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(80, -88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(8, 4)
+shape = SubResource("RectangleShape2D_qtmcc")

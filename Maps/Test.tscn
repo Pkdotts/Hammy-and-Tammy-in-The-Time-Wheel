@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b86ae06e1t5d4"]
+[gd_scene load_steps=15 format=3 uid="uid://b86ae06e1t5d4"]
 
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_8ecvq"]
+[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_yc5rm"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="2_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="3_n0ck6"]
 [ext_resource type="PackedScene" uid="uid://djesekufq54t1" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
@@ -202,6 +203,12 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_yc5rm")
+
+[node name="ExitHole" parent="." instance=ExtResource("6_o20m1")]
+position = Vector2(1812, 750.5)
+scale = Vector2(0.470588, 0.508823)
+map = "uid://cfgrvfgl4osxt"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -128.0
@@ -344,8 +351,5 @@ libraries = {
 script = ExtResource("5_o20m1")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
-
-[node name="ExitHole" parent="." instance=ExtResource("6_o20m1")]
-position = Vector2(819, 702)
 
 [editable path="Platform"]

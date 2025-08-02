@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=25 format=3 uid="uid://cbd4wus3crm5l"]
 
+[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
 [ext_resource type="Texture2D" uid="uid://bcxc8hqh6atjs" path="res://Graphics/Backgrounds/Counter.png" id="2_3m7j1"]
 [ext_resource type="Texture2D" uid="uid://bbiqn0vq8ksc1" path="res://Graphics/Backgrounds/cabinet.png" id="3_1jthq"]
@@ -10,15 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
 [ext_resource type="PackedScene" uid="uid://dpxlw6h0cjje5" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
+[ext_resource type="Script" uid="uid://ofyses04japg" path="res://Scripts/platform.gd" id="10_2pyoj"]
 [ext_resource type="PackedScene" uid="uid://dl762getplxk3" path="res://Nodes/Objects/Safe.tscn" id="10_h2nw4"]
 [ext_resource type="PackedScene" uid="uid://wvxtoms7hapy" path="res://Nodes/Objects/CerealBox.tscn" id="10_y4rtb"]
 [ext_resource type="PackedScene" uid="uid://kb4j5xiwx0bl" path="res://Nodes/Objects/CerealBox2.tscn" id="11_3qp6c"]
-[ext_resource type="PackedScene" uid="uid://tx03ovrlq5mu" path="res://Nodes/Objects/Basket.tscn" id="12_0do65"]
 [ext_resource type="PackedScene" uid="uid://cddmdyb4qgojr" path="res://Nodes/Objects/TV.tscn" id="12_jpran"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
 [ext_resource type="PackedScene" uid="uid://c056dcqkjkhx1" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
 [ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
-[ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
 [ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
@@ -28,13 +28,282 @@ size = Vector2(8488, 153)
 resource_name = "Fall"
 length = 5.0
 step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Moving/CerealBoxes1/CerealBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Moving/CerealBoxes1/CerealBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1.7411),
+"update": 0,
+"values": [Vector2(2200, 1568)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Moving/CerealBoxes1/PlainCereal:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.1, 2.4),
+"transitions": PackedFloat32Array(1.7411, 1, 1),
+"update": 0,
+"values": [Vector2(2344, 1568), Vector2(2385.14, 1568), Vector2(2416, 1448)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Moving/CerealBoxes1/PlainCereal:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2.4),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Moving/Ruler:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.31772, 1.8326]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Moving/BlockGreen:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.8, 3.2, 4.2),
+"transitions": PackedFloat32Array(0.450625, 1.51572, 1),
+"update": 0,
+"values": [-0.261799, 0.0, 0.261799]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Moving/BlockGreen:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.8, 2.2, 2.6, 3, 3.5, 4, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1.51572, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3288, 1528), Vector2(3464, 600), Vector2(3648, 80), Vector2(3784, -40), Vector2(3968, 192), Vector2(4096, 824), Vector2(4152, 1248)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Moving/BlockRed:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.8, 1.2, 2.1),
+"transitions": PackedFloat32Array(1, 0.870551, 1),
+"update": 0,
+"values": [Vector2(4824, 424), Vector2(4744, 424), Vector2(4664, 1464)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Moving/BlockRed:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.2, 2.1),
+"transitions": PackedFloat32Array(0.307786, 1),
+"update": 0,
+"values": [0.0, -1.309]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Moving/Eraser:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.8, 2.8, 3.8),
+"transitions": PackedFloat32Array(0.366021, 1.27456, 1),
+"update": 0,
+"values": [Vector2(3544, 1456), Vector2(3864, 312), Vector2(4008, 1288)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Moving/Eraser:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.8, 2.8, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.261799, 0.0, 0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_bxn7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Moving/CerealBoxes1/CerealBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Moving/CerealBoxes1/CerealBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2177.63, 1159.05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Moving/CerealBoxes1/PlainCereal:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2344, 1568)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Moving/CerealBoxes1/PlainCereal:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Moving/Ruler:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.31772]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Moving/BlockGreen:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Moving/BlockGreen:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3288, 1528)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Moving/BlockRed:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4824, 424)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Moving/BlockRed:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Moving/Eraser:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3544, 1456)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Moving/Eraser:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adtkx"]
 _data = {
-&"Fall": SubResource("Animation_85dgj")
+&"Fall": SubResource("Animation_85dgj"),
+&"RESET": SubResource("Animation_bxn7k")
 }
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_2pyoj")
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -45,10 +314,9 @@ texture = ExtResource("1_y0von")
 metadata/_edit_lock_ = true
 
 [node name="Wall2" type="Sprite2D" parent="BG"]
-position = Vector2(14272, 1976)
+position = Vector2(13816, 1976)
 scale = Vector2(1.83761, 1.5616)
 texture = ExtResource("1_y0von")
-metadata/_edit_lock_ = true
 
 [node name="Cabinet" type="NinePatchRect" parent="BG"]
 offset_left = 10872.0
@@ -79,17 +347,20 @@ position = Vector2(-122.571, -343.756)
 scale = Vector2(10.8151, 0.427212)
 
 [node name="FridgeShelf3" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
-position = Vector2(-122.571, -152.365)
+position = Vector2(-122.571, -104.517)
 scale = Vector2(10.8151, 0.427212)
 
 [node name="Counter" type="Sprite2D" parent="BG"]
 position = Vector2(4440, 2119.88)
 scale = Vector2(2.48799, 2.28062)
 texture = ExtResource("2_3m7j1")
+metadata/_edit_lock_ = true
 
 [node name="ExitHole2" parent="BG" instance=ExtResource("5_adtkx")]
 position = Vector2(688, 1432)
 scale = Vector2(0.78483, 0.794118)
+backwards_door = true
+map = "uid://cfgrvfgl4osxt"
 
 [node name="Basket" parent="BG" instance=ExtResource("7_h7ych")]
 position = Vector2(4120, 1459)
@@ -106,13 +377,17 @@ shape = SubResource("RectangleShape2D_ehwww")
 
 [node name="Moving" type="Node2D" parent="."]
 
-[node name="CerealBox" parent="Moving" instance=ExtResource("10_y4rtb")]
-position = Vector2(2177.63, 1159.05)
-scale = Vector2(1.12861, 1.19439)
+[node name="CerealBoxes1" type="Node2D" parent="Moving"]
 
-[node name="PlainCereal" parent="Moving" instance=ExtResource("11_3qp6c")]
-position = Vector2(2405.25, 1155.52)
-scale = Vector2(1.29787, 1.22034)
+[node name="CerealBox" parent="Moving/CerealBoxes1" instance=ExtResource("10_y4rtb")]
+position = Vector2(2177.63, 1159.05)
+scale = Vector2(0.733348, 1.14964)
+script = ExtResource("10_2pyoj")
+
+[node name="PlainCereal" parent="Moving/CerealBoxes1" instance=ExtResource("11_3qp6c")]
+position = Vector2(2344, 1568)
+scale = Vector2(0.889626, 0.934911)
+script = ExtResource("10_2pyoj")
 
 [node name="TV" parent="Moving" instance=ExtResource("12_jpran")]
 position = Vector2(5776, 991)
@@ -122,11 +397,27 @@ scale = Vector2(3.06842, 3.06842)
 position = Vector2(2881.63, 1216)
 scale = Vector2(2.35235, 2.35235)
 
-[node name="Basket" parent="Moving" instance=ExtResource("12_0do65")]
-position = Vector2(8328, -1184)
+[node name="Ruler" parent="Moving" instance=ExtResource("16_l256e")]
+position = Vector2(4107.08, 1333.75)
+rotation = 1.31772
+scale = Vector2(1.73, 2.19655)
+
+[node name="BlockGreen" parent="Moving" instance=ExtResource("17_bxn7k")]
+position = Vector2(3288, 1528)
+rotation = -0.261799
+scale = Vector2(0.869748, 0.869748)
+
+[node name="BlockRed" parent="Moving" instance=ExtResource("18_2pyoj")]
+position = Vector2(4824, 424)
+scale = Vector2(1.32563, 1.32563)
+
+[node name="Eraser" parent="Moving" instance=ExtResource("20_7nly1")]
+position = Vector2(3544, 1456)
+rotation = -0.261799
+scale = Vector2(1.54, 1)
 
 [node name="Hammy" parent="." instance=ExtResource("5_ehwww")]
-position = Vector2(4240, 1000)
+position = Vector2(688, 1480)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("attachedNode") instance=ExtResource("6_5cy0i")]
 position = Vector2(1000, 1440)
@@ -139,23 +430,3 @@ libraries = {
 script = ExtResource("8_85dgj")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
-
-[node name="Ruler" parent="." instance=ExtResource("16_l256e")]
-position = Vector2(4107.08, 1333.75)
-rotation = 1.5708
-scale = Vector2(1.73, 2.19655)
-
-[node name="BlockGreen" parent="." instance=ExtResource("17_bxn7k")]
-position = Vector2(3405.05, 1205.25)
-scale = Vector2(0.869748, 0.869748)
-
-[node name="BlockRed" parent="." instance=ExtResource("18_2pyoj")]
-position = Vector2(5000, 264)
-scale = Vector2(1.32563, 1.32563)
-
-[node name="BlockRed2" parent="." instance=ExtResource("19_12dyl")]
-position = Vector2(4347.43, 1179.38)
-scale = Vector2(1.17122, 1.17122)
-
-[node name="Eraser" parent="." instance=ExtResource("20_7nly1")]
-position = Vector2(3672, 1272)

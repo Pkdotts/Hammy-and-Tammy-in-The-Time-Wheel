@@ -40,8 +40,8 @@ func _ready():
 	
 
 func _on_time_changed():
-	var difference = min(abs(TimeManager.MAXTIME - TimeManager.get_current_time()), TimeManager.get_current_time())
-	if difference < TimeManager.LOOPAPPROACHPOINT:
+	if TimeManager.is_approaching_loop():
+		var difference = TimeManager.get_distance_from_loop_point()
 		material.set_shader_parameter("flash_modifier", 1 - (difference / TimeManager.LOOPAPPROACHPOINT))
 	else:
 		material.set_shader_parameter("flash_modifier", 0)

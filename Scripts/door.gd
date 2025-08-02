@@ -20,8 +20,6 @@ var activeDoor = true
 @onready var newpos = $Position2D
 
 
-func _ready():
-	set_process(false)
 
 func _process(_delta):
 	if currentState != 0:
@@ -36,8 +34,6 @@ func _process(_delta):
 					_change_scene()
 					#_move_player()
 					
-				else :
-					_goto()
 				if dir != Vector2.ZERO:
 					player.animationTree.active = true
 					player.direction = dir
@@ -68,24 +64,6 @@ func _process(_delta):
 
 func _change_scene():
 	Global.goto_scene("res://Maps/" + targetScene + ".tscn", Vector2(targetX, targetY - 7))
-
-func _move_player():
-	player.global_position.x = targetX
-	player.global_position.y = targetY - 7
-	emit_signal("moved_player")
-	await get_tree().process_frame
-	
-
-func _goto():
-	#var cam = Global.persistPlayer.get_node("Camera2D")
-	player.global_position.x = newpos.global_position.x
-	player.global_position.y = newpos.global_position.y - 7
-	emit_signal("moved_player")
-	#cam.limit_top = -10000000
-	#cam.limit_left = -10000000
-	#cam.limit_right = 10000000
-	#cam.limit_bottom = 10000000
-	#cam.smoothing_enabled = false
 
 func fade_in():
 	fade_done = false

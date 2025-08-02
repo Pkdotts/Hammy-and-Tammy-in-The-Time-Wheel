@@ -7,8 +7,11 @@ size = Vector2(176, 672)
 
 [node name="PlainCereal" type="Sprite2D"]
 texture = ExtResource("1_a4xqq")
+centered = false
+offset = Vector2(0, -676)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(96, -336)
 shape = SubResource("RectangleShape2D_ltlk7")

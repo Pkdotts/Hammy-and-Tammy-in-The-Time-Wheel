@@ -1,3 +1,11 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bb2ibxe0jnmc8"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb2ibxe0jnmc8"]
+
+[ext_resource type="Shader" uid="uid://da1tr73tryq31" path="res://Shaders/Fade.gdshader" id="1_xlkvi"]
 
 [resource]
+shader = ExtResource("1_xlkvi")
+shader_parameter/cut = 1.0
+shader_parameter/Size = 1.0
+shader_parameter/screenWidth = 320.0
+shader_parameter/screenHeight = 180.0
+shader_parameter/fade = 1

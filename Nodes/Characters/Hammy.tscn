@@ -165,6 +165,7 @@ floor_stop_on_slope = false
 floor_block_on_wall = false
 floor_max_angle = 0.523599
 floor_snap_length = 16.0
+platform_wall_layers = 1
 script = ExtResource("1_fic1p")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -211,6 +212,7 @@ position = Vector2(0, 41)
 shape = SubResource("CircleShape2D_kcjdg")
 
 [node name="CrushDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
 script = ExtResource("5_btdtw")
 
 [node name="Spawner" type="Node2D" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://oe3jaloxccjq"]
 
-[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="1_u5n15"]
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="1_u5n15"]
 [ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="2_u5n15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlos"]
@@ -28,8 +28,3 @@ shape = SubResource("RectangleShape2D_mjlos")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-2.90909, 0)
 shape = SubResource("RectangleShape2D_as3r0")
-
-[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
-[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
-[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
-[connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]

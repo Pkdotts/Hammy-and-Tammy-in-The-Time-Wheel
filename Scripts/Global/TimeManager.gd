@@ -31,3 +31,9 @@ func get_current_time() -> float:
 
 func get_point_in_time(value) -> float:
 	return time/MAXTIME * value
+
+func get_distance_from_loop_point() -> float:
+	return min(abs(TimeManager.MAXTIME - TimeManager.get_current_time()), TimeManager.get_current_time())
+
+func is_approaching_loop() -> bool:
+	return get_distance_from_loop_point() < LOOPAPPROACHPOINT

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djesekufq54t1"]
 
-[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_test.gd" id="2_0trwq"]
+[ext_resource type="Script" uid="uid://bun2b3la0ao2d" path="res://Nodes/platform_moving.gd" id="2_0trwq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ica26"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -28,8 +28,3 @@ position = Vector2(0, -96)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_ica26")
-
-[connection signal="area_entered" from="Teleporter" to="." method="_on_teleporter_area_entered"]
-[connection signal="area_exited" from="Teleporter" to="." method="_on_teleporter_area_exited"]
-[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
-[connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]
