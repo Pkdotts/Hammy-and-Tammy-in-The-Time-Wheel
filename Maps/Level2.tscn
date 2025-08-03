@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=38 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
 [ext_resource type="PackedScene" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 [ext_resource type="PackedScene" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
+[ext_resource type="Script" uid="uid://428lyf2c30ku" path="res://Scripts/check_point.gd" id="27_dd28w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
@@ -659,6 +660,9 @@ _data = {
 &"RESET": SubResource("Animation_bxn7k")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vku0"]
+size = Vector2(262, 795)
+
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point", "_reverted_spawn_point")]
 script = ExtResource("1_2pyoj")
 _music_name = "hamster_moog"
@@ -917,3 +921,19 @@ libraries = {
 script = ExtResource("8_85dgj")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
+
+[node name="CheckPoint1" type="Area2D" parent="."]
+position = Vector2(5747, 320)
+script = ExtResource("27_dd28w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint1"]
+position = Vector2(-2, -374.5)
+shape = SubResource("RectangleShape2D_1vku0")
+
+[node name="CheckPoint2" type="Area2D" parent="."]
+position = Vector2(9214, -728)
+script = ExtResource("27_dd28w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint2"]
+position = Vector2(0, -302)
+shape = SubResource("RectangleShape2D_1vku0")
