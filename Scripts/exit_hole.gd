@@ -1,9 +1,12 @@
 extends Sprite2D
 
 @export var backwards_door := false
+@export var cheese_room := false
 
 func _ready() -> void:
 	$Label.modulate.a = 0.0
+	if cheese_room:
+		texture = preload("res://Graphics/Backgrounds/cheese_room_exit.png")
 
 func _is_active():
 	return (Global.got_cheese == backwards_door)
