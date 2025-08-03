@@ -17,6 +17,7 @@ blend_mode = 3
 
 [node name="CheeseRoom" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point")]
 script = ExtResource("1_cgdv8")
+_music_name = "cheese_room"
 _normal_spawn_point = NodePath("Spawn")
 
 [node name="BG" type="Node2D" parent="."]
