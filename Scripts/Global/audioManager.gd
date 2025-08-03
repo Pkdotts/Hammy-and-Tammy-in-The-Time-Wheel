@@ -14,7 +14,9 @@ func _input(event: InputEvent) -> void:
 		AudioServer.set_bus_mute(2, _mute_state == 2)
 
 func play_music(music_name: String, fade_previous: bool = false):
-	if _current_music != "" and _current_music != music_name and _get_current_music_player().playing:
+	if _current_music == music_name:
+		return
+	if _current_music != "" and _get_current_music_player().playing:
 		if fade_previous:
 			await fadeout_music()
 		else:
