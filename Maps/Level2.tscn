@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=41 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -23,9 +23,14 @@
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="16_l256e"]
 [ext_resource type="PackedScene" uid="uid://bhtdkhh455lss" path="res://Nodes/Objects/BlockGreen.tscn" id="17_bxn7k"]
 [ext_resource type="PackedScene" uid="uid://j530hxdhljpd" path="res://Nodes/Objects/BlockYellow.tscn" id="18_2pyoj"]
+[ext_resource type="Texture2D" uid="uid://dhl3p2wtmgh1g" path="res://Graphics/Backgrounds/misc/laying fox clock.png" id="18_xhsbi"]
 [ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
+[ext_resource type="Texture2D" uid="uid://5fvk4au8r8mw" path="res://Graphics/Backgrounds/misc/medium plant.png" id="19_64ic5"]
 [ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 [ext_resource type="PackedScene" uid="uid://c8e1b03n8i0y0" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
+[ext_resource type="Texture2D" uid="uid://bv215m6lwpe0h" path="res://Graphics/Backgrounds/misc/small plant.png" id="27_n2i7y"]
+[ext_resource type="Texture2D" uid="uid://brxi81hcbdqnt" path="res://Graphics/Backgrounds/misc/wall clock.png" id="28_1vku0"]
+[ext_resource type="Texture2D" uid="uid://cwvkso2uo41g6" path="res://Graphics/Backgrounds/misc/blue chair.png" id="29_xhsbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
@@ -776,6 +781,28 @@ position = Vector2(7936, -632)
 scale = Vector2(0.672123, 0.672123)
 script = null
 
+[node name="SmallPlant" type="Sprite2D" parent="BG"]
+position = Vector2(10320, -768)
+texture = ExtResource("27_n2i7y")
+
+[node name="WallClock" type="Sprite2D" parent="BG"]
+position = Vector2(5744, -72)
+texture = ExtResource("28_1vku0")
+
+[node name="BlueChair" type="Sprite2D" parent="BG"]
+position = Vector2(-416, 1944)
+scale = Vector2(2.76255, 2.76255)
+texture = ExtResource("29_xhsbi")
+flip_h = true
+
+[node name="LayingFoxClock" type="Sprite2D" parent="BG"]
+position = Vector2(7952, -1616)
+texture = ExtResource("18_xhsbi")
+
+[node name="MediumPlant" type="Sprite2D" parent="BG"]
+position = Vector2(9624, -1776)
+texture = ExtResource("19_64ic5")
+
 [node name="Collisions" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
@@ -807,6 +834,10 @@ shape = SubResource("RectangleShape2D_n2i7y")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
 position = Vector2(7048, -804)
+shape = SubResource("RectangleShape2D_12dyl")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2(-3944, 416)
 shape = SubResource("RectangleShape2D_12dyl")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
