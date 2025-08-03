@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_kkr3b"]
 resource_name = "CreditsFadeIn"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

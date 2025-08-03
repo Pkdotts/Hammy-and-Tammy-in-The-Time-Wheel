@@ -101,7 +101,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="StripIntervalTimer" type="Timer" parent="."]
