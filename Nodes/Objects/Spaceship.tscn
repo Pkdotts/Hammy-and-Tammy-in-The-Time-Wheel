@@ -7,43 +7,43 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6yen"]
 size = Vector2(25, 170)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bohcn"]
-atlas = ExtResource("3_wy4fk")
-region = Rect2(0, 0, 175, 133)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_u70h8"]
 atlas = ExtResource("3_wy4fk")
 region = Rect2(175, 0, 175, 133)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6e0sm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bohcn"]
 atlas = ExtResource("3_wy4fk")
-region = Rect2(350, 0, 175, 133)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0q7dy"]
-atlas = ExtResource("3_wy4fk")
-region = Rect2(0, 133, 175, 133)
+region = Rect2(0, 0, 175, 133)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_054ln"]
 atlas = ExtResource("3_wy4fk")
 region = Rect2(175, 133, 175, 133)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7dy"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(0, 133, 175, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e0sm"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(350, 0, 175, 133)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qylld"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bohcn")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_u70h8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6e0sm")
+"texture": SubResource("AtlasTexture_bohcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_054ln")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0q7dy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_054ln")
+"texture": SubResource("AtlasTexture_6e0sm")
 }],
 "loop": true,
 "name": &"beam",
@@ -51,19 +51,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u70h8")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_bohcn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_054ln")
+"texture": SubResource("AtlasTexture_u70h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e0sm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0q7dy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6e0sm")
+"texture": SubResource("AtlasTexture_054ln")
 }],
 "loop": true,
 "name": &"beam_rev",
@@ -84,7 +84,7 @@ shape = SubResource("RectangleShape2D_f6yen")
 position = Vector2(-48, 200)
 sprite_frames = SubResource("SpriteFrames_qylld")
 animation = &"beam_rev"
-frame_progress = 0.778635
+frame_progress = 0.674071
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-48, 24)

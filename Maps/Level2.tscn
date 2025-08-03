@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cfdkt4rd7ecg8" path="res://Nodes/Objects/BlockPink.tscn" id="19_12dyl"]
 [ext_resource type="PackedScene" uid="uid://c11n1ckctkkds" path="res://Nodes/Objects/Eraser.tscn" id="20_7nly1"]
 [ext_resource type="PackedScene" uid="uid://c8e1b03n8i0y0" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
-[ext_resource type="Script" path="res://Scripts/check_point.gd" id="27_dd28w"]
+[ext_resource type="Script" uid="uid://428lyf2c30ku" path="res://Scripts/check_point.gd" id="27_dd28w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cy0i"]
 size = Vector2(64, 64)

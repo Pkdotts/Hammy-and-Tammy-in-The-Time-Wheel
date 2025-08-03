@@ -174,7 +174,7 @@ func _stop_jump():
 		velocity.y *= JUMP_STOP
 
 func _can_jump():
-	return (floor_time < COYOTE_TIME or amount_colliding > 1)  and !in_front_of_door
+	return (floor_time < COYOTE_TIME or amount_colliding > 2)  and !in_front_of_door
 
 func _at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY

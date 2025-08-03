@@ -18,6 +18,7 @@ func _play_anim() -> void:
 
 func goto_title():
 	UiCanvasLayer.circle_transition()
+	AudioManager.fadeout_music()
 	await UiCanvasLayer.transition.transition_finished
-	Global.change_scenes("Title Screen")
+	Global.change_scenes("SplashScreen")
 	Global.reset_data()
