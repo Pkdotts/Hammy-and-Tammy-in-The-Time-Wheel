@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cutgslcv0jlwh"]
+
+[ext_resource type="Script" uid="uid://dnk5gdgdhrrh8" path="res://Scripts/UI/timer.gd" id="1_npa5i"]
+[ext_resource type="FontFile" uid="uid://b4bv2jcask75c" path="res://Fonts/arialroundedmtbold.ttf" id="2_x76a5"]
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_npa5i")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1504.0
+offset_top = 16.0
+offset_right = 1896.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_x76a5")
+theme_override_font_sizes/font_size = 50
+text = "3:00.00"
+horizontal_alignment = 2

@@ -125,7 +125,7 @@ func _gravity(delta):
 		#elocity.y = GRAVITY/30
 		velocity.y = 0
 
-func _die():
+func _die(return_to_cheese = false):
 	if _action_started:
 		_action_started = false
 		hide()
@@ -141,7 +141,10 @@ func _die():
 		UiCanvasLayer.circle_in()
 		await UiCanvasLayer.transition.transition_finished
 		Global.current_tammy.reset()
-		_return_to_respawn()
+		if return_to_cheese:
+			_return_to_cheese()
+		else:
+			_return_to_respawn()
 
 func _set_collisions(enabled):
 	set_collision_layer_value(1, enabled)
@@ -156,6 +159,11 @@ func _return_to_respawn(checkpoint: bool = true):
 	await UiCanvasLayer.transition.transition_finished
 	Global.persist_camera.teleport_to_node()
 	_action_started = true
+
+func _return_to_cheese():
+	Global.change_scenes("CheeseRoom")
+	UiCanvasLayer.circle_out()
+	
 
 func pause(): #idk if we're gonna need this tho
 	animationState.travel("Idle")

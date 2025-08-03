@@ -10,11 +10,13 @@ var _current_checkpoint: Node2D = null
 func _ready() -> void:
 	if UiCanvasLayer.tammy_ui == null:
 		UiCanvasLayer.add_tammy_ui()
-
-	if _music_name:
-		AudioManager.play_music(_music_name)
+	if Global.got_cheese:
+		AudioManager.play_music("title_screen")
 	else:
-		AudioManager.stop_music()
+		if _music_name:
+			AudioManager.play_music(_music_name)
+		else:
+			AudioManager.stop_music()
 
 func get_spawn_position(checkpoint: bool = true) -> Vector2:
 	var node: Node2D

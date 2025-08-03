@@ -3,10 +3,12 @@ extends CanvasLayer
 @onready var TransitionUI = preload("res://UI/Transition.tscn")
 @onready var TammyUI = preload("res://UI/TammyUI.tscn")
 @onready var vignette_ui = preload("res://UI/vignette.tscn")
+@onready var TimerUI = preload("res://UI/Timer.tscn")
 
 var transition : Transition = null
 var tammy_ui = null
 var vignette = null
+var timer = null
 
 func add_tammy_ui():
 	erase_tammy_ui()
@@ -27,6 +29,16 @@ func erase_vignette_ui():
 	if vignette != null:
 		vignette.queue_free()
 		vignette = null
+
+func add_timer_ui():
+	erase_timer_ui()
+	timer = TimerUI.instantiate()
+	add_child(timer)
+
+func erase_timer_ui():
+	if timer != null:
+		timer.queue_free()
+		timer = null
 
 func erase_transition():
 	if transition != null:
