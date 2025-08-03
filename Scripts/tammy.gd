@@ -76,7 +76,6 @@ func reset():
 	spin_speed = 0.0
 	spin_direction = 0.0
 	animationState.travel("Idle")
-	_set_time(105)
 
 func _add_time(amount: int, delta: float = 1.0):
 	TimeManager.add_time(amount * spin_direction * spin_speed * delta)

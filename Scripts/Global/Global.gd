@@ -34,7 +34,7 @@ func change_scenes(scene_id: String):
 	get_tree().change_scene_to_file("res://Maps/%s.tscn" % scene_id)
 	UiCanvasLayer.erase_vignette_ui()
 	if current_tammy != null:
-		current_tammy._set_time(105)
+		current_tammy._set_time(110)
 
 func reset_data():
 	got_cheese = false
