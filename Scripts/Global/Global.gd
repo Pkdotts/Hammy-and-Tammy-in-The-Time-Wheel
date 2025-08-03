@@ -31,6 +31,9 @@ func load_game():
 func change_scenes(scene_id: String):
 	get_tree().change_scene_to_file("res://Maps/%s.tscn" % scene_id)
 
+func reset_data():
+	got_cheese = false
+
 func goto_next_level():
 	var current_level = _get_current_scene().name
 	var level_idx = LEVELS.find(current_level)
