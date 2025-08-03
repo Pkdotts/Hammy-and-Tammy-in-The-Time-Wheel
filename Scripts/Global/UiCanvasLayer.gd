@@ -2,9 +2,11 @@ extends CanvasLayer
 
 @onready var transition_ui = preload("res://UI/Transition.tscn")
 @onready var tammy_ui = preload("res://UI/TammyUI.tscn")
+@onready var vignette_ui = preload("res://UI/vignette.tscn")
 
 var transition : Transition = null
 var tammy : Tammy = null
+var vignette = null
 
 func add_tammy_ui():
 	erase_tammy_ui()
@@ -16,7 +18,15 @@ func erase_tammy_ui():
 		tammy.queue_free()
 		tammy = null
 
+func add_vignette_ui():
+	erase_vignette_ui()
+	vignette = vignette_ui.instantiate()
+	add_child(vignette)
 
+func erase_vignette_ui():
+	if vignette != null:
+		vignette.queue_free()
+		vignette = null
 
 func erase_transition():
 	if transition != null:

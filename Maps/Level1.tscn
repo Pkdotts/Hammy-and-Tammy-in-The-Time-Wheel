@@ -463,7 +463,6 @@ _data = {
 size = Vector2(256, 240)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point", "_reverted_spawn_point")]
-position = Vector2(1, 0)
 script = ExtResource("1_ww6wc")
 _music_name = "hamster_jazz"
 _normal_spawn_point = NodePath("Spaceship")

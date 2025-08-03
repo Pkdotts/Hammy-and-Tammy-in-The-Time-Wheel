@@ -6,6 +6,7 @@ class_name Level extends Node2D
 @export var _reverted_spawn_point: Node
 
 func _ready() -> void:
+	UiCanvasLayer.add_vignette_ui()
 	if UiCanvasLayer.tammy == null:
 		UiCanvasLayer.add_tammy_ui()
 
@@ -18,4 +19,5 @@ func get_spawn_position() -> Vector2:
 func end_level():
 	UiCanvasLayer.circle_transition()
 	await UiCanvasLayer.transition.transition_finished
+	UiCanvasLayer.erase_vignette_ui()
 	Global.goto_next_level()

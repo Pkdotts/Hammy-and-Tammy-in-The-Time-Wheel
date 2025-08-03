@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3svthw25r4l1"]
+
+[ext_resource type="Texture2D" uid="uid://bcngdc54hgfrm" path="res://Graphics/Effects/Grain.png" id="1_ftuyf"]
+
+[node name="Grain" type="CanvasLayer"]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+follow_viewport_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.239216)
+offset_left = -7536.0
+offset_top = -5748.0
+offset_right = 17176.0
+offset_bottom = 8860.0
+texture = ExtResource("1_ftuyf")
+stretch_mode = 1

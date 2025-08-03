@@ -17,7 +17,6 @@ const SPIN_SPEED_SFX_THRESHOLD := 0.1
 
 func _ready() -> void:
 	await get_tree().process_frame
-	TimeManager.add_time(100)
 	$AnimationTree.active = true
 
 func _flip(enabled: bool):

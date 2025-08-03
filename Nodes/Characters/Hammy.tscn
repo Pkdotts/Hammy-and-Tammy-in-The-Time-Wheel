@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c12t7hjgom6ao"]
+[gd_scene load_steps=33 format=3 uid="uid://c12t7hjgom6ao"]
 
 [ext_resource type="Script" uid="uid://d0u8jkch7cah3" path="res://Scripts/hammy.gd" id="1_fic1p"]
 [ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Hammy.png" id="2_wmlf5"]
@@ -95,14 +95,36 @@ tracks/0/keys = {
 "values": [10, 9]
 }
 
+[sub_resource type="Animation" id="Animation_pfuqf"]
+resource_name = "Hole"
+length = 0.500008
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo0j"]
 _data = {
+&"Hole": SubResource("Animation_pfuqf"),
 &"Idle": SubResource("Animation_fcgtr"),
 &"RESET": SubResource("Animation_g27f7"),
 &"Run": SubResource("Animation_2ld4p"),
 &"TurnIdle": SubResource("Animation_0xo0j"),
 &"TurnRun": SubResource("Animation_542mk")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pfuqf"]
+animation = &"Hole"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_542mk"]
 animation = &"Idle"
@@ -145,7 +167,13 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xo0j"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_msu10"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8fkp"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kcjdg"]
+states/Hole/node = SubResource("AnimationNodeAnimation_pfuqf")
+states/Hole/position = Vector2(395, -6)
 states/Idle/node = SubResource("AnimationNodeAnimation_542mk")
 states/Idle/position = Vector2(409.333, 78)
 states/Run/node = SubResource("AnimationNodeBlendTree_cqeve")
@@ -154,7 +182,8 @@ states/TurnIdle/node = SubResource("AnimationNodeAnimation_2ld4p")
 states/TurnIdle/position = Vector2(602.667, 170.889)
 states/TurnRun/node = SubResource("AnimationNodeAnimation_vvetp")
 states/TurnRun/position = Vector2(252.444, 164.519)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r8ynv"), "Idle", "TurnRun", SubResource("AnimationNodeStateMachineTransition_80bak"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_ad4cc"), "TurnRun", "Run", SubResource("AnimationNodeStateMachineTransition_vvetp"), "TurnIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_fcgtr"), "Run", "TurnIdle", SubResource("AnimationNodeStateMachineTransition_g27f7"), "TurnIdle", "Run", SubResource("AnimationNodeStateMachineTransition_0xo0j")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r8ynv"), "Idle", "TurnRun", SubResource("AnimationNodeStateMachineTransition_80bak"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_ad4cc"), "TurnRun", "Run", SubResource("AnimationNodeStateMachineTransition_vvetp"), "TurnIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_fcgtr"), "Run", "TurnIdle", SubResource("AnimationNodeStateMachineTransition_g27f7"), "TurnIdle", "Run", SubResource("AnimationNodeStateMachineTransition_0xo0j"), "Idle", "Hole", SubResource("AnimationNodeStateMachineTransition_msu10"), "Hole", "Idle", SubResource("AnimationNodeStateMachineTransition_l8fkp")]
+graph_offset = Vector2(-41, -80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcjdg"]
 radius = 48.0
@@ -173,7 +202,7 @@ position = Vector2(0, 29)
 scale = Vector2(0.39, 0.39)
 texture = ExtResource("2_wmlf5")
 hframes = 5
-vframes = 4
+vframes = 5
 frame = 10
 
 [node name="HammyBall" type="Sprite2D" parent="."]

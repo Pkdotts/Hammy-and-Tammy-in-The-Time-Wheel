@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ojsr1cr35bn"]
+[gd_scene load_steps=10 format=3 uid="uid://ojsr1cr35bn"]
 
 [ext_resource type="Script" uid="uid://dtqu38680kphj" path="res://Scripts/UI/SplashScreen.gd" id="1_wi8jp"]
 [ext_resource type="Texture2D" uid="uid://chguwxri6pfxs" path="res://Graphics/UI/SplashScreen.png" id="2_lc2w7"]
+[ext_resource type="Texture2D" uid="uid://cjcq54fpibn0s" path="res://Graphics/UI/credits.png" id="3_lc2w7"]
 
 [sub_resource type="Animation" id="Animation_kkr3b"]
 resource_name = "CreditsFadeIn"
@@ -9,7 +10,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:modulate")
+tracks/0/path = NodePath("../Credits:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +38,7 @@ length = 0.333337
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:modulate")
+tracks/0/path = NodePath("../Credits:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,7 +78,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Label:modulate")
+tracks/1/path = NodePath("../Credits:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -105,7 +106,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Label:modulate")
+tracks/1/path = NodePath("../Credits:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -132,7 +133,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Label:modulate")
+tracks/1/path = NodePath("../Credits:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -166,25 +167,15 @@ position = Vector2(960, 540)
 scale = Vector2(6, 6)
 texture = ExtResource("2_lc2w7")
 
+[node name="Credits" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(960, 540)
+texture = ExtResource("3_lc2w7")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SplashScreen")
 libraries = {
 &"": SubResource("AnimationLibrary_kkr3b")
 }
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(0, 0, 0, 0)
-layout_mode = 0
-offset_left = 6.0
-offset_top = 288.0
-offset_right = 1915.0
-offset_bottom = 825.0
-theme_override_font_sizes/font_size = 76
-text = "GAME DESIGN BY PKDOTTS
-PROGRAMMING BY PKDOTTS, DANIONEL, JUMPMAN
-ART BY ODINSILLYDOODLE AND NOBONOKO
-MUSIC BY NOBONOKO
-"
-horizontal_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -30,6 +30,7 @@ func load_game():
 
 func change_scenes(scene_id: String):
 	get_tree().change_scene_to_file("res://Maps/%s.tscn" % scene_id)
+	TimeManager.set_time(100)
 
 func reset_data():
 	got_cheese = false

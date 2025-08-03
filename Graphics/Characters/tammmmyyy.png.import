@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcngdc54hgfrm"
-path="res://.godot/imported/Grain.png-e4a5b8fff2b51c6441970eefa63cd1d5.ctex"
+uid="uid://1moogmthvnlr"
+path="res://.godot/imported/tammmmyyy.png-11bb585ba042b09758d977005fa8bf52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Effects/Grain.png"
-dest_files=["res://.godot/imported/Grain.png-e4a5b8fff2b51c6441970eefa63cd1d5.ctex"]
+source_file="res://Graphics/Characters/tammmmyyy.png"
+dest_files=["res://.godot/imported/tammmmyyy.png-11bb585ba042b09758d977005fa8bf52.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=1.0
+compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

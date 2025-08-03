@@ -13,9 +13,27 @@ script = ExtResource("1_cgdv8")
 _normal_spawn_point = NodePath("ExitHole")
 _reverted_spawn_point = NodePath("ExitHole")
 
-[node name="Node2D" type="Sprite2D" parent="."]
+[node name="BG" type="Node2D" parent="."]
+position = Vector2(-320, 584)
+scale = Vector2(0.415, 0.415)
+
+[node name="Node2D" type="Sprite2D" parent="BG"]
 position = Vector2(3232, -197)
 texture = ExtResource("2_mcyvh")
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+position = Vector2(6457.83, -58.8101)
+scale = Vector2(0.493813, 0.459346)
+texture = ExtResource("4_5o67o")
+
+[node name="Cheese" parent="BG" instance=ExtResource("5_2gfeq")]
+position = Vector2(6457.83, 372.108)
+scale = Vector2(0.378942, 0.378942)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BG/StaticBody2D"]
+polygon = PackedVector2Array(-1269, 1028, 1950, 1015, 3271, 556, 7731, 545, 7731, 1499, -1258, 1494, -1258, 1494)
 
 [node name="ExitHole" parent="." instance=ExtResource("3_6q7to")]
 position = Vector2(-540, 840)
@@ -23,23 +41,9 @@ scale = Vector2(1, 1)
 backwards_door = true
 cheese_room = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6492, -677.75)
-scale = Vector2(1, 0.930202)
-texture = ExtResource("4_5o67o")
-
-[node name="Cheese" parent="." instance=ExtResource("5_2gfeq")]
-position = Vector2(6489, 15)
-scale = Vector2(1, 1)
-
 [node name="Hammy" parent="." instance=ExtResource("6_7w2ri")]
-position = Vector2(-16, 872)
+position = Vector2(-512, 920)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("7_xngtn")]
 position = Vector2(152, 736)
 _attached_node = NodePath("../Hammy")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-1269, 1028, 1950, 1015, 3271, 556, 7731, 545, 7731, 1499, -1258, 1494, -1258, 1494)

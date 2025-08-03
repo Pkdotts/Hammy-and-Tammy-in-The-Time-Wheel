@@ -40,7 +40,7 @@ func _ready() -> void:
 	global_position = Global.get_current_level().get_spawn_position()
 
 func _physics_process(delta: float) -> void:
-	if visible:
+	if visible and !_paused:
 		if _action_started:
 			_controls()
 		_movement(delta)
@@ -58,7 +58,6 @@ func _controls():
 		direction.x = inputVector.x
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		AudioManager.play_sfx("jump")
 		$BufferTimer.start()
 	if Input.is_action_just_released("ui_accept"):
 		if !is_on_floor():
@@ -93,9 +92,14 @@ func _movement(delta):
 
 func _jump(_delta):
 	if can_jump() and $BufferTimer.time_left > 0.0:
+		AudioManager.play_sfx("jump")
 		velocity.y = -JUMP_FORCE
 		floor_time = COYOTE_TIME
-		
+
+func _hole():
+	_paused = true
+	animationState.travel("Hole")
+
 
 func _gravity(delta):
 	if !is_on_floor():
