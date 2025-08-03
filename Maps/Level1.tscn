@@ -45,11 +45,11 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("MovingElements/Shelf:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1.2, 1),
 "update": 0,
 "values": [Vector2(5152, 544), Vector2(5152, 1328)]
 }
@@ -69,11 +69,11 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("MovingElements/Shelf2:position")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(1, 2.9),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1.36604, 1),
 "update": 0,
 "values": [Vector2(4232, -160), Vector2(4232, 1515.8)]
 }
@@ -93,11 +93,11 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("MovingElements/BookGreen6:position")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(1, 1.4, 1.6, 1.8, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"transitions": PackedFloat32Array(0.75, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(5432, -432), Vector2(5560, -432), Vector2(5720, -344), Vector2(5768, -200), Vector2(5808, 187)]
 }
@@ -109,7 +109,7 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(1, 1.4, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(0.75, 1, 1),
 "update": 0,
 "values": [0.0, 0.541052, 1.5708]
 }
@@ -117,11 +117,11 @@ tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/path = NodePath("MovingElements/ShelfTop:position")
-tracks/6/interp = 1
+tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(2.6, 3.8),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1.36604, 1),
 "update": 0,
 "values": [Vector2(6944, 292), Vector2(6944, 944)]
 }
@@ -129,7 +129,7 @@ tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/path = NodePath("MovingElements/ShelfTop:rotation")
-tracks/7/interp = 1
+tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(2.6),
@@ -145,7 +145,7 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(1, 1.4, 2, 2.4, 2.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"transitions": PackedFloat32Array(2, 1.31951, 0.574349, 1.41421, 1),
 "update": 0,
 "values": [Vector2(2242, 850), Vector2(2495, 850), Vector2(3071, 1422), Vector2(3467, 1422), Vector2(3490, 1560)]
 }
@@ -157,7 +157,7 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(1, 1.8, 2.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1.7411, 1, 1),
 "update": 0,
 "values": [-6.28319, 0.0, 6.28319]
 }
@@ -165,11 +165,11 @@ tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/path = NodePath("MovingElements/Shelf5:position")
-tracks/10/interp = 1
+tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(2.4, 3.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2.2, 3.4),
+"transitions": PackedFloat32Array(1.36, 1),
 "update": 0,
 "values": [Vector2(6112, 2504), Vector2(6120, 3104)]
 }
@@ -180,7 +180,7 @@ tracks/11/path = NodePath("MovingElements/Shelf5:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(2.4, 3.2),
+"times": PackedFloat32Array(2.2, 3.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.0]
@@ -192,8 +192,8 @@ tracks/12/path = NodePath("MovingElements/Marble2:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(1, 1.4, 1.8, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1, 1.6, 2.2, 3),
+"transitions": PackedFloat32Array(2, 1.31, 0.574, 1),
 "update": 0,
 "values": [Vector2(6560, 2656), Vector2(6688, 2656), Vector2(7112, 3072), Vector2(7640, 3072)]
 }
@@ -201,11 +201,11 @@ tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/path = NodePath("MovingElements/ShelfTop2:position")
-tracks/13/interp = 1
+tracks/13/interp = 2
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(2.9, 3.8),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1.36, 1),
 "update": 0,
 "values": [Vector2(6235, 292), Vector2(6235, 944)]
 }
@@ -225,11 +225,11 @@ tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/path = NodePath("MovingElements/Shelf3:position")
-tracks/15/interp = 1
+tracks/15/interp = 2
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(3.2, 4.1),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1.36, 1),
 "update": 0,
 "values": [Vector2(6176, 1072), Vector2(6176, 1704)]
 }
@@ -237,13 +237,25 @@ tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/path = NodePath("MovingElements/Shelf8:position")
-tracks/16/interp = 1
+tracks/16/interp = 2
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(1.8, 2.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.7, 2.9),
+"transitions": PackedFloat32Array(1.36, 1),
 "update": 0,
 "values": [Vector2(7464, 1768), Vector2(7464, 2456)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("MovingElements/Marble2:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(1, 2.2, 3),
+"transitions": PackedFloat32Array(1.7411, 0.574, 1),
+"update": 0,
+"values": [-6.28319, 0.0, 6.28319]
 }
 
 [sub_resource type="Animation" id="Animation_srpby"]
