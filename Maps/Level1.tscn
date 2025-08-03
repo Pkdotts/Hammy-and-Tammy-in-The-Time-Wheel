@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b7p5pb7wppjd"]
+[gd_scene load_steps=40 format=3 uid="uid://b7p5pb7wppjd"]
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
@@ -20,8 +20,10 @@
 [ext_resource type="Script" uid="uid://bfxp6r81ytnyg" path="res://Scripts/hider.gd" id="9_yneuh"]
 [ext_resource type="Texture2D" uid="uid://bhhe1wihwug48" path="res://Graphics/Backgrounds/Books/bookred2.png" id="10_yneuh"]
 [ext_resource type="Texture2D" uid="uid://dxab23m4lhtjw" path="res://Graphics/Backgrounds/Books/bookred1.png" id="11_qe43w"]
+[ext_resource type="Texture2D" uid="uid://cewrssjw407kr" path="res://Graphics/Backgrounds/deskroom window.png" id="12_bdika"]
 [ext_resource type="Texture2D" uid="uid://cvcut0tqjasnu" path="res://Graphics/Backgrounds/Books/bookyellow2.png" id="12_kptdj"]
 [ext_resource type="Texture2D" uid="uid://bfyrf142v7jx" path="res://Graphics/Backgrounds/big shelf/hamster big shelf right.png" id="13_1w3nv"]
+[ext_resource type="Texture2D" uid="uid://q3ftp70b7end" path="res://Graphics/Backgrounds/deskroom window support.png" id="13_14l3s"]
 [ext_resource type="Texture2D" uid="uid://bf7wny8x4p2au" path="res://Graphics/Backgrounds/big shelf/hamster big shelf top.png" id="14_tdhcy"]
 [ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="15_klv6f"]
 [ext_resource type="PackedScene" uid="uid://de2uhvv80lx3n" path="res://Nodes/Objects/shelf_top.tscn" id="18_tg84u"]
@@ -30,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
 [ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
 [ext_resource type="PackedScene" uid="uid://bfaqtr0iqfesi" path="res://Nodes/Objects/TutoArea.tscn" id="29_wlg8r"]
+[ext_resource type="Texture2D" uid="uid://dschak1pa7ys" path="res://Graphics/Backgrounds/misc/tucan lamp.png" id="33_14l3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]
 size = Vector2(192, 192)
@@ -540,19 +543,44 @@ texture = ExtResource("7_8qvjj")
 position = Vector2(3424, -360)
 texture = ExtResource("8_yneuh")
 
+[node name="DeskroomWindow" type="Sprite2D" parent="BG"]
+position = Vector2(523.213, -208)
+scale = Vector2(2.44733, 2.44733)
+texture = ExtResource("12_bdika")
+
+[node name="DeskroomWindowSupport" type="Sprite2D" parent="BG"]
+position = Vector2(606.352, 1024)
+scale = Vector2(2.17379, 1.29376)
+texture = ExtResource("13_14l3s")
+
+[node name="TucanLamp" type="Sprite2D" parent="BG"]
+position = Vector2(-504, 752)
+texture = ExtResource("33_14l3s")
+
 [node name="InvCollisions" type="Node2D" parent="."]
-visible = false
 script = ExtResource("9_yneuh")
 
 [node name="Sprite2D" type="Sprite2D" parent="InvCollisions"]
-position = Vector2(856, 1018)
-scale = Vector2(12.25, 0.5625)
+position = Vector2(660, 1018)
+scale = Vector2(14.2917, 0.5625)
 texture = ExtResource("1_g1syo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="InvCollisions/Sprite2D"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvCollisions/Sprite2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_10wxd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="InvCollisions"]
+position = Vector2(-444, 748)
+scale = Vector2(1.79167, 2.20833)
+texture = ExtResource("1_g1syo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="InvCollisions/Sprite2D2"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvCollisions/Sprite2D2/StaticBody2D"]
 shape = SubResource("RectangleShape2D_10wxd")
 metadata/_edit_lock_ = true
 
@@ -825,7 +853,7 @@ scale = Vector2(0.715, 2.455)
 script = ExtResource("7_7b0s7")
 
 [node name="Hammy" parent="." instance=ExtResource("2_3gmqf")]
-position = Vector2(-16, 872)
+position = Vector2(24, 872)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("3_3gmqf")]
 position = Vector2(152, 736)
@@ -877,19 +905,6 @@ patch_margin_top = 6
 patch_margin_right = 11
 patch_margin_bottom = 6
 
-[node name="Shelf5" type="NinePatchRect" parent="."]
-offset_left = -320.0
-offset_top = 960.0
-offset_right = 3853.0
-offset_bottom = 1132.0
-scale = Vector2(0.563582, 0.653061)
-texture = ExtResource("15_klv6f")
-region_rect = Rect2(0, 0, 1675, 98)
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 11
-patch_margin_bottom = 6
-
 [node name="Ruler" parent="." instance=ExtResource("25_qe43w")]
 position = Vector2(2731, 1256)
 
@@ -898,7 +913,8 @@ position = Vector2(6869.19, 2933.19)
 scale = Vector2(1, 0.702538)
 
 [node name="Spaceship" parent="." instance=ExtResource("27_tg84u")]
-position = Vector2(-16, 600)
+position = Vector2(32, 600)
+scale = Vector2(1.28565, 1.28565)
 
 [node name="Tutorial" type="Node2D" parent="."]
 position = Vector2(136, 152)

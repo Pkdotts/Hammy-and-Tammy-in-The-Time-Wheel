@@ -3,6 +3,7 @@ extends Control
 var finished = false
 
 func _ready() -> void:
+	Global.got_cheese = false
 	_play_anim()
 
 func _process(_delta: float) -> void:

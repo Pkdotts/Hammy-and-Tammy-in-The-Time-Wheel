@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b86ae06e1t5d4"]
+[gd_scene load_steps=16 format=3 uid="uid://b86ae06e1t5d4"]
 
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_8ecvq"]
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_yc5rm"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://djesekufq54t1" path="res://Nodes/platformTest.tscn" id="4_8ecvq"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="5_o20m1"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="6_o20m1"]
+[ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="8_l5pbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ecvq"]
-size = Vector2(127.388, 123.213)
+size = Vector2(163.409, 123.213)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc5rm"]
 size = Vector2(17.3316, 79.922)
@@ -203,6 +204,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(66, 0)
 script = ExtResource("1_yc5rm")
 
 [node name="ExitHole" parent="." instance=ExtResource("6_o20m1")]
@@ -210,7 +212,7 @@ position = Vector2(1812, 750.5)
 scale = Vector2(0.470588, 0.508823)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -128.0
+offset_left = -722.0
 offset_top = 832.0
 offset_right = 1955.0
 offset_bottom = 1128.0
@@ -222,7 +224,7 @@ position = Vector2(1046, 153)
 scale = Vector2(16.3516, 2.40234)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(-0.275208, -2.08127)
+position = Vector2(17.7353, -2.08133)
 shape = SubResource("RectangleShape2D_8ecvq")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -350,5 +352,9 @@ libraries = {
 script = ExtResource("5_o20m1")
 startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
+
+[node name="Spaceship" parent="." instance=ExtResource("8_l5pbj")]
+position = Vector2(-458, 440)
+scale = Vector2(1.38286, 1.38286)
 
 [editable path="Platform"]

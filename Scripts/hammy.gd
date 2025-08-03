@@ -151,6 +151,7 @@ func _return_to_respawn():
 	_action_started = true
 
 func pause(): #idk if we're gonna need this tho
+	animationState.travel("Idle")
 	_paused = true
 	emit_signal("paused")
 

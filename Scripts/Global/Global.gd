@@ -29,19 +29,23 @@ func load_game():
 			continue
 
 func change_scenes(scene_id: String):
+	UiCanvasLayer.erase_tammy_ui()
 	get_tree().change_scene_to_file("res://Maps/%s.tscn" % scene_id)
+	UiCanvasLayer.erase_vignette_ui()
 	TimeManager.set_time(100)
 
 func reset_data():
 	got_cheese = false
 
 func goto_next_level():
+	UiCanvasLayer.add_tammy_ui()
 	var current_level = _get_current_scene().name
 	var level_idx = LEVELS.find(current_level)
 	if got_cheese:
 		change_scenes(LEVELS[level_idx - 1])
 	else:
 		change_scenes(LEVELS[level_idx + 1])
+	UiCanvasLayer.add_vignette_ui()
 
 func _get_current_scene() -> Node:
 	var root = get_tree().get_root()

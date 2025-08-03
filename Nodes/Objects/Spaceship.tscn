@@ -1,6 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://sbqn4m18p06h"]
+[gd_scene load_steps=11 format=3 uid="uid://sbqn4m18p06h"]
 
 [ext_resource type="Texture2D" uid="uid://dhudfelvxgiib" path="res://Graphics/Characters/Spaceship.png" id="1_jijot"]
+[ext_resource type="Script" uid="uid://dtirlsfw5wyyd" path="res://Scripts/spaceship.gd" id="2_brikp"]
+[ext_resource type="Texture2D" uid="uid://c3u7r5mwqlbp0" path="res://Graphics/Characters/beam.png" id="3_wy4fk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6yen"]
+size = Vector2(25, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bohcn"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(0, 0, 175, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u70h8"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(175, 0, 175, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e0sm"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(350, 0, 175, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7dy"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(0, 133, 175, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_054ln"]
+atlas = ExtResource("3_wy4fk")
+region = Rect2(175, 133, 175, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qylld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u70h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e0sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q7dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_054ln")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u70h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_054ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q7dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e0sm")
+}],
+"loop": true,
+"name": &"beam_rev",
+"speed": 12.0
+}]
 
 [node name="Spaceship" type="Sprite2D"]
 texture = ExtResource("1_jijot")
+script = ExtResource("2_brikp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-116.5, 200)
+shape = SubResource("RectangleShape2D_f6yen")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-48, 200)
+sprite_frames = SubResource("SpriteFrames_qylld")
+animation = &"beam_rev"
+frame_progress = 0.778635
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-48, 24)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -23,6 +23,7 @@ func _flip(enabled: bool):
 	$Sprite.flip_h = enabled
 
 func _physics_process(delta: float) -> void:
+	
 	if Global.current_hammy.visible:
 		var input_direction = _get_controls_direction()
 		_movement(input_direction, delta)
