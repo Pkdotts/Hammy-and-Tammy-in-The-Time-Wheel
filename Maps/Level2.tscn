@@ -703,6 +703,10 @@ offset_bottom = -1328.0
 color = Color(0.823529, 0.913725, 0.87451, 1)
 metadata/_edit_lock_ = true
 
+[node name="WallClock" type="Sprite2D" parent="BG"]
+position = Vector2(6264, -24)
+texture = ExtResource("28_1vku0")
+
 [node name="Cabinet" type="NinePatchRect" parent="BG"]
 offset_left = 3944.0
 offset_top = -1488.0
@@ -1029,7 +1033,3 @@ position = Vector2(704, 1480)
 
 [node name="Spawn2" type="Node2D" parent="."]
 position = Vector2(4216, -720)
-
-[node name="WallClock" type="Sprite2D" parent="."]
-position = Vector2(6264, -24)
-texture = ExtResource("28_1vku0")
