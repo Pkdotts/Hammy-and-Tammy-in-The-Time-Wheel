@@ -1009,7 +1009,7 @@ startingAnim = "Fall"
 metadata/_custom_type_script = "uid://1v323frheac2"
 
 [node name="CheckPoint1" type="Area2D" parent="."]
-position = Vector2(5747, 320)
+position = Vector2(5744, 328)
 script = ExtResource("27_dd28w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint1"]
@@ -1017,7 +1017,7 @@ position = Vector2(-2, -374.5)
 shape = SubResource("RectangleShape2D_1vku0")
 
 [node name="CheckPoint2" type="Area2D" parent="."]
-position = Vector2(9214, -728)
+position = Vector2(9208, -720)
 script = ExtResource("27_dd28w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint2"]

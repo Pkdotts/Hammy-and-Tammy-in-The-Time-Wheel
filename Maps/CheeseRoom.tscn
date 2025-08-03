@@ -17,7 +17,7 @@ blend_mode = 3
 
 [node name="CheeseRoom" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point")]
 script = ExtResource("1_cgdv8")
-_normal_spawn_point = NodePath("ExitHole")
+_normal_spawn_point = NodePath("Spawn")
 
 [node name="BG" type="Node2D" parent="."]
 position = Vector2(-320, 584)
@@ -90,3 +90,6 @@ offset_top = -224.0
 offset_right = 2944.0
 offset_bottom = 1264.0
 color = Color(0.65098, 0.858824, 0.690196, 1)
+
+[node name="Spawn" type="Node2D" parent="."]
+position = Vector2(-152, 920)

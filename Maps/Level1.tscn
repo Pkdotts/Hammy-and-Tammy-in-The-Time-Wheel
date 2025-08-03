@@ -804,7 +804,7 @@ scale = Vector2(1, 0.282103)
 texture = ExtResource("9_8qvjj")
 
 [node name="CheckPoint1" type="Area2D" parent="Static"]
-position = Vector2(4915, -307)
+position = Vector2(4912, -280)
 script = ExtResource("22_v6inw")
 _enabled_on_reverted = false
 
@@ -813,7 +813,7 @@ position = Vector2(-2, -613)
 shape = SubResource("RectangleShape2D_14l3s")
 
 [node name="CheckPoint2" type="Area2D" parent="Static"]
-position = Vector2(7431, 926)
+position = Vector2(7432, 952)
 script = ExtResource("22_v6inw")
 _enabled_on_normal = false
 
@@ -878,7 +878,7 @@ script = ExtResource("7_7b0s7")
 position = Vector2(7360, 3048)
 
 [node name="Hammy" parent="." instance=ExtResource("2_3gmqf")]
-position = Vector2(48, 872)
+position = Vector2(8, 880)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("3_3gmqf")]
 position = Vector2(152, 736)
