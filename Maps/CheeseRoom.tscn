@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://evuc7d30ncco"]
+[gd_scene load_steps=11 format=3 uid="uid://evuc7d30ncco"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_cgdv8"]
 [ext_resource type="Texture2D" uid="uid://dxpwnx1bexhp7" path="res://Graphics/Backgrounds/cheese_room_wall.png" id="2_mcyvh"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="3_6q7to"]
+[ext_resource type="Texture2D" uid="uid://6ggbva3ubdqn" path="res://Graphics/UI/arrow.png" id="3_mcyvh"]
 [ext_resource type="Texture2D" uid="uid://dslkjrnnn1ns3" path="res://Graphics/spotlight.png" id="4_5o67o"]
 [ext_resource type="PackedScene" uid="uid://cfvmy3o8v266b" path="res://Nodes/Objects/cheese.tscn" id="5_2gfeq"]
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="6_7w2ri"]
@@ -25,6 +26,11 @@ scale = Vector2(0.415, 0.415)
 [node name="Background" type="Sprite2D" parent="BG"]
 position = Vector2(3232, -197)
 texture = ExtResource("2_mcyvh")
+
+[node name="Arrow" type="Sprite2D" parent="BG"]
+position = Vector2(6457.83, 192.771)
+scale = Vector2(2.40964, 2.40964)
+texture = ExtResource("3_mcyvh")
 
 [node name="Light" type="PointLight2D" parent="BG"]
 position = Vector2(6457.83, -324.601)

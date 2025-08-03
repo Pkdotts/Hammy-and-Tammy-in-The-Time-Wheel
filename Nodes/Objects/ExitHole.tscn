@@ -19,13 +19,16 @@ texture = ExtResource("3_g0d22")
 flip_h = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -87.0
-offset_top = -97.0
-offset_right = -33.0
-offset_bottom = -72.0
-scale = Vector2(4, 4)
-theme_override_colors/font_color = Color(0.621524, 0.621524, 0.621524, 1)
+offset_left = -120.0
+offset_top = -264.0
+offset_right = 114.0
+offset_bottom = -182.0
+scale = Vector2(1.16724, 1.16724)
+theme_override_colors/font_color = Color(0.811765, 0.847059, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.305882, 0.67451, 1)
+theme_override_constants/outline_size = 33
 theme_override_fonts/font = ExtResource("3_jo1yp")
+theme_override_font_sizes/font_size = 70
 text = "SPACE"
 
 [node name="Area2D" type="Area2D" parent="."]

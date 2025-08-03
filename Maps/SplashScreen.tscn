@@ -164,7 +164,6 @@ script = ExtResource("1_wi8jp")
 [node name="SplashScreen" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(960, 540)
-scale = Vector2(6, 6)
 texture = ExtResource("2_lc2w7")
 
 [node name="Credits" type="Sprite2D" parent="."]
