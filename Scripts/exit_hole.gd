@@ -12,7 +12,7 @@ func _ready() -> void:
 func _is_active():
 	return (Global.got_cheese == backwards_door)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if Global.current_hammy.in_front_of_door and _is_active() and !Global.current_hammy._paused:
 			AudioManager.play_sfx("door")

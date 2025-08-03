@@ -149,7 +149,7 @@ func _set_collisions(enabled):
 	
 
 func _return_to_respawn(checkpoint: bool = true):
-	global_position = Global.get_current_level().get_spawn_position()
+	global_position = Global.get_current_level().get_spawn_position(checkpoint)
 	show()
 	_set_collisions(true)
 	UiCanvasLayer.circle_out()

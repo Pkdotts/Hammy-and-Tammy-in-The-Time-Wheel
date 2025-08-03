@@ -55,7 +55,7 @@ func _on_time_changed():
 	#spawner.spawn_object()
 	#print("on loop")
 
-func _teleport(prev_pos):
+func _teleport(_prev_pos):
 	await get_tree().process_frame
 	#var movement = prev_pos - global_position
 	emit_signal("moved")

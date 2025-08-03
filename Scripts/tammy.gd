@@ -66,7 +66,7 @@ func _movement(input_direction: float, delta: float) -> void:
 			AudioManager.play_sfx("wheel", "wheel")
 			AudioManager.play_sfx("rewind", "time")
 	else:
-		AudioManager.stop_sfx("wheel")
+		AudioManager.stop_sfx("wheel", true)
 		AudioManager.stop_sfx("time")
 
 func hammy_died():

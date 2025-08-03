@@ -65,7 +65,9 @@ func _add_sfx(sfx_name: String, sfx_channel := "", replace: bool = false) -> Aud
 	var sfx_node: AudioStreamPlayer
 	if sfx_channel != "":
 		sfx_node = _get_sfx_player(sfx_channel)
-	if !sfx_node:
+	if sfx_node:
+		sfx_node.volume_db = 0
+	else:
 		sfx_node = AudioStreamPlayer.new()
 		sfx_node.bus = "SFX"
 		if sfx_channel != "":
@@ -78,18 +80,20 @@ func _add_sfx(sfx_name: String, sfx_channel := "", replace: bool = false) -> Aud
 		return sfx_node
 	return null
 
-#func get_number_of_sfx() -> int:
-#	return $Sfx.get_child_count()
-
 func play_sfx(sfx_name: String, sfx_channel := "", replace: bool = false):
 	var sfx_node: AudioStreamPlayer = _add_sfx(sfx_name, sfx_channel, replace)
 	if sfx_node:
 		sfx_node.play()
 
-func stop_sfx(sfx_channel: String):
+func stop_sfx(sfx_channel: String, fade: bool = false):
 	var sfx_node: AudioStreamPlayer = _get_sfx_player(sfx_channel)
 	if sfx_node and sfx_node.playing:
-		sfx_node.stop()
+		if fade:
+			var tween = get_tree().create_tween()
+			tween.tween_property(sfx_node, "volume_db", -80, 0.5)
+			await tween.finished
+		if sfx_node:
+			sfx_node.stop()
 
 func _get_sfx_player(sfx_channel: String) -> AudioStreamPlayer:
 	return $Sfx.get_node_or_null(sfx_channel) as AudioStreamPlayer

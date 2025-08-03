@@ -1,11 +1,11 @@
 extends AbstractPlatform
 class_name AnimatedPlatform
 
-@export var check = false
-@export var can_teleport = true
+@export var check := false
+@export var can_teleport := true
 
-var teleported_object : Player = null
-var prev_pos
+var teleported_object: Player = null
+var prev_pos: Vector2
 
 func _ready():
 	super._ready()
@@ -49,10 +49,10 @@ func _physics_process(_delta: float) -> void:
 	#print("on loop")
 
 #overrides
-func _teleport(prev_pos):
+func _teleport(pos: Vector2):
 	if teleported_object != null and (teleported_object.is_on_floor() or teleported_object.is_on_wall()):
 		await get_tree().process_frame
-		var movement = prev_pos - $Teleporter.global_position
+		var movement = pos - $Teleporter.global_position
 		
 		teleported_object.global_position -= movement
 		
