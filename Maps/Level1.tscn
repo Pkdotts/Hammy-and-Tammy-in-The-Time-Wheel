@@ -806,6 +806,7 @@ texture = ExtResource("9_8qvjj")
 [node name="CheckPoint1" type="Area2D" parent="Static"]
 position = Vector2(4915, -307)
 script = ExtResource("22_v6inw")
+_enabled_on_reverted = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/CheckPoint1"]
 position = Vector2(-2, -613)
@@ -814,6 +815,7 @@ shape = SubResource("RectangleShape2D_14l3s")
 [node name="CheckPoint2" type="Area2D" parent="Static"]
 position = Vector2(7431, 926)
 script = ExtResource("22_v6inw")
+_enabled_on_normal = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/CheckPoint2"]
 position = Vector2(-2, -199.5)
