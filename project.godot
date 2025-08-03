@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GMTK 2025"
+config/name="Hammy & Tammy in The Time Wheel"
+config/version="1.0"
 run/main_scene="uid://ojsr1cr35bn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
-config/icon="res://icon.svg"
+config/icon="uid://dag8b8qtuewd7"
 
 [autoload]
 
