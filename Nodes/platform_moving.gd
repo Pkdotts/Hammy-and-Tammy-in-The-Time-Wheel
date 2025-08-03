@@ -1,6 +1,8 @@
 extends AbstractPlatform
 class_name AnimatedPlatform
 
+const MOVEMENT_THRESHOLD := 200
+
 @export var check := false
 @export var can_teleport := true
 
@@ -52,13 +54,12 @@ func _physics_process(_delta: float) -> void:
 func _teleport(pos: Vector2):
 	if teleported_object != null and (teleported_object.is_on_floor() or teleported_object.is_on_wall()) and teleported_object.visible:
 		await get_tree().process_frame
-		var movement = pos - $Teleporter.global_position
-		
-		teleported_object.global_position -= movement
-		
-		print(movement)
+		if !TimeManager.is_approaching_loop():
+			var movement = pos - $Teleporter.global_position
 
-		emit_signal("moved")
+			if movement.length() < MOVEMENT_THRESHOLD:
+				teleported_object.global_position -= movement
+				emit_signal("moved")
 
 func _on_teleporter_area_entered(area: Area2D) -> void:
 	if area.get_groups().has("Teleportable"):
