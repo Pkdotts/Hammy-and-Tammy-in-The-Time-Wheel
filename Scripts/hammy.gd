@@ -37,6 +37,7 @@ var in_front_of_door := false
 
 func _ready() -> void:
 	Global.current_hammy = self
+	global_position = Global.get_current_level().get_spawn_position()
 
 func _physics_process(delta: float) -> void:
 	if _action_started:

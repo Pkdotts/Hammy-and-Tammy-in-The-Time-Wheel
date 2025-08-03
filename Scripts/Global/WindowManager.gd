@@ -38,7 +38,7 @@ func set_win_size(newSizeNum):
 		#DisplayServer.border = false
 		var newPos = DisplayServer.window_get_position() - (newSize - oldSize) / 2
 		# We don’t want the title bar to be out of screen
-		var topLeft = DisplayServer.screen_get_position() + Vector2i(DisplayServer.screen_get_size().x * .1, 0)
+		var topLeft = Vector2(DisplayServer.screen_get_position()) + Vector2(DisplayServer.screen_get_size().x * .1, 0)
 		var bottomRight = DisplayServer.screen_get_position() + Vector2i(DisplayServer.screen_get_size() * .9)
 		newPos.x = clamp(newPos.x, topLeft.x - newSize.x, bottomRight.x)
 		newPos.y = clamp(newPos.y, topLeft.y, bottomRight.y)

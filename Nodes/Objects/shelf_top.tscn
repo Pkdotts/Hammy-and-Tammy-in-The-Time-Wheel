@@ -28,6 +28,3 @@ position = Vector2(0, -96)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
 position = Vector2(1.49951, 41.5)
 shape = SubResource("RectangleShape2D_kptdj")
-
-[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]
-[connection signal="body_exited" from="Teleporter" to="." method="_on_teleporter_body_exited"]

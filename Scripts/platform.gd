@@ -57,7 +57,7 @@ func _on_loop():
 
 func _teleport(prev_pos):
 	await get_tree().process_frame
-	var movement = prev_pos - global_position
+	#var movement = prev_pos - global_position
 	emit_signal("moved")
 
 func _create_teleport_effect():

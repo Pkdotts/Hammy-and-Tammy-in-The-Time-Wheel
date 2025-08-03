@@ -12,4 +12,4 @@ func _start_game():
 	UiCanvasLayer.circle_transition()
 	await UiCanvasLayer.transition.transition_finished
 	UiCanvasLayer.add_tammy_ui()
-	Global.goto_level(1)
+	Global.goto_next_level()

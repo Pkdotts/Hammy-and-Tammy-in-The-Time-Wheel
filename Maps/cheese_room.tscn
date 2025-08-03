@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://evuc7d30ncco"]
+
+[ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="1_ekw1u"]
+[ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_jd7ha"]
+[ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="2_jd7ha"]
+[ext_resource type="PackedScene" uid="uid://cfvmy3o8v266b" path="res://Nodes/Objects/cheese.tscn" id="3_kgks1"]
+[ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="4_qf2il"]
+[ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="5_lbbri"]
+[ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="6_jftbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jftbl"]
+size = Vector2(192, 192)
+
+[node name="CheeseRoom" type="Node2D"]
+script = ExtResource("1_jd7ha")
+
+[node name="ExitHole" parent="." instance=ExtResource("6_jftbl")]
+position = Vector2(-540, 840)
+scale = Vector2(1, 1)
+backwards_door = true
+
+[node name="Cheese" parent="." instance=ExtResource("3_kgks1")]
+position = Vector2(933, 900)
+scale = Vector2(0.213043, 0.213043)
+
+[node name="Shelf4" type="NinePatchRect" parent="."]
+offset_left = -711.0
+offset_top = 1011.0
+offset_right = 2696.0
+offset_bottom = 1109.0
+scale = Vector2(0.563582, 0.653061)
+texture = ExtResource("4_qf2il")
+region_rect = Rect2(0, 0, 1675, 98)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 11
+patch_margin_bottom = 6
+
+[node name="Sprite2D11" type="Sprite2D" parent="Shelf4"]
+show_behind_parent = true
+position = Vector2(1701.63, 33.6875)
+scale = Vector2(17.6698, 0.34375)
+texture = ExtResource("5_lbbri")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shelf4/Sprite2D11"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shelf4/Sprite2D11/StaticBody2D"]
+shape = SubResource("RectangleShape2D_jftbl")
+metadata/_edit_lock_ = true
+
+[node name="Hammy" parent="." instance=ExtResource("1_ekw1u")]
+position = Vector2(-16, 872)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("2_jd7ha")]
+position = Vector2(152, 736)
+_attached_node = NodePath("../Hammy")
