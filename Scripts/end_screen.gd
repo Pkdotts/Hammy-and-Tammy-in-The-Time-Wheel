@@ -5,6 +5,7 @@ var finished = false
 func _ready() -> void:
 	Global.got_cheese = false
 	_play_anim()
+	AudioManager.play_music("end_screen")
 
 func _process(_delta: float) -> void:
 	if finished and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel")):

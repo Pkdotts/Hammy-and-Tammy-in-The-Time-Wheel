@@ -1,30 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://bllggmaeoy8g7"]
+[gd_scene load_steps=6 format=3 uid="uid://bllggmaeoy8g7"]
 
 [ext_resource type="Texture2D" uid="uid://ddkuvdrae4psf" path="res://Graphics/Backgrounds/hamster exit.png" id="1_jo1yp"]
 [ext_resource type="Script" uid="uid://b7nyf4umy07ew" path="res://Scripts/exit_hole.gd" id="2_jo1yp"]
+[ext_resource type="Texture2D" uid="uid://0f6qcqp3eh75" path="res://Graphics/Backgrounds/cheese_room_exit.png" id="3_g0d22"]
 [ext_resource type="FontFile" uid="uid://b4bv2jcask75c" path="res://Fonts/arialroundedmtbold.ttf" id="3_jo1yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1ll"]
-size = Vector2(300, 336)
+size = Vector2(142, 147)
 
-[node name="ExitHole" type="Sprite2D"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_jo1yp")
+[node name="ExitHole" type="Node2D"]
 script = ExtResource("2_jo1yp")
 
+[node name="Normal" type="Sprite2D" parent="."]
+texture = ExtResource("1_jo1yp")
+
+[node name="CheeseRoom" type="Sprite2D" parent="."]
+texture = ExtResource("3_g0d22")
+flip_h = true
+
 [node name="Label" type="Label" parent="."]
-offset_left = -67.5
-offset_top = -61.0
-offset_right = -13.5
-offset_bottom = -36.0
+offset_left = -87.0
+offset_top = -97.0
+offset_right = -33.0
+offset_bottom = -72.0
 scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0.621524, 0.621524, 0.621524, 1)
 theme_override_fonts/font = ExtResource("3_jo1yp")
 text = "SPACE"
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6, 0)
+position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_7l1ll")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

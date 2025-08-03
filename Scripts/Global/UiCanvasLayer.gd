@@ -1,22 +1,22 @@
 extends CanvasLayer
 
-@onready var transition_ui = preload("res://UI/Transition.tscn")
-@onready var tammy_ui = preload("res://UI/TammyUI.tscn")
+@onready var TransitionUI = preload("res://UI/Transition.tscn")
+@onready var TammyUI = preload("res://UI/TammyUI.tscn")
 @onready var vignette_ui = preload("res://UI/vignette.tscn")
 
 var transition : Transition = null
-var tammy : Tammy = null
+var tammy_ui = null
 var vignette = null
 
 func add_tammy_ui():
 	erase_tammy_ui()
-	tammy = tammy_ui.instantiate()
-	add_child(tammy)
+	tammy_ui = TammyUI.instantiate()
+	add_child(tammy_ui)
 
 func erase_tammy_ui():
-	if tammy != null:
-		tammy.queue_free()
-		tammy = null
+	if tammy_ui != null:
+		tammy_ui.queue_free()
+		tammy_ui = null
 
 func add_vignette_ui():
 	erase_vignette_ui()
@@ -35,7 +35,7 @@ func erase_transition():
 
 func circle_in():
 	erase_transition()
-	var transitionUI = transition_ui.instantiate()
+	var transitionUI = TransitionUI.instantiate()
 	add_child(transitionUI)
 	transition = transitionUI
 	transition.circlein()
@@ -47,7 +47,7 @@ func circle_out():
 
 func fade_in():
 	erase_transition()
-	var transitionUI = transition_ui.instantiate()
+	var transitionUI = TransitionUI.instantiate()
 	add_child(transitionUI)
 	transition = transitionUI
 	transition.fadein()
@@ -63,7 +63,7 @@ func remove_transition():
 
 func circle_transition():
 	if transition == null:
-		var transitionUI = transition_ui.instantiate()
+		var transitionUI = TransitionUI.instantiate()
 		add_child(transitionUI)
 		transition = transitionUI
 		transition.circlein()
@@ -74,7 +74,7 @@ func circle_transition():
 
 func fade_transition():
 	if transition == null:
-		var transitionUI = transition_ui.instantiate()
+		var transitionUI = TransitionUI.instantiate()
 		add_child(transitionUI)
 		transition = transitionUI
 		transition.fadein()

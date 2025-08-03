@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	AudioManager.play_music("hamster_moog")
+	AudioManager.play_music("title_screen")
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):

@@ -4,6 +4,7 @@ const LEVELS = ["Level1", "Level2", "CheeseRoom"]
 
 var persist_camera:Camera = null
 var current_hammy: Player
+var current_tammy
 
 var got_cheese := false
 

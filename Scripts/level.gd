@@ -6,10 +6,13 @@ class_name Level extends Node2D
 @export var _reverted_spawn_point: Node
 
 func _ready() -> void:
-	if UiCanvasLayer.tammy == null:
+	if UiCanvasLayer.tammy_ui == null:
 		UiCanvasLayer.add_tammy_ui()
 
-	AudioManager.play_music(_music_name)
+	if _music_name:
+		AudioManager.play_music(_music_name)
+	else:
+		AudioManager.stop_music()
 
 func get_spawn_position() -> Vector2:
 	var node := _normal_spawn_point if not Global.got_cheese else _reverted_spawn_point

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Tammy extends Node2D
 
 var active := false
 
@@ -18,18 +18,16 @@ const SPIN_SPEED_SFX_THRESHOLD := 0.1
 func _ready() -> void:
 	await get_tree().process_frame
 	$AnimationTree.active = true
+	Global.current_tammy = self
 
 func _flip(enabled: bool):
 	$Sprite.flip_h = enabled
 
 func _physics_process(delta: float) -> void:
-	
-	if Global.current_hammy.visible:
+	if Global.current_hammy.is_active():
 		var input_direction = _get_controls_direction()
 		_movement(input_direction, delta)
-	else:
-		animationState.travel("Horrified")
-	#_animation_tree()
+		#_animation_tree()
 #
 #func _animation_tree():
 	#
@@ -62,11 +60,22 @@ func _movement(input_direction: float, delta: float) -> void:
 
 	if spin_speed * delta > SPIN_SPEED_SFX_THRESHOLD:
 		if spin_direction > 0:
-			AudioManager.play_sfx("walk", "wheel")
+			AudioManager.play_sfx("wheel", "wheel")
+			AudioManager.play_sfx("forward", "time")
 		elif spin_direction < 0:
-			AudioManager.play_sfx("walk", "wheel")
+			AudioManager.play_sfx("wheel", "wheel")
+			AudioManager.play_sfx("rewind", "time")
 	else:
 		AudioManager.stop_sfx("wheel")
+		AudioManager.stop_sfx("time")
+
+func hammy_died():
+	animationState.travel("Horrified")
+
+func reset():
+	spin_speed = 0.0
+	spin_direction = 0.0
+	animationState.travel("Idle")
 
 func _add_time(amount: int, delta: float = 1.0):
 	TimeManager.add_time(amount * spin_direction * spin_speed * delta)

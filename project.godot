@@ -13,6 +13,8 @@ config_version=5
 config/name="GMTK 2025"
 run/main_scene="uid://ojsr1cr35bn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]

@@ -40,9 +40,8 @@ func _ready() -> void:
 	global_position = Global.get_current_level().get_spawn_position()
 
 func _physics_process(delta: float) -> void:
-	if visible and !_paused:
-		if _action_started:
-			_controls()
+	if visible and is_active():
+		_controls()
 		_movement(delta)
 		_gravity(delta)
 		_jump(delta)
@@ -61,14 +60,14 @@ func _controls():
 		$BufferTimer.start()
 	if Input.is_action_just_released("ui_accept"):
 		if !is_on_floor():
-			stop_jump()
+			_stop_jump()
 	
 
 
 func _movement(delta):
 	if inputVector != Vector2.ZERO:
 		animationState.travel("Run")
-		if !at_peak():
+		if !_at_peak():
 			if walk_speed < MAX_WALK_SPEED:
 				walk_speed += WALK_ACCELERATION * delta
 		else:
@@ -91,22 +90,22 @@ func _movement(delta):
 	
 
 func _jump(_delta):
-	if can_jump() and $BufferTimer.time_left > 0.0:
+	if _can_jump() and $BufferTimer.time_left > 0.0:
 		AudioManager.play_sfx("jump")
 		velocity.y = -JUMP_FORCE
 		floor_time = COYOTE_TIME
 
-func _hole():
-	_paused = true
+func hole():
+	_action_started = false
 	animationState.travel("Hole")
 
 
 func _gravity(delta):
 	if !is_on_floor():
-		if can_jump():
+		if _can_jump():
 			floor_time += delta
 		
-		if at_peak():
+		if _at_peak():
 			velocity.y += delta * PEAK_GRAVITY
 			
 		else:
@@ -131,9 +130,11 @@ func _die():
 		$Spawner.spawn_object()
 		#Global.persist_camera.shake(Vector2.ZERO, 10000, 1, 0.2)
 		#Global.persist_camera.shake_camera(Vector2.ZERO, 30, 0.4)
+		Global.current_tammy.hammy_died()
 		await get_tree().create_timer(2).timeout
 		UiCanvasLayer.circle_in()
 		await UiCanvasLayer.transition.transition_finished
+		Global.current_tammy.reset()
 		_return_to_respawn()
 
 func _set_collisions(enabled):
@@ -162,18 +163,19 @@ func unpause():
 func is_active() -> bool:
 	return _action_started and not _paused
 
-func stop_jump():
+func _stop_jump():
 	if velocity.y < 0:
 		velocity.y *= JUMP_STOP
 
-func can_jump():
+func _can_jump():
 	return (floor_time < COYOTE_TIME) and !in_front_of_door
 
-func at_peak() -> bool:
+func _at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY
 
 func _on_crush_detector_crushed() -> void:
 	if _action_started:
+		AudioManager.play_sfx("crushed")
 		_die()
 
 func create_teleport_effect() -> void:

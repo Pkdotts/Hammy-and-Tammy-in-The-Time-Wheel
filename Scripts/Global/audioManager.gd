@@ -28,6 +28,11 @@ func play_music(music_name: String, fade_previous: bool = false):
 	_current_music = music_name
 	fadein_music()
 
+func stop_music():
+	if _current_music != "" and _get_current_music_player().playing:
+		_get_current_music_player().stop()
+		_current_music = ""
+
 func fadeout_music():
 	await _fade_music_to(-80)
 
