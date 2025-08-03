@@ -11,5 +11,4 @@ func _start_game():
 	AudioManager.fadeout_music()
 	UiCanvasLayer.circle_transition()
 	await UiCanvasLayer.transition.transition_finished
-	UiCanvasLayer.add_tammy_ui()
-	Global.goto_next_level()
+	Global.change_scenes("Intro")

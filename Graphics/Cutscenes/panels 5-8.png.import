@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dateq8dool3x5"
-path="res://.godot/imported/Hammy.png-7c1b73eff5bf1be7c6d8d1040b533ddf.ctex"
+uid="uid://2fgqd53oy3k1"
+path="res://.godot/imported/panels 5-8.png-85b6c329c39692cbe8cd991a7db6d546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Characters/Hammy.png"
-dest_files=["res://.godot/imported/Hammy.png-7c1b73eff5bf1be7c6d8d1040b533ddf.ctex"]
+source_file="res://Graphics/Cutscenes/panels 5-8.png"
+dest_files=["res://.godot/imported/panels 5-8.png-85b6c329c39692cbe8cd991a7db6d546.ctex"]
 
 [params]
 

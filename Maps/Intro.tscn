@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl3mcmc2i8ykh"]
+
+[ext_resource type="Script" uid="uid://b2yxlb0yrb3du" path="res://Scripts/UI/Intro.gd" id="1_e8c5j"]
+[ext_resource type="Texture2D" uid="uid://colxm7o1ppbka" path="res://Graphics/UI/title-button.png" id="2_4235t"]
+[ext_resource type="Texture2D" uid="uid://ds1qemmd6bwv6" path="res://Graphics/Cutscenes/panels 1-4.png" id="2_tnkmq"]
+[ext_resource type="Texture2D" uid="uid://2fgqd53oy3k1" path="res://Graphics/Cutscenes/panels 5-8.png" id="3_e8c5j"]
+[ext_resource type="Texture2D" uid="uid://c46436teu0yaq" path="res://Graphics/Cutscenes/panels 9-12.png" id="4_4235t"]
+[ext_resource type="Texture2D" uid="uid://dt5bubo6vflxb" path="res://Graphics/UI/title-logo.png" id="5_e8c5j"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e8c5j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.94902, 0.768627, 0.435294, 1)
+
+[node name="Prompt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 141.0
+offset_top = 444.0
+offset_right = 444.0
+offset_bottom = 524.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4235t")
+expand_mode = 2
+
+[node name="Strip1" type="Sprite2D" parent="."]
+position = Vector2(968, 504)
+scale = Vector2(0.993673, 0.993673)
+texture = ExtResource("2_tnkmq")
+
+[node name="Strip2" type="Sprite2D" parent="."]
+position = Vector2(968, 502.153)
+scale = Vector2(0.987064, 0.987064)
+texture = ExtResource("3_e8c5j")
+
+[node name="Strip3" type="Sprite2D" parent="."]
+position = Vector2(968, 502.153)
+scale = Vector2(0.987064, 0.987064)
+texture = ExtResource("4_4235t")
+
+[node name="Panel1Cover" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 496.0
+offset_top = 32.0
+offset_right = 968.0
+offset_bottom = 480.0
+color = Color(0.94902, 0.768627, 0.435294, 1)
+
+[node name="Panel2Cover" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 968.0
+offset_top = 32.0
+offset_right = 1440.0
+offset_bottom = 480.0
+color = Color(0.94902, 0.768627, 0.435294, 1)
+
+[node name="Panel3Cover" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 488.0
+offset_top = 512.0
+offset_right = 960.0
+offset_bottom = 960.0
+color = Color(0.94902, 0.768627, 0.435294, 1)
+
+[node name="Panel4Cover" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 968.0
+offset_top = 512.0
+offset_right = 1440.0
+offset_bottom = 1080.0
+color = Color(0.94902, 0.768627, 0.435294, 1)
+
+[node name="Title-logo" type="Sprite2D" parent="."]
+position = Vector2(248, 144)
+scale = Vector2(0.109039, 0.109039)
+texture = ExtResource("5_e8c5j")
+
+[node name="PanelIntervalTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="StripIntervalTimer" type="Timer" parent="."]
+one_shot = true

@@ -208,7 +208,6 @@ script = ExtResource("1_yc5rm")
 [node name="ExitHole" parent="." instance=ExtResource("6_o20m1")]
 position = Vector2(1812, 750.5)
 scale = Vector2(0.470588, 0.508823)
-map = "uid://cfgrvfgl4osxt"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -128.0

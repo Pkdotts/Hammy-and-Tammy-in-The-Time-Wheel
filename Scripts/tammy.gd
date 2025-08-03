@@ -20,9 +20,15 @@ func _ready() -> void:
 	TimeManager.add_time(100)
 	$AnimationTree.active = true
 
+func _flip(enabled: bool):
+	$Sprite.flip_h = enabled
+
 func _physics_process(delta: float) -> void:
-	var input_direction = _get_controls_direction()
-	_movement(input_direction, delta)
+	if Global.current_hammy.visible:
+		var input_direction = _get_controls_direction()
+		_movement(input_direction, delta)
+	else:
+		animationState.travel("Horrified")
 	#_animation_tree()
 #
 #func _animation_tree():
@@ -48,7 +54,7 @@ func _movement(input_direction: float, delta: float) -> void:
 		spin_direction = lerp(spin_direction, input_direction, TURN_SPEED)
 		$Sprite.flip_h = spin_direction < 0
 	else:
-		spin_direction = input_direction	
+		spin_direction = input_direction
 	
 	if spin_speed > 0:
 		_add_time(50, delta)

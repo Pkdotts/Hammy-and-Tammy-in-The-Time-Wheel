@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://nwfai0iyxs7w"]
+
+[ext_resource type="Script" uid="uid://cara8rds0vgb0" path="res://Scripts/blood_effect.gd" id="1_sqydh"]
+[ext_resource type="Texture2D" uid="uid://cg4pc6pmoy2or" path="res://Graphics/Effects/Blood.png" id="2_hslqs"]
+[ext_resource type="Texture2D" uid="uid://bpnrj7eyrno4b" path="res://Graphics/Effects/TeleportEffect.png" id="2_sqydh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yspfa"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(0, 0, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x50pc"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(430, 0, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2ya3"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(860, 0, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14vaq"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(1290, 0, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc00f"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(1720, 0, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5lcw"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(0, 395, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdnbr"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(430, 395, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nmeg"]
+atlas = ExtResource("2_hslqs")
+region = Rect2(860, 395, 430, 395)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtcqw"]
+atlas = ExtResource("2_sqydh")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tadfo"]
+atlas = ExtResource("2_sqydh")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koapt"]
+atlas = ExtResource("2_sqydh")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfpei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yspfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x50pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2ya3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14vaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc00f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5lcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdnbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nmeg")
+}],
+"loop": false,
+"name": &"blood",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtcqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tadfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koapt")
+}],
+"loop": false,
+"name": &"teleport",
+"speed": 12.0
+}]
+
+[node name="TeleportEffect" type="Node2D"]
+script = ExtResource("1_sqydh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bfpei")
+animation = &"blood"
+frame = 7
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

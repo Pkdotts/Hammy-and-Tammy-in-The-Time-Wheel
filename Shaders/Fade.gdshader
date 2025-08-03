@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-uniform float cut : hint_range(0.0, 1.0);
+uniform float cut : hint_range(0.0, 1.1);
 uniform float Size = 1.0;
 uniform float screenWidth = 320;
 uniform float screenHeight = 180;

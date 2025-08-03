@@ -1,10 +1,41 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnakjc8r2mlmi"]
+[gd_scene load_steps=30 format=3 uid="uid://cnakjc8r2mlmi"]
 
 [ext_resource type="Script" uid="uid://bwcp4n2pddx6s" path="res://Scripts/tammy.gd" id="1_2ld4p"]
 [ext_resource type="Texture2D" uid="uid://buwvpslvv34g7" path="res://Graphics/Characters/Tammy_Wheel.png" id="2_fcgtr"]
 [ext_resource type="Texture2D" uid="uid://btx1juuedux35" path="res://Graphics/Characters/Tammy_Wheel_Stand.png" id="2_g27f7"]
 [ext_resource type="Texture2D" uid="uid://dmkpsp5ov4h5x" path="res://Graphics/Characters/Tammy_Wheel_Arrow.png" id="4_fcgtr"]
-[ext_resource type="Texture2D" uid="uid://bueg22n6oyu5j" path="res://Graphics/Characters/Hammy.png" id="5_g27f7"]
+[ext_resource type="Texture2D" uid="uid://bueg22n6oyu5j" path="res://Graphics/Characters/Tammy.png" id="5_g27f7"]
+
+[sub_resource type="Animation" id="Animation_cqeve"]
+resource_name = "Horrified"
+length = 2.50001
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.8, 0.933333, 1.06667, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 21, 18, 21, 18]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"_flip"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fcgtr"]
 resource_name = "Idle"
@@ -37,18 +68,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2ld4p"]
@@ -103,35 +122,6 @@ tracks/0/keys = {
 "values": [10, 9]
 }
 
-[sub_resource type="Animation" id="Animation_cqeve"]
-resource_name = "Horrified"
-length = 2.50001
-step = 0.0666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.8, 0.933333, 1.06667, 1.26667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [16, 17, 18, 21, 18, 21, 18]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo0j"]
 _data = {
 &"Horrified": SubResource("Animation_cqeve"),
@@ -141,6 +131,9 @@ _data = {
 &"TurnIdle": SubResource("Animation_0xo0j"),
 &"TurnRun": SubResource("Animation_542mk")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g27f7"]
+animation = &"Horrified"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_542mk"]
 animation = &"Idle"
@@ -183,7 +176,13 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xo0j"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_542mk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqeve"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_75sps"]
+states/Horrified/node = SubResource("AnimationNodeAnimation_g27f7")
+states/Horrified/position = Vector2(394, -9.33334)
 states/Idle/node = SubResource("AnimationNodeAnimation_542mk")
 states/Idle/position = Vector2(409.333, 78)
 states/Run/node = SubResource("AnimationNodeBlendTree_cqeve")
@@ -192,7 +191,8 @@ states/TurnIdle/node = SubResource("AnimationNodeAnimation_2ld4p")
 states/TurnIdle/position = Vector2(602.667, 170.889)
 states/TurnRun/node = SubResource("AnimationNodeAnimation_vvetp")
 states/TurnRun/position = Vector2(252.444, 164.519)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r8ynv"), "Idle", "TurnRun", SubResource("AnimationNodeStateMachineTransition_80bak"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_ad4cc"), "TurnRun", "Run", SubResource("AnimationNodeStateMachineTransition_vvetp"), "TurnIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_fcgtr"), "Run", "TurnIdle", SubResource("AnimationNodeStateMachineTransition_g27f7"), "TurnIdle", "Run", SubResource("AnimationNodeStateMachineTransition_0xo0j")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r8ynv"), "Idle", "TurnRun", SubResource("AnimationNodeStateMachineTransition_80bak"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_ad4cc"), "TurnRun", "Run", SubResource("AnimationNodeStateMachineTransition_vvetp"), "TurnIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_fcgtr"), "Run", "TurnIdle", SubResource("AnimationNodeStateMachineTransition_g27f7"), "TurnIdle", "Run", SubResource("AnimationNodeStateMachineTransition_0xo0j"), "Idle", "Horrified", SubResource("AnimationNodeStateMachineTransition_542mk"), "Horrified", "Idle", SubResource("AnimationNodeStateMachineTransition_cqeve")]
+graph_offset = Vector2(-78, -35)
 
 [node name="Tammy" type="Node2D"]
 script = ExtResource("1_2ld4p")
@@ -211,19 +211,12 @@ texture = ExtResource("4_fcgtr")
 offset = Vector2(0, -120)
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -44)
+scale = Vector2(1.299, 1.299)
 texture = ExtResource("5_g27f7")
 hframes = 5
 vframes = 5
 frame = 10
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = -120.0
-offset_top = 240.0
-offset_right = 78.0
-offset_bottom = 291.0
-theme_override_font_sizes/font_size = 32
-text = "TIME: "
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -235,7 +228,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 tree_root = SubResource("AnimationNodeStateMachine_75sps")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Run/TimeScale/scale = 1.0

@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dpkf2wjjildp7" path="res://Graphics/Backgrounds/misc/building block green.png" id="19_4psgw"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="25_qe43w"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
-[ext_resource type="PackedScene" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
+[ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
 [ext_resource type="PackedScene" uid="uid://bfaqtr0iqfesi" path="res://Nodes/Objects/TutoArea.tscn" id="29_wlg8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10wxd"]

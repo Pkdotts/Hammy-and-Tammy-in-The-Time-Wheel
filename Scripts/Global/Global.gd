@@ -2,7 +2,7 @@ extends Node
 
 const LEVELS = ["Level1", "Level2", "CheeseRoom"]
 
-var persist_camera = null
+var persist_camera:Camera = null
 var current_hammy: Player
 
 var got_cheese := false

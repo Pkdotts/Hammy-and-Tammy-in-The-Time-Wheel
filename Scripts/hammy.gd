@@ -40,12 +40,13 @@ func _ready() -> void:
 	global_position = Global.get_current_level().get_spawn_position()
 
 func _physics_process(delta: float) -> void:
-	if _action_started:
-		_controls()
-	_movement(delta)
-	_gravity(delta)
-	_jump(delta)
-	move_and_slide()
+	if visible:
+		if _action_started:
+			_controls()
+		_movement(delta)
+		_gravity(delta)
+		_jump(delta)
+		move_and_slide()
 		
 	#if Input.is_action_just_pressed("ui_select"):
 		#_action_started = !_action_started
@@ -122,15 +123,27 @@ func _die():
 	if _action_started:
 		_action_started = false
 		hide()
+		_set_collisions(false)
+		$Spawner.spawn_object()
+		#Global.persist_camera.shake(Vector2.ZERO, 10000, 1, 0.2)
+		#Global.persist_camera.shake_camera(Vector2.ZERO, 30, 0.4)
+		await get_tree().create_timer(2).timeout
 		UiCanvasLayer.circle_in()
 		await UiCanvasLayer.transition.transition_finished
 		_return_to_respawn()
 
+func _set_collisions(enabled):
+	set_collision_layer_value(0, enabled)
+	set_collision_mask_value(0, enabled)
+	
+
 func _return_to_respawn():
 	global_position = Global.get_current_level().get_spawn_position()
 	show()
+	_set_collisions(true)
 	UiCanvasLayer.circle_out()
 	await UiCanvasLayer.transition.transition_finished
+	Global.persist_camera.teleport_to_node()
 	_action_started = true
 
 func pause(): #idk if we're gonna need this tho
