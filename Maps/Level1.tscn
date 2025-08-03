@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b7p5pb7wppjd"]
+[gd_scene load_steps=43 format=3 uid="uid://b7p5pb7wppjd"]
 
 [ext_resource type="Texture2D" uid="uid://37hl7pkbivcy" path="res://Graphics/Backgrounds/wall.png" id="1_cxfh3"]
 [ext_resource type="Texture2D" uid="uid://bhvtg0gaob11v" path="res://Graphics/Tile.png" id="1_g1syo"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://1wq5x88gmxxh" path="res://Graphics/Backgrounds/shelves/shelf 1.png" id="15_klv6f"]
 [ext_resource type="PackedScene" uid="uid://de2uhvv80lx3n" path="res://Nodes/Objects/shelf_top.tscn" id="18_tg84u"]
 [ext_resource type="Texture2D" uid="uid://dpkf2wjjildp7" path="res://Graphics/Backgrounds/misc/building block green.png" id="19_4psgw"]
-[ext_resource type="Script" path="res://Scripts/check_point.gd" id="22_v6inw"]
+[ext_resource type="Script" uid="uid://428lyf2c30ku" path="res://Scripts/check_point.gd" id="22_v6inw"]
 [ext_resource type="PackedScene" uid="uid://dbdmnojman277" path="res://Nodes/Objects/Ruler.tscn" id="25_qe43w"]
 [ext_resource type="PackedScene" uid="uid://bllggmaeoy8g7" path="res://Nodes/Objects/ExitHole.tscn" id="26_kptdj"]
 [ext_resource type="PackedScene" uid="uid://sbqn4m18p06h" path="res://Nodes/Objects/Spaceship.tscn" id="27_tg84u"]
@@ -43,6 +43,9 @@ size = Vector2(192, 194.207)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14l3s"]
 size = Vector2(262, 1452)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6inw"]
+size = Vector2(262, 625)
 
 [sub_resource type="Animation" id="Animation_w5pky"]
 resource_name = "Fall"
@@ -810,6 +813,14 @@ script = ExtResource("22_v6inw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/CheckPoint1"]
 position = Vector2(-2, -613)
 shape = SubResource("RectangleShape2D_14l3s")
+
+[node name="CheckPoint2" type="Area2D" parent="Static"]
+position = Vector2(7431, 926)
+script = ExtResource("22_v6inw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/CheckPoint2"]
+position = Vector2(-2, -199.5)
+shape = SubResource("RectangleShape2D_v6inw")
 
 [node name="MovingElements" type="Node2D" parent="."]
 
