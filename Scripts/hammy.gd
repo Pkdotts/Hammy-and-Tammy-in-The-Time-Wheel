@@ -35,6 +35,8 @@ const COYOTE_TIME := 0.2
 var floor_time := 0.0
 var in_front_of_door := false
 
+var amount_colliding = 0
+
 func _ready() -> void:
 	Global.current_hammy = self
 	global_position = Global.get_current_level().get_spawn_position()
@@ -91,6 +93,7 @@ func _movement(delta):
 
 func _jump(_delta):
 	if _can_jump() and $BufferTimer.time_left > 0.0:
+		$BufferTimer.stop()
 		AudioManager.play_sfx("jump")
 		velocity.y = -JUMP_FORCE
 		floor_time = COYOTE_TIME
@@ -130,6 +133,9 @@ func _die():
 		$Spawner.spawn_object()
 		#Global.persist_camera.shake(Vector2.ZERO, 10000, 1, 0.2)
 		#Global.persist_camera.shake_camera(Vector2.ZERO, 30, 0.4)
+		inputVector = Vector2.ZERO
+		direction = Vector2.ZERO
+		animationState.travel("Idle")
 		Global.current_tammy.hammy_died()
 		await get_tree().create_timer(2).timeout
 		UiCanvasLayer.circle_in()
@@ -138,8 +144,8 @@ func _die():
 		_return_to_respawn()
 
 func _set_collisions(enabled):
-	set_collision_layer_value(0, enabled)
-	set_collision_mask_value(0, enabled)
+	set_collision_layer_value(1, enabled)
+	set_collision_mask_value(1, enabled)
 	
 
 func _return_to_respawn(checkpoint: bool = true):
@@ -168,7 +174,7 @@ func _stop_jump():
 		velocity.y *= JUMP_STOP
 
 func _can_jump():
-	return (floor_time < COYOTE_TIME) and !in_front_of_door
+	return (floor_time < COYOTE_TIME or amount_colliding > 1)  and !in_front_of_door
 
 func _at_peak() -> bool:
 	return abs(velocity.y) < PEAK_VELOCITY
@@ -177,6 +183,15 @@ func _on_crush_detector_crushed() -> void:
 	if _action_started:
 		AudioManager.play_sfx("crushed")
 		_die()
+		
 
 func create_teleport_effect() -> void:
 	$Spawner.spawn_object()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	amount_colliding += 1
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	amount_colliding -= 1

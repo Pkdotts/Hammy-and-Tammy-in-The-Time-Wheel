@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c12t7hjgom6ao"]
+[gd_scene load_steps=34 format=3 uid="uid://c12t7hjgom6ao"]
 
 [ext_resource type="Script" uid="uid://d0u8jkch7cah3" path="res://Scripts/hammy.gd" id="1_fic1p"]
 [ext_resource type="Texture2D" uid="uid://dateq8dool3x5" path="res://Graphics/Characters/Hammy.png" id="2_wmlf5"]
@@ -188,6 +188,9 @@ graph_offset = Vector2(-41, -80)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcjdg"]
 radius = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfuqf"]
+radius = 80.0
+
 [node name="Hammy" type="CharacterBody2D"]
 floor_stop_on_slope = false
 floor_block_on_wall = false
@@ -245,4 +248,12 @@ script = ExtResource("5_btdtw")
 script = ExtResource("6_msu10")
 spawned_object = ExtResource("6_pfuqf")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_pfuqf")
+
 [connection signal="crushed" from="CrushDetector" to="." method="_on_crush_detector_crushed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

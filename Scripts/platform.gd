@@ -35,7 +35,7 @@ func _ready():
 	self.add_child(spawner)
 	
 	TimeManager.connect("time_changed", _on_time_changed)
-	TimeManager.connect("looped", _on_loop)
+	#TimeManager.connect("looped", _on_loop)
 	
 	
 
@@ -47,13 +47,13 @@ func _on_time_changed():
 		material.set_shader_parameter("flash_modifier", 0)
 		
 
-func _on_loop():
-	spawner.spawn_object(sparkle)
-	
-	#make objects in teleport list do their teleport effect
-	await moved
-	spawner.spawn_object()
-	print("on loop")
+#func _on_loop():
+	#spawner.spawn_object(sparkle)
+	#
+	##make objects in teleport list do their teleport effect
+	#await moved
+	#spawner.spawn_object()
+	#print("on loop")
 
 func _teleport(prev_pos):
 	await get_tree().process_frame

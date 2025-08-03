@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=38 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c12t7hjgom6ao" path="res://Nodes/Characters/Hammy.tscn" id="5_ehwww"]
 [ext_resource type="Texture2D" uid="uid://bwqvifyn3t4vv" path="res://Graphics/Backgrounds/Cabinet Interior.png" id="5_rnxfm"]
 [ext_resource type="PackedScene" uid="uid://b8gvq763kethh" path="res://UI/Camera.tscn" id="6_5cy0i"]
-[ext_resource type="Texture2D" uid="uid://bddx1pqya4h7j" path="res://Graphics/Backgrounds/Cabinet Line.png" id="6_p7473"]
 [ext_resource type="PackedScene" uid="uid://dpxlw6h0cjje5" path="res://Nodes/Objects/PaperCrumb.tscn" id="7_h7ych"]
 [ext_resource type="Script" uid="uid://1v323frheac2" path="res://Scripts/time_player.gd" id="8_85dgj"]
 [ext_resource type="PackedScene" uid="uid://bxecv5khpruw6" path="res://Graphics/Backgrounds/misc/Penguin.tscn" id="9_qtnfp"]
@@ -29,20 +28,17 @@
 [ext_resource type="PackedScene" uid="uid://c8e1b03n8i0y0" path="res://Nodes/Objects/PictureLove.tscn" id="23_7nly1"]
 [ext_resource type="Script" path="res://Scripts/check_point.gd" id="27_dd28w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cy0i"]
-size = Vector2(64, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtnfp"]
-size = Vector2(5440, 104)
+size = Vector2(5416, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd28w"]
 size = Vector2(6512, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7473"]
-size = Vector2(400, 96)
+size = Vector2(384, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2i7y"]
 size = Vector2(32, 848)
@@ -670,8 +666,8 @@ size = Vector2(262, 795)
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point", "_reverted_spawn_point")]
 script = ExtResource("1_2pyoj")
 _music_name = "hamster_moog"
-_normal_spawn_point = NodePath("Spawn")
-_reverted_spawn_point = NodePath("Spawn2")
+_normal_spawn_point = NodePath("BG/ExitHole2")
+_reverted_spawn_point = NodePath("BG/Cabinet/ExitHole")
 
 [node name="BG" type="Node2D" parent="."]
 
@@ -715,44 +711,6 @@ position = Vector2(5808, 856)
 scale = Vector2(3.59633, 2.13333)
 texture = ExtResource("5_rnxfm")
 
-[node name="CabinetShelf2" type="Node2D" parent="BG/Cabinet"]
-position = Vector2(0, 912)
-scale = Vector2(18.1791, 1.01982)
-
-[node name="Sprite2D" type="NinePatchRect" parent="BG/Cabinet/CabinetShelf2"]
-offset_left = -1.0
-offset_top = -63.0
-offset_right = 1024.0
-offset_bottom = -11.0
-scale = Vector2(0.293578, 2.13333)
-texture = ExtResource("6_p7473")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 4
-patch_margin_bottom = 4
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="Sprite2D2" type="NinePatchRect" parent="BG/Cabinet/CabinetShelf2"]
-offset_left = 340.0
-offset_top = -63.0
-offset_right = 420.0
-offset_bottom = -11.0
-scale = Vector2(0.293578, 2.13333)
-texture = ExtResource("6_p7473")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 4
-patch_margin_bottom = 4
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BG/Cabinet/CabinetShelf2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Cabinet/CabinetShelf2/StaticBody2D"]
-position = Vector2(32, -32)
-shape = SubResource("RectangleShape2D_5cy0i")
-
 [node name="Fridge" type="Sprite2D" parent="BG"]
 position = Vector2(9992, 1284.65)
 scale = Vector2(2.21912, 2.34076)
@@ -761,18 +719,26 @@ texture = ExtResource("4_1jthq")
 [node name="FridgeShelf" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
 position = Vector2(-428.999, -579.577)
 scale = Vector2(9.87779, 0.427212)
+check = null
+can_teleport = null
 
 [node name="Penguin" parent="BG/Fridge/FridgeShelf" instance=ExtResource("9_qtnfp")]
 position = Vector2(14.5986, -63.9992)
 scale = Vector2(0.0577452, 1.47607)
+check = null
+can_teleport = null
 
 [node name="FridgeShelf5" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
 position = Vector2(-428.999, -101.1)
 scale = Vector2(9.87779, 0.427212)
+check = null
+can_teleport = null
 
 [node name="FridgeShelf6" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
 position = Vector2(-428.999, -374.515)
 scale = Vector2(9.87779, 0.427212)
+check = null
+can_teleport = null
 
 [node name="FridgeShelf4" parent="BG/Fridge" instance=ExtResource("5_5cy0i")]
 position = Vector2(-580.41, 148.392)
@@ -782,21 +748,29 @@ script = null
 [node name="CabinetShelf" parent="BG/Fridge" instance=ExtResource("11_dd28w")]
 position = Vector2(-1467.25, -904.258)
 scale = Vector2(8.19204, 0.435681)
+check = null
+can_teleport = null
 
 [node name="BlockPink" parent="BG/Fridge/CabinetShelf" instance=ExtResource("19_12dyl")]
 position = Vector2(-3.05176e-05, -384.381)
 rotation = 1.5708
 scale = Vector2(1.21521, 0.0646288)
+check = null
+can_teleport = null
 
 [node name="BlockPink3" parent="BG/Fridge/CabinetShelf" instance=ExtResource("19_12dyl")]
 position = Vector2(-3.05176e-05, -384.381)
 rotation = 1.5708
 scale = Vector2(1.21521, 0.0646288)
+check = null
+can_teleport = null
 
 [node name="BlockPink2" parent="BG/Fridge/CabinetShelf" instance=ExtResource("19_12dyl")]
 position = Vector2(31.6847, -384.38)
 rotation = 1.5708
 scale = Vector2(1.21521, 0.0646288)
+check = null
+can_teleport = null
 
 [node name="Counter" type="Sprite2D" parent="BG"]
 position = Vector2(4440, 2119.88)
@@ -832,7 +806,7 @@ position = Vector2(1552, -3.5)
 shape = SubResource("RectangleShape2D_ehwww")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(2760, -2228)
+position = Vector2(2772, -2264)
 shape = SubResource("RectangleShape2D_qtnfp")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
@@ -840,7 +814,7 @@ position = Vector2(3352, -3116)
 shape = SubResource("RectangleShape2D_dd28w")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(6440, -2232)
+position = Vector2(6448, -2264)
 shape = SubResource("RectangleShape2D_p7473")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
@@ -887,6 +861,8 @@ scale = Vector2(1.73, 2.19655)
 position = Vector2(3288, 1528)
 rotation = -0.261799
 scale = Vector2(0.869748, 0.869748)
+check = null
+can_teleport = null
 
 [node name="BlockRed" parent="Moving/SeeSaw" instance=ExtResource("18_2pyoj")]
 position = Vector2(4824, 424)
@@ -896,6 +872,8 @@ scale = Vector2(1.32563, 1.32563)
 position = Vector2(3544, 1456)
 rotation = -0.261799
 scale = Vector2(1.54, 1)
+check = null
+can_teleport = null
 
 [node name="TV" parent="Moving/SeeSaw" instance=ExtResource("12_jpran")]
 position = Vector2(5776, 991)
@@ -907,6 +885,8 @@ scale = Vector2(2.35235, 2.35235)
 
 [node name="BlockPink" parent="Moving/SeeSaw" instance=ExtResource("19_12dyl")]
 position = Vector2(6368, 432)
+check = null
+can_teleport = null
 
 [node name="PlainCereal2" parent="Moving/SeeSaw" instance=ExtResource("11_3qp6c")]
 position = Vector2(6952, 1567.72)
@@ -928,6 +908,8 @@ scale = Vector2(1.78333, 1.78333)
 [node name="BlockGreen2" parent="Moving" instance=ExtResource("17_bxn7k")]
 position = Vector2(8728, -1480)
 scale = Vector2(0.49408, 0.49408)
+check = null
+can_teleport = null
 
 [node name="FallingBoxes" type="Node2D" parent="Moving"]
 position = Vector2(-184, 0)
@@ -935,14 +917,20 @@ position = Vector2(-184, 0)
 [node name="BlockGreen3" parent="Moving/FallingBoxes" instance=ExtResource("17_bxn7k")]
 position = Vector2(5232, -1480)
 scale = Vector2(0.49408, 0.49408)
+check = null
+can_teleport = null
 
 [node name="BlockGreen5" parent="Moving/FallingBoxes" instance=ExtResource("17_bxn7k")]
 position = Vector2(5928, -1480)
 scale = Vector2(0.711904, 0.65146)
+check = null
+can_teleport = null
 
 [node name="BlockGreen4" parent="Moving/FallingBoxes" instance=ExtResource("17_bxn7k")]
 position = Vector2(5512, -1480)
 scale = Vector2(0.959197, 0.959197)
+check = null
+can_teleport = null
 
 [node name="CerealBox2" parent="Moving/FallingBoxes" instance=ExtResource("10_y4rtb")]
 position = Vector2(5768, -632)
@@ -979,9 +967,3 @@ script = ExtResource("27_dd28w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint2"]
 position = Vector2(0, -302)
 shape = SubResource("RectangleShape2D_1vku0")
-
-[node name="Spawn" type="Node2D" parent="."]
-position = Vector2(704, 1480)
-
-[node name="Spawn2" type="Node2D" parent="."]
-position = Vector2(4216, -720)

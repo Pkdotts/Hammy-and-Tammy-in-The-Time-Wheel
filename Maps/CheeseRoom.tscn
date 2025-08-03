@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://evuc7d30ncco"]
+[gd_scene load_steps=10 format=3 uid="uid://evuc7d30ncco"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_cgdv8"]
 [ext_resource type="Texture2D" uid="uid://dxpwnx1bexhp7" path="res://Graphics/Backgrounds/cheese_room_wall.png" id="2_mcyvh"]
@@ -10,6 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgdv8"]
 size = Vector2(417.5, 749.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cgdv8"]
+blend_mode = 3
 
 [node name="CheeseRoom" type="Node2D" node_paths=PackedStringArray("_normal_spawn_point")]
 script = ExtResource("1_cgdv8")
@@ -23,19 +26,26 @@ scale = Vector2(0.415, 0.415)
 position = Vector2(3232, -197)
 texture = ExtResource("2_mcyvh")
 
-[node name="Light" type="Sprite2D" parent="BG"]
-position = Vector2(6457.83, -58.8101)
-scale = Vector2(0.493813, 0.459346)
+[node name="Light" type="PointLight2D" parent="BG"]
+position = Vector2(6457.83, -324.601)
+scale = Vector2(0.592649, 0.77961)
+color = Color(0.66812, 0.390135, 0.445294, 1)
+range_item_cull_mask = 3
 texture = ExtResource("4_5o67o")
 
-[node name="Cheese" parent="BG" instance=ExtResource("5_2gfeq")]
-position = Vector2(6457.83, 348.012)
-scale = Vector2(0.378942, 0.378942)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="BG"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BG/StaticBody2D"]
 polygon = PackedVector2Array(-1269, 1028, 1950, 1015, 3271, 556, 7731, 545, 7731, 1499, -1258, 1494, -1258, 1494)
+
+[node name="Node2D" type="Node2D" parent="BG"]
+position = Vector2(6477.11, 578.313)
+scale = Vector2(2.40964, 2.40964)
+
+[node name="Cheese" parent="BG/Node2D" instance=ExtResource("5_2gfeq")]
+clip_children = 2
+position = Vector2(-16.0001, -128)
 
 [node name="ExitHole" parent="." instance=ExtResource("3_6q7to")]
 position = Vector2(-156, 839)
@@ -48,6 +58,7 @@ position = Vector2(-512, 920)
 [node name="Camera" parent="." node_paths=PackedStringArray("_attached_node") instance=ExtResource("7_xngtn")]
 position = Vector2(152, 736)
 limit_left = -846
+limit_top = -197
 limit_right = 2890
 limit_bottom = 1205
 _attached_node = NodePath("../Hammy")
@@ -65,3 +76,11 @@ position = Vector2(3103, 590)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBound"]
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_cgdv8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_cgdv8")
+offset_left = -880.0
+offset_top = -224.0
+offset_right = 2944.0
+offset_bottom = 1264.0
+color = Color(0.65098, 0.858824, 0.690196, 1)

@@ -34,19 +34,19 @@ func _physics_process(_delta: float) -> void:
 	
 	
 #overrides
-func _on_loop(): 
-	spawner.spawn_object(sparkle)
-	
-	#make objects in teleport list do their teleport effect
-	#for i in teleport_list:
-		#if i.has_method("create_teleport_effect"):
-			#i.create_teleport_effect()
-	await moved
-	spawner.spawn_object()
-	#for i in teleport_list:
-		#if i.has_method("create_teleport_effect"):
-			#i.create_teleport_effect()
-	print("on loop")
+#func _on_loop(): 
+	#spawner.spawn_object(sparkle)
+	#
+	##make objects in teleport list do their teleport effect
+	##for i in teleport_list:
+		##if i.has_method("create_teleport_effect"):
+			##i.create_teleport_effect()
+	#await moved
+	#spawner.spawn_object()
+	##for i in teleport_list:
+		##if i.has_method("create_teleport_effect"):
+			##i.create_teleport_effect()
+	#print("on loop")
 
 #overrides
 func _teleport(prev_pos):
