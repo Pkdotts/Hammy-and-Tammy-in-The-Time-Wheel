@@ -8,7 +8,6 @@ func _input(event):
 		_start_game()
 
 func _start_game():
-	AudioManager.fadeout_music()
-	UiCanvasLayer.circle_transition()
+	UiCanvasLayer.fade_transition()
 	await UiCanvasLayer.transition.transition_finished
 	Global.change_scenes("Intro")

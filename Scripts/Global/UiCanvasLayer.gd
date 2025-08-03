@@ -35,6 +35,18 @@ func circle_out():
 		transition.circleout()
 		transition.connect("transition_finished", remove_transition)
 
+func fade_in():
+	erase_transition()
+	var transitionUI = transition_ui.instantiate()
+	add_child(transitionUI)
+	transition = transitionUI
+	transition.fadein()
+
+func fade_out():
+	if transition != null:
+		transition.fadeout()
+		transition.connect("transition_finished", remove_transition)
+
 func remove_transition():
 	transition.queue_free()
 	transition = null
@@ -47,5 +59,16 @@ func circle_transition():
 		transition.circlein()
 		await transition.transition_finished
 		transition.circleout()
+		await transition.transition_finished
+		remove_transition()
+
+func fade_transition():
+	if transition == null:
+		var transitionUI = transition_ui.instantiate()
+		add_child(transitionUI)
+		transition = transitionUI
+		transition.fadein()
+		await transition.transition_finished
+		transition.fadeout()
 		await transition.transition_finished
 		remove_transition()

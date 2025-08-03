@@ -16,6 +16,14 @@ func circleout():
 	anim_player.play("circleout")
 	show()
 
+func fadein():
+	anim_player.play("fadein")
+	show()
+
+func fadeout():
+	anim_player.play("fadeout")
+	show()
+
 
 func _on_animation_player_animation_finished(_anim_name):
 	transition_finished.emit()

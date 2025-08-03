@@ -4,8 +4,8 @@
 
 [resource]
 shader = ExtResource("1_xlkvi")
-shader_parameter/cut = 1.1
+shader_parameter/cut = 0.0
 shader_parameter/Size = 1.0
 shader_parameter/screenWidth = 1920.0
 shader_parameter/screenHeight = 1080.0
-shader_parameter/fade = 1
+shader_parameter/fade = 0
