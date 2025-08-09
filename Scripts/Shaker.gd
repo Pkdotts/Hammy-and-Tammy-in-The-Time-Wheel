@@ -10,11 +10,11 @@ var shakes_left: float
 
 var shake_interval: float # The time between movements during the shake
 var shake_magnitude: float # The amount of movement in a shake
-var shake_magnitude_reduction: float # The amount the shake is reduced after each movement
+var shake_magnitude_reduction: float = 0.0 # The amount the shake is reduced after each movement
 var shake_direction : Vector2 # The direction to shake in
 var shake_side = 1 # Flips between -1 and 1 to determine the position
 var shake_side_amplitude : Vector2 # x determines the multiplier when shake_side = -1, y determines the multiplier when shake_side = 1
-var old_offset = Vector2.ZERO # The original offset of the property
+#var old_offset = Vector2.ZERO # The original offset of the property
 #var ignore_timescale = false
 
 var shaked_object = null
@@ -23,14 +23,15 @@ var shaked_property = ""
 signal finished_shake
 
 # The shake's constructor
-func _init(object : Node2D, property : String , direction := Vector2.ONE, magnitude := 1.0, time := 1.0, interval := 0.2, side_amplitude := Vector2.ONE) -> void:
+func _init(object : Node2D, property : String , direction := Vector2.ONE, magnitude := 1.0, time := 1.0, interval := 0.2, side_amplitude := Vector2.ONE, diminish := true) -> void:
 	shaked_object = object
-	old_offset = object.offset
+	#old_offset = object.offset
 	shaked_property = property
 	shake_direction = direction
 	shake_side_amplitude = side_amplitude
 	shake_magnitude = magnitude
-	shake_magnitude_reduction = magnitude * interval
+	if diminish:
+		shake_magnitude_reduction = magnitude * interval
 	shake_interval = interval
 	#ignore_timescale = ignore_time
 	shakes_left = int(time / interval)
@@ -58,26 +59,28 @@ func _physics_process(delta: float) -> void:
 				new_magnitude = 0
 			
 			var offsetting:Vector2
+			var dir = shake_direction
 			if shake_direction != Vector2.ZERO:
 				offsetting = Vector2(new_side, new_side)
 			else:
-				offsetting = Vector2(randf_range(-1, 1), randf_range(-1, 1))
-			var new_offset = offsetting * shake_direction * new_magnitude
+				offsetting = Vector2(1, 1)
+				dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+			var new_offset = offsetting * dir * new_magnitude
 			
 			
 			
 			if shake_magnitude <= 0.5 or shake_interval < 0.5:
-				shaked_object.offset = new_offset
+				shaked_object.set(shaked_property, new_offset)
 			else:
 				var tween = shaked_object.get_tree().create_tween()
 				tween.tween_property(shaked_object, shaked_property, new_offset, shake_interval)
 			print("SHAKING", shaked_object.get(shaked_property))
+			
 			shake_magnitude -= shake_magnitude_reduction
 	else:
 		stop()
 
 func stop():
-	shaked_object.offset = old_offset
 	shaked_object = null
 	queue_free()
 	emit_signal("finished_shake")

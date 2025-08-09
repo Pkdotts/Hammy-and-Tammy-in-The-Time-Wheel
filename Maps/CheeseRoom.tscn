@@ -34,10 +34,9 @@ scale = Vector2(2.40964, 2.40964)
 texture = ExtResource("3_mcyvh")
 
 [node name="Light" type="PointLight2D" parent="BG"]
-position = Vector2(6457.83, -324.601)
-scale = Vector2(0.592649, 0.77961)
+position = Vector2(6496.39, -342.325)
+scale = Vector2(3.09383, 4.06984)
 color = Color(0.66812, 0.390135, 0.445294, 1)
-range_item_cull_mask = 3
 texture = ExtResource("4_5o67o")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BG"]
@@ -48,14 +47,14 @@ polygon = PackedVector2Array(-1269, 1028, 1950, 1015, 3271, 556, 7731, 545, 7731
 
 [node name="Node2D" type="Node2D" parent="BG"]
 position = Vector2(6477.11, 578.313)
-scale = Vector2(2.40964, 2.40964)
+scale = Vector2(13.6645, 13.6645)
 
 [node name="Cheese" parent="BG/Node2D" instance=ExtResource("5_2gfeq")]
 clip_children = 2
-position = Vector2(-16.0001, -128)
+position = Vector2(-7.63537e-05, -26.8041)
 
 [node name="ExitHole" parent="." instance=ExtResource("3_6q7to")]
-position = Vector2(-156, 839)
+position = Vector2(-156, 842)
 backwards_door = true
 cheese_room = true
 
@@ -91,6 +90,7 @@ offset_top = -224.0
 offset_right = 2944.0
 offset_bottom = 1264.0
 color = Color(0.65098, 0.858824, 0.690196, 1)
+metadata/_edit_lock_ = true
 
 [node name="Spawn" type="Node2D" parent="."]
 position = Vector2(-152, 920)

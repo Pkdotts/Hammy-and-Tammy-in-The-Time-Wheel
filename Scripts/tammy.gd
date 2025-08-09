@@ -16,9 +16,10 @@ const SPIN_SPEED_SFX_THRESHOLD := 0.1
 @onready var animationState = $AnimationTree["parameters/playback"]
 
 func _ready() -> void:
-	await get_tree().process_frame
 	$AnimationTree.active = true
 	Global.current_tammy = self
+	TimeManager.connect("time_changed", _update_clock)
+	_update_clock()
 
 func _flip(enabled: bool):
 	$Sprite.flip_h = enabled
@@ -80,12 +81,10 @@ func reset():
 
 func _add_time(amount: int, delta: float = 1.0):
 	TimeManager.add_time(amount * spin_direction * spin_speed * delta)
-	_update_clock()
 
 func _set_time(amount: int):
 	TimeManager.set_time(amount)
 	await get_tree().process_frame
-	_update_clock()
 
 func _spin_wheel(delta: float) -> void:
 	$Wheel.rotation += spin_direction * spin_speed * delta

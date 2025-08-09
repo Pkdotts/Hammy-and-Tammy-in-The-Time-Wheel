@@ -99,8 +99,9 @@ func _jump(_delta):
 		floor_time = COYOTE_TIME
 
 func hole():
-	_action_started = false
 	animationState.travel("Hole")
+	pause()
+	_action_started = false
 
 
 func _gravity(delta):
@@ -128,7 +129,9 @@ func _gravity(delta):
 func _die(return_to_cheese = false):
 	if _action_started:
 		_action_started = false
+		AudioManager.play_sfx("crushed")
 		hide()
+		pause()
 		_set_collisions(false)
 		$Spawner.spawn_object()
 		#Global.persist_camera.shake(Vector2.ZERO, 10000, 1, 0.2)
@@ -158,6 +161,7 @@ func _return_to_respawn(checkpoint: bool = true):
 	UiCanvasLayer.circle_out()
 	await UiCanvasLayer.transition.transition_finished
 	Global.persist_camera.teleport_to_node()
+	unpause()
 	_action_started = true
 
 func _return_to_cheese():
@@ -166,7 +170,6 @@ func _return_to_cheese():
 	
 
 func pause(): #idk if we're gonna need this tho
-	animationState.travel("Idle")
 	_paused = true
 	emit_signal("paused")
 
@@ -189,7 +192,6 @@ func _at_peak() -> bool:
 
 func _on_crush_detector_crushed() -> void:
 	if _action_started:
-		AudioManager.play_sfx("crushed")
 		_die()
 		
 

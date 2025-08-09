@@ -22,5 +22,19 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("2_x76a5")
 theme_override_font_sizes/font_size = 50
-text = "3:00.00"
+text = "120.00"
 horizontal_alignment = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_top = 448.0
+offset_right = 1920.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0142, 0.280923, 0.71, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("2_x76a5")
+theme_override_font_sizes/font_size = 100
+text = "TIME RIFT!!"
+horizontal_alignment = 1

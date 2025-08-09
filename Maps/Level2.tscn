@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cbd4wus3crm5l"]
+[gd_scene load_steps=47 format=3 uid="uid://cbd4wus3crm5l"]
 
 [ext_resource type="Script" uid="uid://c5ocb2q8hpg6l" path="res://Scripts/level.gd" id="1_2pyoj"]
 [ext_resource type="Texture2D" uid="uid://dkb025ye3owbj" path="res://Graphics/Backgrounds/KitchenWall.png" id="1_y0von"]
@@ -36,9 +36,6 @@
 [ext_resource type="Texture2D" uid="uid://bv215m6lwpe0h" path="res://Graphics/Backgrounds/misc/small plant.png" id="27_n2i7y"]
 [ext_resource type="Texture2D" uid="uid://brxi81hcbdqnt" path="res://Graphics/Backgrounds/misc/wall clock.png" id="28_1vku0"]
 [ext_resource type="Texture2D" uid="uid://cwvkso2uo41g6" path="res://Graphics/Backgrounds/misc/blue chair.png" id="29_xhsbi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cy0i"]
-size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwww"]
 size = Vector2(10480, 153)
@@ -758,12 +755,6 @@ patch_margin_right = 4
 patch_margin_bottom = 4
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BG/Cabinet/CabinetShelf2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Cabinet/CabinetShelf2/StaticBody2D"]
-position = Vector2(32, -32)
-shape = SubResource("RectangleShape2D_5cy0i")
 
 [node name="Fridge" type="Sprite2D" parent="BG"]
 position = Vector2(9992, 1284.65)

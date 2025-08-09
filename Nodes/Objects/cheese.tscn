@@ -4,22 +4,7 @@
 [ext_resource type="Script" uid="uid://odrxv4eviict" path="res://Nodes/Objects/cheese.gd" id="2_ad7os"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgks1"]
-size = Vector2(1248.57, 1042.04)
-
-[sub_resource type="Animation" id="Animation_ad7os"]
-resource_name = "collect"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1.46409, 1),
-"update": 0,
-"values": [Vector2(0.342, 0.228), Vector2(0, 0.4)]
-}
+size = Vector2(260.586, 214.047)
 
 [sub_resource type="Animation" id="Animation_yenu7"]
 length = 0.001
@@ -36,6 +21,21 @@ tracks/0/keys = {
 "values": [Vector2(0.307, 0.299)]
 }
 
+[sub_resource type="Animation" id="Animation_ad7os"]
+resource_name = "collect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1.46409, 1),
+"update": 0,
+"values": [Vector2(0.342, 0.228), Vector2(0, 0.4)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7m5si"]
 _data = {
 &"RESET": SubResource("Animation_yenu7"),
@@ -50,6 +50,7 @@ script = ExtResource("2_ad7os")
 [node name="StaticBody2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1.27582e-05)
 shape = SubResource("RectangleShape2D_kgks1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
