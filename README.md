@@ -1,4 +1,4 @@
-# Hammy and Tammy in The Time Wheel
+# [Hammy and Tammy in The Time Wheel](https://pkdotts.itch.io/hammy-and-tammy)
 Rumors tell of an incredibly delicious cheese lost in a house a long time ago. Determined to taste the world's best delicacies, Hammy and Tammy have embarked on a quest to find the legendary lost cheese. 
 
 Using Tammy's Time Wheel, he can control time and help Hammy traverse around the rickety terrain of the house. Can the two brothers find the cheese and make it back safely to their ship? Who knows... 
@@ -15,12 +15,12 @@ Space: Jump/Confirm
 
 
 ## Credits: 
-Pkdotts: Game Design & Programming
+[Pkdotts](https://x.com/Pkdotts): Game Design & Programming
 
-OdinSillyDoodle: Art & Animation
+[OdinSillyDoodle](https://x.com/OdinSillyDoodle): Art & Animation
 
-nobonoko: Music & Art
+[nobonoko](https://bsky.app/profile/nobonoko.bsky.social): Music & Art
 
-Danionel: Programming
+[Danionel](https://x.com/DanionelP): Programming
 
-Jumpman: Programming
+[Jumpman](https://bsky.app/profile/jumpmanfr.bsky.social): Programming
